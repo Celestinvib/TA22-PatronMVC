@@ -176,9 +176,8 @@ public class Client {
 	public void insertData() {
 
 		SQLConnection SQL = new SQLConnection();
-		String TA22 = null;
 		String SQLquery = null;
-		SQL.insertData(TA22, SQLquery);
+		SQL.insertData(SQLquery);
 
 		answer = manipulateDB("insterts", "insert", query);
 
