@@ -13,12 +13,13 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
 import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class View extends JFrame{
 
 	public JFrame frame;
 	public JTable table;
-	public JPanel panelTable;
 	public JPanel panelButtons;
 	
 	public JButton btnUpdate;
@@ -26,7 +27,7 @@ public class View extends JFrame{
 	public JButton btnCreate;
 
 	public JPanel panelUpdate;
-	public JPanel panelCreate;
+	public JPanel panelCreateClient;
 	public JPanel panel;
 	public JTable tableUpdate;
 	public JButton btnUpdateData;
@@ -46,7 +47,7 @@ public class View extends JFrame{
 		/**
 		 * Main panel with the table and CRUD options
 		 */
-		panelTable = new JPanel();
+		JPanel panelTable = new JPanel();
 		panelTable.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelTable);
 		panelTable.setLayout(new BorderLayout(0, 0));
@@ -69,7 +70,7 @@ public class View extends JFrame{
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 
-		panelTable.add(new JScrollPane(table), BorderLayout.CENTER);
+		panelTable.add(new JScrollPane(table), BorderLayout.NORTH);
 		
 		
 		/**
@@ -95,13 +96,14 @@ public class View extends JFrame{
 		/**
 		 * Create panel
 		 */
-		panelCreate = new JPanel();
-		panelCreate.setBounds(10, 10, 415, 240);
-		frame.getContentPane().add(panelCreate);
-		panelCreate.setLayout(null);
+		panelCreateClient = new JPanel();
+		panelCreateClient.setBounds(10, 10, 415, 240);
+		frame.getContentPane().add(panelCreateClient);
+		panelCreateClient.setLayout(null);
 		
 		btnCreateData = new JButton("Crear");
 		btnCreateData.setBounds(10, 210, 90, 20);
-		panelCreate.add(btnCreateData);
+		panelCreateClient.add(btnCreateData);
+		
 	}
 }
