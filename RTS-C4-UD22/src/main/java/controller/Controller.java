@@ -7,12 +7,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import model.Client;
+import model.SQLConnection;
 import view.View;
 
 public class Controller implements ActionListener{
 
 	private Client client;
 	private View view;
+	private SQLConnection conn;
 	
 	public Controller(Client client, View view) {
 		this.client = client;
@@ -25,23 +27,34 @@ public class Controller implements ActionListener{
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
 		view.setVisible(true);
+		view.panelUpdate.setVisible(false);
+		view.panelCreate.setVisible(false);
 	}
 	
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		JButton b = (JButton) event.getSource();
-		
+		int id;
 		switch(b.getName()) {
 		case "btnUpdate":
+			view.panelTable.setVisible(false);
+			view.panelUpdate.setVisible(true);
 			break;
 		case "btnCreate":
+			view.panelTable.setVisible(false);
+			view.panelCreate.setVisible(true);
 			break;
 		case "btnDelete":
+			id = (int)view.table.getValueAt(view.table.getSelectedRow(), 0);
+			client.deleteClients(conn, id);
 			break;
 		case "btnUpdateData":
+			id = (int)view.table.getValueAt(view.table.getSelectedRow(), 0);
+			client.updateClients(conn, id, null, null, null, null);
 			break;
 		case "btnCreateData":
+			//client.insertClients();
 			break;
 		default:
 			System.out.println("Button not found.");

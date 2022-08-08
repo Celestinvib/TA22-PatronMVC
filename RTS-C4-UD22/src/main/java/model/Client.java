@@ -21,17 +21,18 @@ public class Client {
 		return connection.getValues(query);
 	}
 	
-	public ResultSet selectOneClients(SQLConnection connection, String id) {		
+	public ResultSet selectOneClients(SQLConnection connection, int id) {		
 		String query = "select * from clients where id="+id+";";
 		return connection.getValues(query);
 	}
 	
-	public void updateClients(SQLConnection connection, String id, String title ,String director,String cli_id ) {		
-		String query = "select * from clients where id="+id+";";
+	public void updateClients(SQLConnection connection, int id, String name ,String surname,String adress, String date) {		
+		String query = "UPDATE clients set nombre='" + name + "', apellido='" + surname + "' ,direccion='" + adress + "' ,fecha='" + date
+				+ "' where id=" + id +";";
 	    connection.insertData(query);
 	}
 	
-	public void deleteClients(SQLConnection connection,String id) {
+	public void deleteClients(SQLConnection connection,int id) {
 		String query = "delete from clients where id="+id+";";
 	    connection.insertData(query);
 	}
