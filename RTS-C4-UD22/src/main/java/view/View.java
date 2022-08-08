@@ -9,6 +9,8 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.BorderLayout;
 import javax.swing.JSeparator;
 
@@ -63,7 +65,7 @@ public class View extends JFrame{
 		panelButtons.add(btnCreate);
 
 		table = new JTable();
-		table.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		table = new JTable(new DefaultTableModel(new Object[] {"ID", "Nombre", "Apellido", "Dirección", "Fecha"}, 0));
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 

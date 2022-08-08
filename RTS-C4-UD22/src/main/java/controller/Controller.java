@@ -2,9 +2,13 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 import model.Client;
 import model.SQLConnection;
@@ -31,6 +35,24 @@ public class Controller implements ActionListener{
 		view.panelCreate.setVisible(false);
 	}
 	
+	private void loadTable(ResultSet resultSet, JTable table) {
+	      DefaultTableModel model = (DefaultTableModel) table.getModel();
+	      int id;
+	      String name, surname, adress, date;
+		try {
+			while(resultSet.next()) {
+				id = resultSet.getInt("id");
+				name = resultSet.getString("nombre");
+				surname = resultSet.getString("apellido");
+				adress = resultSet.getString("direccion");
+				date = resultSet.getString("fecha");
+				
+				model.addRow(new Object[] {id, name, surname, adress, date});
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
