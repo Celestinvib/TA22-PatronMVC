@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.ResultSet;
+
 public class Client {
 	
 	public void tableStructureCreation(SQLConnection connection) {		
@@ -14,14 +16,14 @@ public class Client {
 		connection.insertData(structure);
 	}
 	
-	public void selectAllClients(SQLConnection connection) {		
+	public ResultSet selectAllClients(SQLConnection connection) {		
 		String query = "select * from clients;";
-//	    connection.insertData(query);
+		return connection.getValues(query);
 	}
 	
-	public void selectOneClients(SQLConnection connection, String id) {		
+	public ResultSet selectOneClients(SQLConnection connection, String id) {		
 		String query = "select * from clients where id="+id+";";
-//	    connection.insertData(query);
+		return connection.getValues(query);
 	}
 	
 	public void updateClients(SQLConnection connection, String id, String title ,String director,String cli_id ) {		
