@@ -1,20 +1,23 @@
 package model;
 
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Connection;
 
 public class Client {
 	
 	private int id;
-	
 	private String name;
-	
 	private String surname;
-	
 	private String direction;
-	
 	private int DNI;
-	
 	private Date date;
+	
+	private String answer;
+	private String query;
 	
 	/**
 	 * Constructor
@@ -117,5 +120,100 @@ public class Client {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
+	public Connection connection;
+	
+	public Connection getConexion() {
+		return connection;
+	}
+	
+	public String manipulateDB(String name, String action, String query) {
+		try {
+			String QueryDB = "USE ud22";
+			Statement stdb = connection.createStatement();
+			stdb.executeUpdate(QueryDB);
+			Statement st = connection.createStatement();
+			st.executeUpdate(query);
+			return ("Data " + name + " succesfully");
+		} catch (SQLException e) {
+			return ("Failed by " + action + " data");
+		}
+	}
+	
+	public String Select (String action, String query) {
+		String result = "";
+		
+		try {
+			
+			String sql = "Select * from client where id = ? " ;
+			String QueryDB = "USE ud22";
+			
+			Statement stdb = connection.createStatement();
+			
+			stdb.executeUpdate(QueryDB);
+			PreparedStatement query_ = connection.prepareStatement(sql);
+			
+			query_.setInt(1, Integer.parseInt(query));
+			ResultSet results = query_.executeQuery();
+			
+			while (results.next()) {
+				
+				result += results.getString("id") + " ";
+				result += results.getString("name") + " ";
+				result += results.getString("surname") + " ";
+				result += results.getString("direction") + " ";
+				result += results.getString("DNI") + " ";
+				result += results.getString("date") + " ";
+			}
+			results.close();
+			return result;
+		} catch (SQLException e) {
+			System.out.println(e);
+			return "Failed by " + action + " data";
+		}
+	}
+	
+	public void insertData() {
 
-}
+		SQLConnection SQL = new SQLConnection();
+		String TA22 = null;
+		String SQLquery = null;
+		SQL.insertData(TA22, SQLquery);
+
+		answer = manipulateDB("insterts", "insert", query);
+
+		SQL.closeConnection();
+	}
+	
+	public void deleteData() {
+
+		SQLConnection SQL = new SQLConnection();
+		SQL.makeConection();
+
+		answer = manipulateDB("deletes", "delete", query);
+
+		SQL.closeConnection();
+
+	}
+
+	public void updateData() {
+
+		SQLConnection SQL = new SQLConnection();
+		SQL.makeConection();
+
+		answer = manipulateDB("updates", "update", query);
+
+		SQL.closeConnection();
+
+	}
+	
+	public void selectData() {
+		SQLConnection SQL = new SQLConnection();
+		SQL.makeConection();
+
+		answer = Select("select", query);
+
+		SQL.closeConnection();
+	}
+	
+	}
