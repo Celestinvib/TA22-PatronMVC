@@ -23,12 +23,12 @@ public class View extends JFrame{
 	public JButton btnDelete;
 	public JButton btnCreate;
 
-	JPanel panelUpdate;
-	JPanel panelCreate;
-	private JPanel panel;
-	private JTable tableUpdate;
-	JButton btnUpdateData;
-	private JButton btnCreateData;
+	public JPanel panelUpdate;
+	public JPanel panelCreate;
+	public JPanel panel;
+	public JTable tableUpdate;
+	public JButton btnUpdateData;
+	public JButton btnCreateData;
 	
 	/**
 	 * Create the application.

@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import model.Client;
@@ -29,6 +30,24 @@ public class Controller implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
+		JButton b = (JButton) event.getSource();
+		
+		switch(b.getName()) {
+		case "btnUpdate":
+			break;
+		case "btnCreate":
+			break;
+		case "btnDelete":
+			break;
+		case "btnUpdateData":
+			break;
+		case "btnCreateData":
+			break;
+		default:
+			System.out.println("Button not found.");
+			break;
+		}
+		/*
 		if(view.btnCreate == event.getSource()) {
 			
 		}else if(view.btnUpdate == event.getSource()) {
@@ -36,7 +55,7 @@ public class Controller implements ActionListener{
 		}else if(view.btnDelete == event.getSource()) {
 			
 		}
-		
+		*/
 	}
 
 }
