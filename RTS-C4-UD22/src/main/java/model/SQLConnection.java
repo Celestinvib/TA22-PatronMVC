@@ -60,7 +60,7 @@ public class SQLConnection {
 	}
 	
 	/**
-	* Method that close the connexion
+	* Method that close the connection
 	*/
 	public void closeConnection() {
 		
@@ -91,9 +91,9 @@ public class SQLConnection {
 	
 	
 	/**
-	* Method that executes queries to a db
-	* @param SQLquery sql select to be executed into the db
-	* @return the values that has been get from the select
+	* Method that get the all the data from a table
+	* @param SQLquery select query
+	* @return the data returned by the statement
 	*/	
 	public ResultSet getValues (String SQLquery) {
 		java.sql.ResultSet resultSet = null;
