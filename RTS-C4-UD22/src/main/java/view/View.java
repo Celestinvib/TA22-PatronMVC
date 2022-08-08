@@ -10,40 +10,56 @@ import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import java.awt.BorderLayout;
+import javax.swing.JSeparator;
 
-public class View {
+public class View extends JFrame{
 
-	private JFrame frame;
-	private JTable table;
+	public JFrame frame;
+	public JTable table;
+	public JPanel panelTable;
+	public JPanel panelButtons;
+	
+	public JButton btnUpdate;
+	public JButton btnDelete;
+	public JButton btnCreate;
 
-
-
+	public JPanel panelUpdate;
+	public JPanel panelCreate;
+	public JPanel panel;
+	public JTable tableUpdate;
+	public JButton btnUpdateData;
+	public JButton btnCreateData;
+	
 	/**
 	 * Create the application.
 	 */
 	public View() {
-		
+		/**
+		 * Window frame
+		 */
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 11, 414, 239);
-		frame.getContentPane().add(panel);
-		panel.setLayout(new BorderLayout(0, 0));
+		/**
+		 * Main panel with the table and CRUD options
+		 */
+		panelTable = new JPanel();
+		panelTable.setBounds(10, 10, 415, 240);
+		frame.getContentPane().add(panelTable);
+		panelTable.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelButtons = new JPanel();
-		panel.add(panelButtons, BorderLayout.SOUTH);
+		panelButtons = new JPanel();
+		panelTable.add(panelButtons, BorderLayout.SOUTH);
 		panelButtons.setLayout(new GridLayout(1, 0, 10, 0));
 		
-		JButton btnUpdate = new JButton("Actualizar");
+		btnUpdate = new JButton("Actualizar");
 		panelButtons.add(btnUpdate);
 
-		JButton btnDelete = new JButton("Borrar");
+		btnDelete = new JButton("Borrar");
 		panelButtons.add(btnDelete);
 
-		JButton btnCreate = new JButton("Crear");
+		btnCreate = new JButton("Crear");
 		panelButtons.add(btnCreate);
 
 		table = new JTable();
@@ -51,7 +67,39 @@ public class View {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 
-		panel.add(new JScrollPane(table), BorderLayout.CENTER);
+		panelTable.add(new JScrollPane(table), BorderLayout.CENTER);
+		
+		
+		/**
+		 * Update panel
+		 */
+		panelUpdate = new JPanel();
+		panelUpdate.setBounds(10, 10, 415, 240);
+		frame.getContentPane().add(panelUpdate);
+		panelUpdate.setLayout(null);
+		
+		panel = new JPanel();
+		panel.setBounds(10, 0, 395, 56);
+		panelUpdate.add(panel);
+		panel.setLayout(new BorderLayout(0, 0));
+		
+		tableUpdate = new JTable();
+		panel.add(tableUpdate);
+		
+		btnUpdateData = new JButton("Actualizar");
+		btnUpdateData.setBounds(10, 210, 90, 20);
+		panelUpdate.add(btnUpdateData);
+		
+		/**
+		 * Create panel
+		 */
+		panelCreate = new JPanel();
+		panelCreate.setBounds(10, 10, 415, 240);
+		frame.getContentPane().add(panelCreate);
+		panelCreate.setLayout(null);
+		
+		btnCreateData = new JButton("Crear");
+		btnCreateData.setBounds(10, 210, 90, 20);
+		panelCreate.add(btnCreateData);
 	}
-
 }
