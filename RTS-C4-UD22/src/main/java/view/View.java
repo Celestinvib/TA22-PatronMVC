@@ -15,6 +15,7 @@ import java.awt.BorderLayout;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import java.awt.Font;
 
 public class View extends JFrame{
 
@@ -26,12 +27,32 @@ public class View extends JFrame{
 	public JButton btnDelete;
 	public JButton btnCreate;
 
-	public JPanel panelUpdate;
-	public JPanel panelCreateClient;
+	public JPanel panelUpdateClient;
 	public JPanel panel;
 	public JTable tableUpdate;
 	public JButton btnUpdateData;
-	public JButton btnCreateData;
+	private JPanel panelMenu;
+	private JButton btnClients;
+	private JButton btnMovies;
+	private JLabel lblNewLabel;
+	private JPanel panelUpdateVideo;
+	private JTextField textField;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel1;
+	private JTextField textField_1;
+	private JLabel lblNewLabel2;
+	private JTextField textField_2;
+	private JButton btnUpdateVideo;
+	private JPanel panelCreateVideo;
+	private JTextField textField_3;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel1_1;
+	private JTextField textField_4;
+	private JLabel lblNewLabel2_1;
+	private JTextField textField_5;
+	private JButton btnCreateVideo;
+	private JPanel panelCreateClient;
+	private JButton btnCreateData;
 	
 	/**
 	 * Create the application.
@@ -76,14 +97,23 @@ public class View extends JFrame{
 		/**
 		 * Update panel
 		 */
-		panelUpdate = new JPanel();
-		panelUpdate.setBounds(10, 10, 415, 240);
-		frame.getContentPane().add(panelUpdate);
-		panelUpdate.setLayout(null);
+		
+		panelCreateClient = new JPanel();
+		panelCreateClient.setLayout(null);
+		panelCreateClient.setBounds(0, 0, 415, 240);
+		frame.getContentPane().add(panelCreateClient);
+		
+		btnCreateData = new JButton("Crear");
+		btnCreateData.setBounds(10, 210, 90, 20);
+		panelCreateClient.add(btnCreateData);
+		panelUpdateClient = new JPanel();
+		panelUpdateClient.setBounds(10, 10, 415, 240);
+		frame.getContentPane().add(panelUpdateClient);
+		panelUpdateClient.setLayout(null);
 		
 		panel = new JPanel();
 		panel.setBounds(10, 0, 395, 56);
-		panelUpdate.add(panel);
+		panelUpdateClient.add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
 		tableUpdate = new JTable();
@@ -91,19 +121,101 @@ public class View extends JFrame{
 		
 		btnUpdateData = new JButton("Actualizar");
 		btnUpdateData.setBounds(10, 210, 90, 20);
-		panelUpdate.add(btnUpdateData);
+		panelUpdateClient.add(btnUpdateData);
 		
 		/**
 		 * Create panel
 		 */
-		panelCreateClient = new JPanel();
-		panelCreateClient.setBounds(10, 10, 415, 240);
-		frame.getContentPane().add(panelCreateClient);
-		panelCreateClient.setLayout(null);
 		
-		btnCreateData = new JButton("Crear");
-		btnCreateData.setBounds(10, 210, 90, 20);
-		panelCreateClient.add(btnCreateData);
+		panelCreateVideo = new JPanel();
+		panelCreateVideo.setLayout(null);
+		panelCreateVideo.setBounds(0, 0, 434, 261);
+		frame.getContentPane().add(panelCreateVideo);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(162, 41, 127, 20);
+		panelCreateVideo.add(textField_3);
+		
+		lblNewLabel_2 = new JLabel("Title:");
+		lblNewLabel_2.setBounds(125, 44, 38, 14);
+		panelCreateVideo.add(lblNewLabel_2);
+		
+		lblNewLabel1_1 = new JLabel("Director:");
+		lblNewLabel1_1.setBounds(111, 72, 67, 14);
+		panelCreateVideo.add(lblNewLabel1_1);
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(162, 72, 127, 20);
+		panelCreateVideo.add(textField_4);
+		
+		lblNewLabel2_1 = new JLabel("Client_Id:");
+		lblNewLabel2_1.setBounds(106, 103, 67, 14);
+		panelCreateVideo.add(lblNewLabel2_1);
+		
+		textField_5 = new JTextField();
+		textField_5.setColumns(10);
+		textField_5.setBounds(162, 103, 127, 20);
+		panelCreateVideo.add(textField_5);
+		
+		btnCreateVideo = new JButton("Create  Video");
+		btnCreateVideo.setBounds(146, 154, 127, 23);
+		panelCreateVideo.add(btnCreateVideo);
+		
+		panelUpdateVideo = new JPanel();
+		panelUpdateVideo.setLayout(null);
+		panelUpdateVideo.setBounds(0, 0, 434, 261);
+		frame.getContentPane().add(panelUpdateVideo);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(162, 41, 127, 20);
+		panelUpdateVideo.add(textField);
+		
+		lblNewLabel_1 = new JLabel("Title:");
+		lblNewLabel_1.setBounds(125, 44, 38, 14);
+		panelUpdateVideo.add(lblNewLabel_1);
+		
+		lblNewLabel1 = new JLabel("Director:");
+		lblNewLabel1.setBounds(111, 72, 67, 14);
+		panelUpdateVideo.add(lblNewLabel1);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(162, 72, 127, 20);
+		panelUpdateVideo.add(textField_1);
+		
+		lblNewLabel2 = new JLabel("Client_Id:");
+		lblNewLabel2.setBounds(106, 103, 67, 14);
+		panelUpdateVideo.add(lblNewLabel2);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(162, 103, 127, 20);
+		panelUpdateVideo.add(textField_2);
+		
+		btnUpdateVideo = new JButton("Update  Video");
+		btnUpdateVideo.setBounds(146, 154, 127, 23);
+		panelUpdateVideo.add(btnUpdateVideo);
+		
+		panelMenu = new JPanel();
+		panelMenu.setLayout(null);
+		panelMenu.setBounds(0, 0, 434, 261);
+		frame.getContentPane().add(panelMenu);
+		
+		btnClients = new JButton("Clients");
+		btnClients.setBounds(97, 129, 89, 23);
+		panelMenu.add(btnClients);
+		
+		btnMovies = new JButton("Movies");
+		btnMovies.setBounds(228, 129, 89, 23);
+		panelMenu.add(btnMovies);
+		
+		lblNewLabel = new JLabel("Select one databse ");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(144, 64, 143, 14);
+		panelMenu.add(lblNewLabel);
 		
 	}
 }
