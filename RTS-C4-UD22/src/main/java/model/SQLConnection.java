@@ -2,8 +2,10 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -12,12 +14,31 @@ public class SQLConnection {
 	/** Attribute */
 	public Connection connection;
 	
+	public String db = null;
+	
 
 	/** Constructor */
 	public SQLConnection () {
 		makeConection();
 	}
 	
+	
+	/**
+	 * @return the db
+	 */
+	public String getDb() {
+		return db;
+	}
+
+
+	/**
+	 * @param db the db to set
+	 */
+	public void setDb(String db) {
+		this.db = db;
+	}
+
+
 	/**
 	* Method where the user enters the data of his server / sql and the connection is established
 	*/
@@ -61,18 +82,42 @@ public class SQLConnection {
 			String Query = "CREATE DATABASE "+name;
 			Statement st = connection.createStatement();
 			st.executeUpdate(Query);
+			db = name;
 			JOptionPane.showMessageDialog(null,"Se ha creado la base de datos "+name+ " de forma exitosa");					
 		}catch (SQLException ex) {
 			
 		}
 	}
 	
+	
 	/**
 	* Method that executes queries to a db
-	* @param db name of the database where the query is executed
+	* @param SQLquery sql select to be executed into the db
+	* @return the values that has been get from the select
+	*/	
+	public ResultSet getValues (String SQLquery) {
+		java.sql.ResultSet resultSet = null;
+		try {
+			String Querydb = "USE "+db+";";
+			Statement stdb = connection.createStatement();
+			stdb.executeUpdate(Querydb);
+			
+			Statement st = connection.createStatement();
+			 resultSet = st.executeQuery(SQLquery);
+				
+		}catch (SQLException ex) {
+			JOptionPane.showMessageDialog(null,"Error: "+ex.getMessage());
+		}
+		
+		return resultSet;
+	}
+
+
+	/**
+	* Method that executes queries to a db
 	* @param SQLquery sql statement to be executed into the db
 	*/	
-	public void insertData (String db, String SQLquery) {
+	public void insertData (String SQLquery) {
 		
 		try {
 			String Querydb = "USE "+db+";";
