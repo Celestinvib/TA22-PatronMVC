@@ -11,7 +11,7 @@ public class MainApp {
 		Client client = new Client(null, null, null, 0, null);
 		View view = new View();
 		Controller controller = new Controller(client, view);
-		controller.initiateView();
+		controller.launchView();
 		
 	}
 }

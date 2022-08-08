@@ -11,12 +11,16 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import java.awt.BorderLayout;
 
-public class View {
+public class View extends JFrame{
 
-	private JFrame frame;
-	private JTable table;
-
-
+	public JFrame frame;
+	public JTable table;
+	public JPanel panel;
+	public JPanel panelButtons;
+	
+	public JButton btnUpdate;
+	public JButton btnDelete;
+	public JButton btnCreate;
 
 	/**
 	 * Create the application.
@@ -25,25 +29,24 @@ public class View {
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBounds(10, 11, 414, 239);
 		frame.getContentPane().add(panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panelButtons = new JPanel();
+		panelButtons = new JPanel();
 		panel.add(panelButtons, BorderLayout.SOUTH);
 		panelButtons.setLayout(new GridLayout(1, 0, 10, 0));
 		
-		JButton btnUpdate = new JButton("Actualizar");
+		btnUpdate = new JButton("Actualizar");
 		panelButtons.add(btnUpdate);
 
-		JButton btnDelete = new JButton("Borrar");
+		btnDelete = new JButton("Borrar");
 		panelButtons.add(btnDelete);
 
-		JButton btnCreate = new JButton("Crear");
+		btnCreate = new JButton("Crear");
 		panelButtons.add(btnCreate);
 
 		table = new JTable();
