@@ -79,7 +79,7 @@ public class SQLConnection {
 	public void createDB(String name) {
 				
 		try {
-			String Query = "CREATE DATABASE "+name;
+			String Query = "CREATE DATABASE IF NOT EXISTS "+name;
 			Statement st = connection.createStatement();
 			st.executeUpdate(Query);
 			db = name;
