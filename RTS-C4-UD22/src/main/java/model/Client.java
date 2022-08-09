@@ -11,6 +11,7 @@ public class Client {
 				+ " name varchar(250) DEFAULT NULL,"
 				+ " surname varchar(250) DEFAULT NULL,"
 				+ " adress varchar(250) DEFAULT NULL,"
+				+ " DNI int(11) DEFAULT NULL,"
 				+ " date date DEFAULT NULL,"
 				+ " PRIMARY KEY (id)"
 				+ ");";
@@ -44,10 +45,11 @@ public class Client {
 	 * @param name new name of the client
 	 * @param surname new surname of the client
 	 * @param adress new adress of the client 
+	 * @param DNI new DNI of the client 
 	 * @param date new date of the client 
 	 */
-	public void updateClients(SQLConnection connection, int id, String name ,String surname,String adress, String date) {		
-		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + adress + "' ,date='" + date
+	public void updateClients(SQLConnection connection, int id, String name ,String surname,String adress,  int DNI, String date) {		
+		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + adress + "'DNI= '" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);
 	}
@@ -65,14 +67,15 @@ public class Client {
 	
 	/**
 	 * 
-	 * @param connection Connection with the db
+	 * @param connection Connection with the database
 	 * @param name name of the client
 	 * @param surname surname of the client
 	 * @param adress adress of the client
+	 * @param DNI  DNI of the client 
 	 * @param date date of the client
 	 */
-	public void insertData(SQLConnection connection, String name ,String surname,String adress, Date date ) {
-		String query = "INSERT INTO videos (name, surname, adress, date) VALUES ('"+name+"','"+surname+"','"+adress+"',"+date+")";
+	public void insertData(SQLConnection connection, String name ,String surname,String adress, int DNI, Date date ) {
+		String query = "INSERT INTO videos (name, surname, adress, DNI, date) VALUES ('"+name+"','"+surname+"','"+adress+"','"+DNI+"',"+date+ ")";
 	    connection.insertData(query);
 	}
 }
