@@ -96,14 +96,6 @@ public class Controller implements ActionListener{
 			break;
 		}
 		
-		if(view.btnCreate == event.getSource()) {
-			view.panelTable.setVisible(false);
-			view.panelCreateClient.setVisible(true);
-		}else if(view.btnUpdate == event.getSource()) {
-			
-		}else if(view.btnDelete == event.getSource()) {
-			
-		}
 		
 	}
 
