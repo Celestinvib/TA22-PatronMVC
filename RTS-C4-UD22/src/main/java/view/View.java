@@ -213,7 +213,7 @@ public class View extends JFrame{
 		btnMovies.setBounds(228, 129, 89, 23);
 		panelMenu.add(btnMovies);
 		
-		lblNewLabel = new JLabel("Select one databse ");
+		lblNewLabel = new JLabel("Select one database ");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel.setBounds(144, 64, 143, 14);
 		panelMenu.add(lblNewLabel);
