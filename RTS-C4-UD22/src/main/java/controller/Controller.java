@@ -45,7 +45,9 @@ public class Controller implements ActionListener{
 		client.tableStructureCreation(conn);
 		video.tableStructureCreation(conn);
 	
-		loadTable(video.selectAllVideos(conn), view.table);
+//		client.insertData(conn, "Nico", "Basora", "C/Josep Fregós N33", 377566722,null );
+
+		loadTable(client.selectAllClients(conn), view.table);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
@@ -55,10 +57,10 @@ public class Controller implements ActionListener{
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
-				name = resultSet.getString("nombre");
-				surname = resultSet.getString("apellido");
-				adress = resultSet.getString("direccion");
-				date = resultSet.getString("fecha");
+				name = resultSet.getString("name");
+				surname = resultSet.getString("surname");
+				adress = resultSet.getString("adress");
+				date = resultSet.getString("date");
 				
 				model.addRow(new Object[] {id, name, surname, adress, date});
 			}
