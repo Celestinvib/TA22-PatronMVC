@@ -12,16 +12,19 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Client;
 import model.SQLConnection;
+import model.Video;
 import view.View;
 
 public class Controller implements ActionListener{
 
 	private Client client;
+	private Video video;
 	private View view;
 	private SQLConnection conn;
 	
-	public Controller(Client client, View view) {
+	public Controller(Client client,Video video, View view) {
 		this.client = client;
+		this.video = video;
 		this.view = view;
 	}
 	
@@ -33,8 +36,15 @@ public class Controller implements ActionListener{
 		view.setVisible(true);
 		view.panelUpdateClient.setVisible(false);
 		view.panelCreateClient.setVisible(false);
+		
+		//Sql connection & creation of the db and itsstructure
 		conn = new SQLConnection();
-		loadTable(client.selectAllClients(conn) ,view.table);
+		conn.createDB("TA22");
+		client.tableStructureCreation(conn);
+		video.tableStructureCreation(conn);
+		
+//		loadTable(client.selectAllClients(conn) ,view.table);
+		loadTable(video.selectAllVideos(conn), view.table);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
