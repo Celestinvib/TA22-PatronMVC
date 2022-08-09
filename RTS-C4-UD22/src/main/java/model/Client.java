@@ -10,7 +10,7 @@ public class Client {
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
 				+ " name varchar(250) DEFAULT NULL,"
 				+ " surname varchar(250) DEFAULT NULL,"
-				+ " adress varchar(250) DEFAULT NULL,"
+				+ " address varchar(250) DEFAULT NULL,"
 				+ " DNI int(11) DEFAULT NULL,"
 				+ " date date DEFAULT NULL,"
 				+ " PRIMARY KEY (id)"
@@ -44,12 +44,12 @@ public class Client {
 	 * @param id id of the client
 	 * @param name new name of the client
 	 * @param surname new surname of the client
-	 * @param adress new adress of the client 
+	 * @param address new address of the client 
 	 * @param DNI new DNI of the client 
 	 * @param date new date of the client 
 	 */
-	public void updateClients(SQLConnection connection, int id, String name ,String surname,String adress,  int DNI, String date) {		
-		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + adress + "' ,DNI='" + DNI + "' ,date='" + date
+	public void updateClients(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, String date) {		
+		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + address + "' ,DNI='" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);
 	}
