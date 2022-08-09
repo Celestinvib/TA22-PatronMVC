@@ -9,13 +9,13 @@ public class Video {
 	 * @param connection Connection  with the db
 	 */
 	public void tableStructureCreation(SQLConnection connection) {		
-		String structure  = "create table videos ("
+		String structure  = "create table if not exists videos ("
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
 				+ "    title varchar(250) DEFAULT NULL,"
 				+ "    director varchar(250) DEFAULT NULL,"
 				+ "    cli_id int(11) DEFAULT NULL,"
 				+ "    PRIMARY KEY (id),"
-				+ "    CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES cliente (id)"
+				+ "    CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES clients(id)"
 				+ ");";
 		connection.insertData(structure);
 	}
