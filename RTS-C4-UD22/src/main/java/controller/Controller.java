@@ -33,6 +33,8 @@ public class Controller implements ActionListener{
 		view.setVisible(true);
 		view.panelUpdateClient.setVisible(false);
 		view.panelCreateClient.setVisible(false);
+		conn = new SQLConnection();
+		loadTable(client.selectAllClients(conn) ,view.table);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
