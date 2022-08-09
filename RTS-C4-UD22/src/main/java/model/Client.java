@@ -49,7 +49,7 @@ public class Client {
 	 * @param date new date of the client 
 	 */
 	public void updateClients(SQLConnection connection, int id, String name ,String surname,String adress,  int DNI, String date) {		
-		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + adress + "'DNI= '" + DNI + "' ,date='" + date
+		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + adress + "' ,DNI='" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);
 	}
@@ -75,7 +75,7 @@ public class Client {
 	 * @param date date of the client
 	 */
 	public void insertData(SQLConnection connection, String name ,String surname,String adress, int DNI, Date date ) {
-		String query = "INSERT INTO clients (name, surname, adress, DNI, date) VALUES ('"+name+"','"+surname+"','"+adress+"','"+DNI+"',"+date+ ")";
+		String query = "INSERT INTO clients (name, surname, adress, DNI, date) VALUES ('"+name+"','"+surname+"','"+adress+"','"+DNI+"','"+date+ ")";
 	    connection.insertData(query);
 	}
 }
