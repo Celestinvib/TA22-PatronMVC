@@ -8,11 +8,9 @@ import javax.swing.JTable;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.ListSelectionModel;
-import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
-import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -100,6 +98,7 @@ public class View extends JFrame{
 		 */
 		
 		panelCreateClient = new JPanel();
+		panelCreateClient.setVisible(false);
 		panelCreateClient.setLayout(null);
 		panelCreateClient.setBounds(0, 0, 415, 240);
 		frame.getContentPane().add(panelCreateClient);
@@ -108,6 +107,7 @@ public class View extends JFrame{
 		btnCreateData.setBounds(10, 210, 90, 20);
 		panelCreateClient.add(btnCreateData);
 		panelUpdateClient = new JPanel();
+		panelUpdateClient.setVisible(false);
 		panelUpdateClient.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelUpdateClient);
 		panelUpdateClient.setLayout(null);
@@ -129,6 +129,7 @@ public class View extends JFrame{
 		 */
 		
 		panelCreateVideo = new JPanel();
+		panelCreateVideo.setVisible(false);
 		panelCreateVideo.setLayout(null);
 		panelCreateVideo.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(panelCreateVideo);
@@ -165,6 +166,7 @@ public class View extends JFrame{
 		panelCreateVideo.add(btnCreateVideo);
 		
 		panelUpdateVideo = new JPanel();
+		panelUpdateVideo.setVisible(false);
 		panelUpdateVideo.setLayout(null);
 		panelUpdateVideo.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(panelUpdateVideo);
@@ -201,6 +203,7 @@ public class View extends JFrame{
 		panelUpdateVideo.add(btnUpdateVideo);
 		
 		panelMenu = new JPanel();
+		panelMenu.setVisible(false);
 		panelMenu.setLayout(null);
 		panelMenu.setBounds(0, 0, 434, 261);
 		frame.getContentPane().add(panelMenu);
