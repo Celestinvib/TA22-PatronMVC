@@ -36,14 +36,15 @@ public class Controller implements ActionListener{
 		view.frame.setVisible(true);
 		view.panelUpdateClient.setVisible(false);
 		view.panelCreateClient.setVisible(false);
+		view.panelUpdateVideo.setVisible(false);
+		view.panelCreateVideo.setVisible(false);
 		
 		//Sql connection & creation of the db and itsstructure
 		conn = new SQLConnection();
 		conn.createDB("TA22");
 		client.tableStructureCreation(conn);
 		video.tableStructureCreation(conn);
-		
-//		loadTable(client.selectAllClients(conn) ,view.table);
+	
 		loadTable(video.selectAllVideos(conn), view.table);
 	}
 	
@@ -94,15 +95,16 @@ public class Controller implements ActionListener{
 			System.out.println("Button not found.");
 			break;
 		}
-		/*
+		
 		if(view.btnCreate == event.getSource()) {
-			
+			view.panelTable.setVisible(false);
+			view.panelCreateClient.setVisible(true);
 		}else if(view.btnUpdate == event.getSource()) {
 			
 		}else if(view.btnDelete == event.getSource()) {
 			
 		}
-		*/
+		
 	}
 
 }
