@@ -31,8 +31,8 @@ public class Controller implements ActionListener{
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
 		view.setVisible(true);
-		view.panelUpdate.setVisible(false);
-		view.panelCreate.setVisible(false);
+		view.panelUpdateClient.setVisible(false);
+		view.panelCreateClient.setVisible(false);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
@@ -61,11 +61,11 @@ public class Controller implements ActionListener{
 		switch(b.getName()) {
 		case "btnUpdate":
 			view.panelTable.setVisible(false);
-			view.panelUpdate.setVisible(true);
+			view.panelUpdateClient.setVisible(true);
 			break;
 		case "btnCreate":
 			view.panelTable.setVisible(false);
-			view.panelCreate.setVisible(true);
+			view.panelCreateClient.setVisible(true);
 			break;
 		case "btnDelete":
 			id = (int)view.table.getValueAt(view.table.getSelectedRow(), 0);

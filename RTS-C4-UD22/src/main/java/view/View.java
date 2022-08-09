@@ -51,8 +51,9 @@ public class View extends JFrame{
 	private JLabel lblNewLabel2_1;
 	private JTextField textField_5;
 	private JButton btnCreateVideo;
-	private JPanel panelCreateClient;
+	public JPanel panelCreateClient;
 	private JButton btnCreateData;
+	public JPanel panelTable;
 	
 	/**
 	 * Create the application.
@@ -68,7 +69,7 @@ public class View extends JFrame{
 		/**
 		 * Main panel with the table and CRUD options
 		 */
-		JPanel panelTable = new JPanel();
+		panelTable = new JPanel();
 		panelTable.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelTable);
 		panelTable.setLayout(new BorderLayout(0, 0));
