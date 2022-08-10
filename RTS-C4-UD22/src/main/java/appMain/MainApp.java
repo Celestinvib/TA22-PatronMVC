@@ -1,6 +1,6 @@
 package appMain;
 	
-import controller.Controller;
+import controller.ControllerClient;
 import model.Client;
 import model.Video;
 import view.View;
@@ -13,10 +13,11 @@ public class MainApp {
 		 * Creation of new client, view and controller, and initiating them
 		 */
 		Client client = new Client();
-		Video video = new Video();
+		//Video video = new Video();
 		View view = new View();
-		Controller controller = new Controller(client, video ,view);
-		controller.launchView();
+		ControllerClient controllerClient = new ControllerClient(client, view);
+		//ControllerClient controllerVideo = new ControllerClient(client, view);
+		controllerClient.launchView();
 		
 	}
 }

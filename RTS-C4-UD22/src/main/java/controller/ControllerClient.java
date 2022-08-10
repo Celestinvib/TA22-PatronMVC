@@ -12,19 +12,16 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Client;
 import model.SQLConnection;
-import model.Video;
 import view.View;
 
-public class Controller implements ActionListener{
+public class ControllerClient implements ActionListener{
 
 	private Client client;
-	private Video video;
 	private View view;
 	private SQLConnection conn;
 	
-	public Controller(Client client,Video video, View view) {
+	public ControllerClient(Client client, View view) {
 		this.client = client;
-		this.video = video;
 		this.view = view;
 	}
 	
@@ -55,7 +52,6 @@ public class Controller implements ActionListener{
 	private void resetStructure() {
 		conn.createDB("TA22");
 		client.tableStructureCreation(conn);
-		video.tableStructureCreation(conn);
 		
 //		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20" );
 //		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,null );
