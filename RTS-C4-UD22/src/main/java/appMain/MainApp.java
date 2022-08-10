@@ -1,5 +1,8 @@
 package appMain;
 	
+import java.awt.Menu;
+
+import controller.Controller;
 import controller.ControllerClient;
 import model.Client;
 import model.Video;
@@ -18,6 +21,12 @@ public class MainApp {
 		ControllerClient controllerClient = new ControllerClient(client, view);
 		//ControllerClient controllerVideo = new ControllerClient(client, view);
 		controllerClient.launchView();
+		
+//		NOT WORKING VIEW DO NOT LAUNCH -------	
+//		Menu menu = new Menu();
+		
+//		Controller controller = new Controller();
+//		controller.launchView();
 		
 	}
 }
