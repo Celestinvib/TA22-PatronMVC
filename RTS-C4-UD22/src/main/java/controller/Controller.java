@@ -45,9 +45,9 @@ public class Controller implements ActionListener{
 		video.tableStructureCreation(conn);
 	
 		view.frame.setVisible(true);
-		client.insertData(conn, "Nico", "Basora", "C/Josep Fregós N33", 377566722,null );
+		client.insertData(conn, "Nico", "Basora", "C/Josep Fregï¿½s N33", 377566722,null );
 
-		loadTable(client.selectAllClients(conn), view.table_clients);
+		loadTable(client.selectAllClients(conn), view.tableClients);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
