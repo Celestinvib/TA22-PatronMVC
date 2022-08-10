@@ -156,9 +156,9 @@ public class View extends JFrame{
 		textField1.setBounds(162, 41, 127, 20);
 		panelUpdateClient.add(textField1);
 		
-		JLabel lblNewLabel_13 = new JLabel("Title:");
+		lblNewLabel_13 = new JLabel("Title:");
 		lblNewLabel_13.setBounds(125, 44, 38, 14);
-		panelUpdateClient.add(lblNewLabel_1);
+		panelUpdateClient.add(lblNewLabel_13);
 		
 		lblNewLabel12 = new JLabel("Director:");
 		lblNewLabel12.setBounds(111, 72, 67, 14);
@@ -180,7 +180,7 @@ public class View extends JFrame{
 		
 		btnUpdateClient = new JButton("Update  Video");
 		btnUpdateClient.setBounds(146, 154, 127, 23);
-		panelUpdateClient.add(btnUpdateVideo);
+		panelUpdateClient.add(btnUpdateClient);
 		
 		panel = new JPanel();
 		panel.setBounds(10, 0, 395, 56);
