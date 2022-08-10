@@ -20,6 +20,7 @@ public class ControllerClient implements ActionListener{
 	private View view;
 	private SQLConnection conn;
 	
+	
 	public ControllerClient(Client client, View view) {
 		this.client = client;
 		this.view = view;
