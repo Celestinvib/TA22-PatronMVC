@@ -24,7 +24,7 @@ public class View extends JFrame{
 	public JButton btnUpdate;
 	public JButton btnDelete;
 	public JButton btnCreate;
-	public JTable table_clients;
+	public JTable tableClients;
 	public JPanel panelUpdateClient;
 	public JPanel panel;
 	public JTable tableUpdate;
@@ -63,6 +63,7 @@ public class View extends JFrame{
 	private JLabel lblNewLabel_13;
 	private JLabel lblNewLabel22;
 	private JTextField textField_21;
+	private JTable tableVideo;
 	
 	/**
 	 * Create the application.
@@ -96,16 +97,16 @@ public class View extends JFrame{
 		btnCreate = new JButton("Crear");
 		panelButtons.add(btnCreate);
 
-		table = new JTable();
-		table = new JTable(new DefaultTableModel(new Object[] {"ID", "Nombre", "Apellido", "Direcci�n", "Fecha"}, 0));
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tableClients = new JTable();
+		tableClients = new JTable(new DefaultTableModel(new Object[] {"ID", "Nombre", "Apellido", "Direcci�n", "Fecha"}, 0));
+		tableClients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		table_clients = new JTable();
-		table_clients = new JTable(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
-		table_clients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		tableVideo = new JTable();
+		tableVideo = new JTable(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
+		tableVideo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-		panelTable.add(new JScrollPane(table), BorderLayout.NORTH);
-		panelTable.add(new JScrollPane(table_clients), BorderLayout.NORTH);
+		panelTable.add(new JScrollPane(tableVideo), BorderLayout.NORTH);
+		panelTable.add(new JScrollPane(tableClients), BorderLayout.NORTH);
 		
 		/**
 		 * Update panel
