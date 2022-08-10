@@ -53,8 +53,8 @@ public class ControllerClient implements ActionListener{
 		conn.createDB("TA22");
 		client.tableStructureCreation(conn);
 		
-//		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20" );
-//		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,null );
+		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20");
+		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,"2018-02-20");
 
 //      DELTE THIS COMMENT (THE LINE BELOW WORK) JUST NEED 2 CLIENTS
 		
