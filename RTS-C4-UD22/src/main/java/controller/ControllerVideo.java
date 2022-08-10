@@ -10,26 +10,23 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import model.Client;
 import model.SQLConnection;
 import model.Video;
 import view.View;
 
-public class Controller implements ActionListener{
+public class ControllerVideo implements ActionListener{
 
-	private Client client;
 	private Video video;
 	private View view;
 	private SQLConnection conn;
 	
-	public Controller(Client client,Video video, View view) {
-		this.client = client;
+	public ControllerVideo(Video video, View view) {
 		this.video = video;
 		this.view = view;
 	}
 	
 	public void launchView() {
-		view.setTitle("Clientes");
+		view.setTitle("Video");
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
@@ -40,46 +37,30 @@ public class Controller implements ActionListener{
 		
 		//Sql connection & creation of the db and itsstructure
 		conn = new SQLConnection();
-		
-		view.frame.setVisible(true);
-		
-		resetStructure();
-		
-		loadTable(client.selectAllClients(conn), view.tableClients);
-	}
-	
-	
-	/**
-	 * Method that creates the basic structure of this db
-	 */		
-	private void resetStructure() {
 		conn.createDB("TA22");
-		client.tableStructureCreation(conn);
 		video.tableStructureCreation(conn);
-		
-//		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20" );
-//		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,null );
+		video.tableStructureCreation(conn);
+	
+		view.frame.setVisible(true);
+		video.insertVideo(conn, "Russia rocks", "Putin", 0);
 
-//      DELTE THIS COMMENT (THE LINE BELOW WORK) JUST NEED 2 CLIENTS
-		
-//		video.insertVideo(conn, "Homemade Spiderman 1", "Mike Scott", 1);
-//		video.insertVideo(conn, "Homemade Spiderman 2", "Mike Scott", 1);
-//		video.insertVideo(conn, "The last light", "Tarantino", 2);
-
+		view.tableClients.setVisible(false);
+		view.tableVideo.setVisible(false);
+		loadTable(video.selectAllVideos(conn), view.tableVideo);
 	}
+	
 	private void loadTable(ResultSet resultSet, JTable table) {
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();
-	      int id;
-	      String name, surname, address, date;
+	      int id, cli_id;
+	      String title, director;
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
-				name = resultSet.getString("name");
-				surname = resultSet.getString("surname");
-				address = resultSet.getString("address");
-				date = resultSet.getString("date");
+				title = resultSet.getString("title");
+				director = resultSet.getString("director");
+				cli_id = resultSet.getInt("cli_id");
 				
-				model.addRow(new Object[] {id, name, surname, address, date});
+				model.addRow(new Object[] {id, title, director, cli_id});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -100,15 +81,16 @@ public class Controller implements ActionListener{
 			view.panelCreateClient.setVisible(true);
 			break;
 		case "btnDelete":
-			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
-			client.deleteClient(conn, id);
+			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			video.deleteVideo(conn, id);
 			break;
 		case "btnUpdateData":
-			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
-			client.updateClient(conn, id, null, null, null, 0, null);
+			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			video.updateVideo(conn, id, null, null, 0);
 			break;
 		case "btnCreateData":
-			//client.insertClients();
+			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			video.updateVideo(conn, id, null, null, 0);
 			break;
 		default:
 			System.out.println("Button not found.");
@@ -119,3 +101,4 @@ public class Controller implements ActionListener{
 	}
 
 }
+

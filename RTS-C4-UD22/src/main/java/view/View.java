@@ -18,7 +18,6 @@ import java.awt.Font;
 public class View extends JFrame{
 
 	public JFrame frame;
-	public JTable table;
 	public JPanel panelButtons;
 	
 	public JButton btnUpdate;
@@ -63,7 +62,7 @@ public class View extends JFrame{
 	private JLabel lblNewLabel_13;
 	private JLabel lblNewLabel22;
 	private JTextField textField_21;
-	private JTable tableVideo;
+	public JTable tableVideo;
 	
 	/**
 	 * Create the application.
