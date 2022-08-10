@@ -1,7 +1,8 @@
 package model;
 
-import java.sql.Date;
+
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 
 public class Client {
 	
@@ -13,7 +14,7 @@ public class Client {
 				+ " surname varchar(250) DEFAULT NULL,"
 				+ " address varchar(250) DEFAULT NULL,"
 				+ " DNI int(11) DEFAULT NULL,"
-				+ " date date DEFAULT NULL,"
+				+ " date timestamp DEFAULT NULL,"
 				+ " PRIMARY KEY (id)"
 				+ ");";
 		connection.insertData(structure);
@@ -49,7 +50,7 @@ public class Client {
 	 * @param DNI new DNI of the client 
 	 * @param date new date of the client 
 	 */
-	public void updateClients(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, String date) {		
+	public void updateClient(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, Timestamp date) {		
 		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,address='" + address + "' ,DNI='" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);
@@ -60,7 +61,7 @@ public class Client {
 	 * @param connection Connection with the database
 	 * @param id of the client you want to delete
 	 */
-	public void deleteClients(SQLConnection connection,int id) {
+	public void deleteClient(SQLConnection connection,int id) {
 		String query = "delete from clients where id="+id+";";
 	    connection.insertData(query);
 	}
@@ -75,7 +76,7 @@ public class Client {
 	 * @param DNI  DNI of the client 
 	 * @param date date of the client
 	 */
-	public void insertData(SQLConnection connection, String name ,String surname,String address, int DNI, Date date ) {
+	public void insertClient(SQLConnection connection, String name ,String surname,String address, int DNI, Timestamp date ) {
 		String query = "INSERT INTO clients (name, surname, address, DNI, date) VALUES ('"+name+"','"+surname+"','"+address+"','"+DNI+"','"+date+ ")";
 	    connection.insertData(query);
 	}
