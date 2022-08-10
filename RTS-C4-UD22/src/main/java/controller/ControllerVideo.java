@@ -75,13 +75,16 @@ public class ControllerVideo implements ActionListener{
 		case "btnUpdate":
 			view.panelTable.setVisible(false);
 			view.panelUpdateClient.setVisible(true);
+			System.out.println("Update");
 			break;
 		case "btnCreate":
 			view.panelTable.setVisible(false);
 			view.panelCreateClient.setVisible(true);
+			System.out.println("Create");
 			break;
 		case "btnDelete":
 			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			System.out.println("Delete");
 			video.deleteVideo(conn, id);
 			break;
 		case "btnUpdateData":

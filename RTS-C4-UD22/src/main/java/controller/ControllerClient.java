@@ -90,14 +90,17 @@ public class ControllerClient implements ActionListener{
 		case "btnUpdate":
 			view.panelTable.setVisible(false);
 			view.panelUpdateClient.setVisible(true);
+			System.out.println("Update");
 			break;
 		case "btnCreate":
 			view.panelTable.setVisible(false);
 			view.panelCreateClient.setVisible(true);
+			System.out.println("Update");
 			break;
 		case "btnDelete":
 			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
 			client.deleteClient(conn, id);
+			System.out.println("Delete");
 			break;
 		case "btnUpdateData":
 			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
