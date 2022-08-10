@@ -33,7 +33,6 @@ public class Controller implements ActionListener{
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
-		view.frame.setVisible(true);
 		view.panelUpdateClient.setVisible(false);
 		view.panelCreateClient.setVisible(false);
 		view.panelUpdateVideo.setVisible(false);
@@ -45,9 +44,10 @@ public class Controller implements ActionListener{
 		client.tableStructureCreation(conn);
 		video.tableStructureCreation(conn);
 	
-//		client.insertData(conn, "Nico", "Basora", "C/Josep Fregós N33", 377566722,null );
+		view.frame.setVisible(true);
+		client.insertData(conn, "Nico", "Basora", "C/Josep Fregós N33", 377566722,null );
 
-		loadTable(client.selectAllClients(conn), view.table);
+		loadTable(client.selectAllClients(conn), view.table_clients);
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
@@ -59,7 +59,7 @@ public class Controller implements ActionListener{
 				id = resultSet.getInt("id");
 				name = resultSet.getString("name");
 				surname = resultSet.getString("surname");
-				adress = resultSet.getString("adress");
+				adress = resultSet.getString("address");
 				date = resultSet.getString("date");
 				
 				model.addRow(new Object[] {id, name, surname, adress, date});
