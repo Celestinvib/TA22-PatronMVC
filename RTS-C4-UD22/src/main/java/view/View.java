@@ -119,29 +119,29 @@ public class View extends JFrame{
 		textField_10 = new JTextField();
 		textField_10.setColumns(10);
 		textField_10.setBounds(162, 41, 127, 20);
-		panelCreateClient.add(textField_3);
+		panelCreateClient.add(textField_10);
 		
 		lblNewLabel11 = new JLabel("Title:");
-		lblNewLabel_2.setBounds(125, 44, 38, 14);
-		panelCreateClient.add(lblNewLabel_2);
+		lblNewLabel11.setBounds(125, 44, 38, 14);
+		panelCreateClient.add(lblNewLabel11);
 		
 		lblNewLabel12 = new JLabel("Director:");
-		lblNewLabel1_1.setBounds(111, 72, 67, 14);
-		panelCreateClient.add(lblNewLabel1_1);
+		lblNewLabel12.setBounds(111, 72, 67, 14);
+		panelCreateClient.add(lblNewLabel12);
 		
 		textField_11 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(162, 72, 127, 20);
-		panelCreateClient.add(textField_4);
+		textField_11.setColumns(10);
+		textField_11.setBounds(162, 72, 127, 20);
+		panelCreateClient.add(textField_11);
 		
 		lblNewLabel13 = new JLabel("Client_Id:");
-		lblNewLabel2_1.setBounds(106, 103, 67, 14);
-		panelCreateClient.add(lblNewLabel2_1);
+		lblNewLabel13.setBounds(106, 103, 67, 14);
+		panelCreateClient.add(lblNewLabel13);
 		
 		textField12 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(162, 103, 127, 20);
-		panelCreateClient.add(textField_5);
+		textField12.setColumns(10);
+		textField12.setBounds(162, 103, 127, 20);
+		panelCreateClient.add(textField12);
 		
 		btnCreateData = new JButton("Crear");
 		btnCreateData.setBounds(10, 210, 90, 20);
@@ -154,7 +154,7 @@ public class View extends JFrame{
 		textField1 = new JTextField();
 		textField1.setColumns(10);
 		textField1.setBounds(162, 41, 127, 20);
-		panelUpdateClient.add(textField);
+		panelUpdateClient.add(textField1);
 		
 		JLabel lblNewLabel_13 = new JLabel("Title:");
 		lblNewLabel_13.setBounds(125, 44, 38, 14);
@@ -162,21 +162,21 @@ public class View extends JFrame{
 		
 		lblNewLabel12 = new JLabel("Director:");
 		lblNewLabel12.setBounds(111, 72, 67, 14);
-		panelUpdateClient.add(lblNewLabel1);
+		panelUpdateClient.add(lblNewLabel12);
 		
 		textField_11 = new JTextField();
 		textField_11.setColumns(10);
 		textField_11.setBounds(162, 72, 127, 20);
-		panelUpdateClient.add(textField_1);
+		panelUpdateClient.add(textField_11);
 		
 		lblNewLabel22 = new JLabel("Client_Id:");
 		lblNewLabel22.setBounds(106, 103, 67, 14);
-		panelUpdateClient.add(lblNewLabel2);
+		panelUpdateClient.add(lblNewLabel22);
 		
 		textField_21 = new JTextField();
 		textField_21.setColumns(10);
 		textField_21.setBounds(162, 103, 127, 20);
-		panelUpdateClient.add(textField_2);
+		panelUpdateClient.add(textField_21);
 		
 		btnUpdateClient = new JButton("Update  Video");
 		btnUpdateClient.setBounds(146, 154, 127, 23);
