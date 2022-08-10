@@ -24,7 +24,7 @@ public class View extends JFrame{
 	public JButton btnUpdate;
 	public JButton btnDelete;
 	public JButton btnCreate;
-	private JTable table_clients;
+	public JTable table_clients;
 	public JPanel panelUpdateClient;
 	public JPanel panel;
 	public JTable tableUpdate;
