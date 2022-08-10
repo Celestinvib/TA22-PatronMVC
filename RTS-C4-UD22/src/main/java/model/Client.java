@@ -5,8 +5,11 @@ import java.sql.ResultSet;
 
 public class Client {
 	
-	public void tableStructureCreation(SQLConnection connection) {		
-		String structure  = "create table if not exists clients ("
+	public void tableStructureCreation(SQLConnection connection) {
+		
+		connection.insertData("drop table if exists clients;");
+
+		String structure  = "create table  clients ("
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
 				+ " name varchar(250) DEFAULT NULL,"
 				+ " surname varchar(250) DEFAULT NULL,"
@@ -49,7 +52,7 @@ public class Client {
 	 * @param date new date of the client 
 	 */
 	public void updateClients(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, String date) {		
-		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,adress='" + address + "' ,DNI='" + DNI + "' ,date='" + date
+		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,address='" + address + "' ,DNI='" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);
 	}
@@ -70,12 +73,12 @@ public class Client {
 	 * @param connection Connection with the database
 	 * @param name name of the client
 	 * @param surname surname of the client
-	 * @param adress adress of the client
+	 * @param adress address of the client
 	 * @param DNI  DNI of the client 
 	 * @param date date of the client
 	 */
-	public void insertData(SQLConnection connection, String name ,String surname,String adress, int DNI, Date date ) {
-		String query = "INSERT INTO clients (name, surname, adress, DNI, date) VALUES ('"+name+"','"+surname+"','"+adress+"','"+DNI+"','"+date+ ")";
+	public void insertData(SQLConnection connection, String name ,String surname,String address, int DNI, Date date ) {
+		String query = "INSERT INTO clients (name, surname, address, DNI, date) VALUES ('"+name+"','"+surname+"','"+address+"','"+DNI+"','"+date+ ")";
 	    connection.insertData(query);
 	}
 }
