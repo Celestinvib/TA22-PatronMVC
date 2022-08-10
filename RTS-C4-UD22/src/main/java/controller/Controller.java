@@ -40,29 +40,46 @@ public class Controller implements ActionListener{
 		
 		//Sql connection & creation of the db and itsstructure
 		conn = new SQLConnection();
-		conn.createDB("TA22");
-		client.tableStructureCreation(conn);
-		video.tableStructureCreation(conn);
-	
+		
 		view.frame.setVisible(true);
-		client.insertData(conn, "Nico", "Basora", "C/Josep Freg�s N33", 377566722,null );
-
+		
+		resetStructure();
+		
 		loadTable(client.selectAllClients(conn), view.tableClients);
 	}
 	
+	
+	/**
+	 * Method that creates the basic structure of this db
+	 */		
+	private void resetStructure() {
+		conn.createDB("TA22");
+		client.tableStructureCreation(conn);
+		video.tableStructureCreation(conn);
+		
+//		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20" );
+//		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,null );
+
+//      DELTE THIS COMMENT (THE LINE BELOW WORK) JUST NEED 2 CLIENTS
+		
+//		video.insertVideo(conn, "Homemade Spiderman 1", "Mike Scott", 1);
+//		video.insertVideo(conn, "Homemade Spiderman 2", "Mike Scott", 1);
+//		video.insertVideo(conn, "The last light", "Tarantino", 2);
+
+	}
 	private void loadTable(ResultSet resultSet, JTable table) {
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();
 	      int id;
-	      String name, surname, adress, date;
+	      String name, surname, address, date;
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
 				name = resultSet.getString("name");
 				surname = resultSet.getString("surname");
-				adress = resultSet.getString("address");
+				address = resultSet.getString("address");
 				date = resultSet.getString("date");
 				
-				model.addRow(new Object[] {id, name, surname, adress, date});
+				model.addRow(new Object[] {id, name, surname, address, date});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,12 +100,12 @@ public class Controller implements ActionListener{
 			view.panelCreateClient.setVisible(true);
 			break;
 		case "btnDelete":
-			id = (int)view.table.getValueAt(view.table.getSelectedRow(), 0);
-			client.deleteClients(conn, id);
+			id = (int)view.table.getValueAt(view.tableClients.getSelectedRow(), 0);
+			client.deleteClient(conn, id);
 			break;
 		case "btnUpdateData":
-			id = (int)view.table.getValueAt(view.table.getSelectedRow(), 0);
-			client.updateClients(conn, id, null, null, null, 0, null);
+			id = (int)view.table.getValueAt(view.tableClients.getSelectedRow(), 0);
+			client.updateClient(conn, id, null, null, null, 0, null);
 			break;
 		case "btnCreateData":
 			//client.insertClients();
