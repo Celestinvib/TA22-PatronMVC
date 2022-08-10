@@ -8,14 +8,17 @@ public class Video {
 	 * Method that creates the table structure of the table videos
 	 * @param connection Connection  with the db
 	 */
-	public void tableStructureCreation(SQLConnection connection) {		
-		String structure  = "create table if not exists videos ("
+	public void tableStructureCreation(SQLConnection connection) {	
+		
+		connection.insertData("drop table if exists videos;");
+		
+		String structure  = "create table videos ("
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
 				+ "    title varchar(250) DEFAULT NULL,"
 				+ "    director varchar(250) DEFAULT NULL,"
 				+ "    cli_id int(11) DEFAULT NULL,"
 				+ "    PRIMARY KEY (id),"
-				+ "    CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES clients(id)"
+				+ "    FOREIGN KEY (cli_id) REFERENCES clients(id) ON DELETE SET NULL"
 				+ ");";
 		connection.insertData(structure);
 	}
