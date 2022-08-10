@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 public class Client {
 	
 	public void tableStructureCreation(SQLConnection connection) {
-		
-		connection.insertData("drop table if exists clients;");
 
 		String structure  = "create table  clients ("
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
