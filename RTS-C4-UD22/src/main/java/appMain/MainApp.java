@@ -23,9 +23,9 @@ public class MainApp {
 //		controllerClient.launchView();
 		
 
-//		Menu menu = new Menu();
+		Menu menu = new Menu();
 		
-		Controller controller = new Controller();
+		Controller controller = new Controller(menu);
 		controller.launchView();
 		
 	}

@@ -26,7 +26,8 @@ public class Controller  implements ActionListener{
 
 	public table tableShowed;
 	
-	public Controller() {
+	public Controller(Menu menu) {
+		this.menu = menu;
 		this.client = new Client();
 		this.video = new Video();
 	}
@@ -48,14 +49,14 @@ public class Controller  implements ActionListener{
 				tableShowed = table.Clients;
 				View view = new View();
 				ControllerClient controllerClient = new ControllerClient(client, view);
-				//Set panel menu to false <---
+				menu.panelMenu.setVisible(false);
 			break;
 			
 			case "Movies":
 				tableShowed = table.Videos;
 				View view1 = new View();
 				ControllerVideo controllerVideo= new ControllerVideo(video, view1);
-				//Set panel menu to false <----
+				menu.panelMenu.setVisible(false);
 				
 			break;
 			case  "Restart Db":
