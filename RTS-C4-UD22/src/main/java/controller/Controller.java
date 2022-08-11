@@ -19,7 +19,12 @@ public class Controller  implements ActionListener{
 	private Menu menu;
 	private SQLConnection conn;
 	
-	public String tableShowed = "";
+	public enum table {
+	    clients,
+	    videos
+	}
+
+	public table tableShowed;
 	
 	public Controller() {
 		this.client = new Client();;
@@ -27,7 +32,7 @@ public class Controller  implements ActionListener{
 	}
 	
 	public void launchView() {
-		//Sql connection & creation of the db and itsstructure
+		//Sql connection & creation of the db and its structure
 		conn = new SQLConnection();		
 	}
 
@@ -38,11 +43,11 @@ public class Controller  implements ActionListener{
 		
 		switch(b.getName()) {
 			case "btnClients":
-				tableShowed= "clients";
+//				tableShowed= clients;
 			break;
 			
 			case "btnMovies":
-				tableShowed= "videos";
+//				tableShowed= "videos";
 				View view = new View();
 				Client client = new Client();
 				ControllerClient controllerClient = new ControllerClient(client, view);
@@ -54,6 +59,8 @@ public class Controller  implements ActionListener{
 		}
 		
 	}
+	
+
 	
 	/**
 	 * Method that creates the basic structure of this db and its structure
