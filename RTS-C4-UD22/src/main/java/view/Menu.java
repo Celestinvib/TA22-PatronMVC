@@ -1,8 +1,6 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Font;
-import java.awt.Window;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,7 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Menu extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public JPanel panelMenu;
+	public JButton btnClients;
+	public JButton btnMovies;
 		
 	public Menu () {
 		 /* Window frame
@@ -27,11 +31,11 @@ public class Menu extends JFrame{
 		panelMenu.setBounds(0, 0, 434, 261);
 		setContentPane(panelMenu);
 		
-		JButton btnClients = new JButton("Clients");
+		btnClients = new JButton("Clients");
 		btnClients.setBounds(97, 129, 89, 23);
 		panelMenu.add(btnClients);
 		
-		JButton btnMovies = new JButton("Movies");
+		btnMovies = new JButton("Movies");
 		btnMovies.setBounds(228, 129, 89, 23);
 		panelMenu.add(btnMovies);
 		
