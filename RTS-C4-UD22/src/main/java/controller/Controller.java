@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.Menu;
+import view.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,13 +27,15 @@ public class Controller  implements ActionListener{
 	public table tableShowed;
 	
 	public Controller() {
-		this.client = new Client();;
-		this.menu = new Menu();
+		this.client = new Client();
+		this.video = new Video();
 	}
 	
 	public void launchView() {
 		//Sql connection & creation of the db and its structure
-		conn = new SQLConnection();		
+		conn = new SQLConnection();	
+		this.menu = new Menu(); 
+
 	}
 
 	@Override
@@ -42,17 +44,21 @@ public class Controller  implements ActionListener{
 		int id;
 		
 		switch(b.getName()) {
-			case "btnClients":
-				tableShowed = tableShowed.Clients;
+			case "Clients":
+				tableShowed = table.Clients;
+				View view = new View();
+				ControllerClient controllerClient = new ControllerClient(client, view);
+				//Set panel menu to false <---
 			break;
 			
-			case "btnMovies":
-				tableShowed = tableShowed.Videos;
-				View view = new View();
-				Client client = new Client();
-				ControllerClient controllerClient = new ControllerClient(client, view);
+			case "Movies":
+				tableShowed = table.Videos;
+				View view1 = new View();
+				ControllerVideo controllerVideo= new ControllerVideo(video, view1);
+				//Set panel menu to false <----
+				
 			break;
-			case  "btnRestoreDefaultStructure":
+			case  "Restart Db":
 				resetStructure();	
 			break;
 			
