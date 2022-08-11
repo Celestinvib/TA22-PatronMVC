@@ -14,7 +14,7 @@ import model.Client;
 import model.SQLConnection;
 import view.View;
 
-public class ControllerClient implements ActionListener{
+public class ControllerClient{
 
 	private Client client;
 	private View view;
@@ -63,40 +63,74 @@ public class ControllerClient implements ActionListener{
 		}
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent event) {
-		JButton b = (JButton) event.getSource();
-		int id;
-		System.out.println("A");
-		switch(b.getName()) {
-		case "btnUpdate":
-			view.panelTable.setVisible(false);
-			view.panelUpdateClient.setVisible(true);
-			System.out.println("Update");
-			break;
-		case "btnCreate":
-			view.panelTable.setVisible(false);
-			view.panelCreateClient.setVisible(true);
-			System.out.println("Update");
-			break;
-		case "btnDelete":
-			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
-			client.deleteClient(conn, id);
-			System.out.println("Delete");
-			break;
-		case "btnUpdateData":
-			id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
-			client.updateClient(conn, id, null, null, null, 0, null);
-			break;
-		case "btnCreateData":
-			//client.insertClients();
-			break;
-		default:
-			System.out.println("Button not found.");
-			break;
-		}
-		
-		
-	}
+	
 
+	public void buttonListeners() {
+		
+		/**
+		 * Opens Update panel
+		 */
+		view.getBtnUpdate().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.panelTable.setVisible(false);
+				view.panelUpdateClient.setVisible(true);
+			}
+		});
+
+		/**
+		 * Opens Create panel
+		 */
+		view.getBtnCreate().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.panelTable.setVisible(false);
+				view.panelCreateClient.setVisible(true);
+			}
+		});
+		
+		/**
+		 * Deletes the selected client
+		 */
+		view.getBtnDelete().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
+				client.deleteClient(conn, id);
+			}
+		});
+		
+		/**
+		 * Inserts a new client
+		 */
+		view.getBtnCreateClient().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String name = view.textFieldName.getText();
+				String surname = view.textFieldSurname.getText();
+				String address = view.textFieldAddress.getText();
+				
+				//Not done
+				int dni = 0;
+				String date = "";
+				client.insertClient(conn, name, surname, address, dni, date);
+			}
+		});
+		
+		/**
+		 * Updates an existing client
+		 */
+		view.getBtnUpdateClient().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
+				client.updateClient(conn, id, null, null, null, 0, null);
+			}
+		});
+	}
 }

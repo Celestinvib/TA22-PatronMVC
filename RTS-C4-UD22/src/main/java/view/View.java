@@ -23,11 +23,11 @@ public class View extends JFrame{
 	private static final long serialVersionUID = 1L;
 	
 	public JFrame frame;
-	public JPanel panelButtons;
+	private JPanel panelButtons;
 	
-	public JButton btnUpdate;
-	public JButton btnDelete;
-	public JButton btnCreate;
+	private JButton btnUpdate;
+	private JButton btnDelete;
+	private JButton btnCreate;
 	
 	public JTable tableClients;
 	
@@ -35,7 +35,7 @@ public class View extends JFrame{
 	
 	public JPanel panel;
 	public JTable tableUpdate;
-	public JButton btnUpdateData;
+	private JButton btnUpdateData;
 	
 
 	private JButton btnClients;
@@ -67,12 +67,14 @@ public class View extends JFrame{
 	
 	private JButton btnCreateClient;
 	public JPanel panelTable;
-	private JTextField textField_10;
-	private JTextField textField12;
-	private JLabel lblNewLabel13;
+	public JTextField textFieldName;
+	public JTextField textFieldAddress;
+	private JLabel lblClientAddress;
 	private JTextField textField_11;
+	public JTextField textFieldSurname;
 	private JLabel lblNewLabel12;
-	private JLabel lblNewLabel11;
+	private JLabel lblClientSurname;
+	private JLabel lblClientName;
 	
 	private JButton btnUpdateClient;
 	private JTextField textField1;
@@ -135,32 +137,32 @@ public class View extends JFrame{
 		panelCreateClient.setBounds(0, 0, 415, 240);
 		frame.getContentPane().add(panelCreateClient);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(162, 41, 127, 20);
-		panelCreateClient.add(textField_10);
+		textFieldName = new JTextField();
+		textFieldName.setColumns(10);
+		textFieldName.setBounds(162, 41, 127, 20);
+		panelCreateClient.add(textFieldName);
 		
-		lblNewLabel11 = new JLabel("Title:");
-		lblNewLabel11.setBounds(125, 44, 38, 14);
-		panelCreateClient.add(lblNewLabel11);
+		lblClientName = new JLabel("Title:");
+		lblClientName.setBounds(125, 44, 38, 14);
+		panelCreateClient.add(lblClientName);
 		
-		lblNewLabel12 = new JLabel("Director:");
-		lblNewLabel12.setBounds(111, 72, 67, 14);
-		panelCreateClient.add(lblNewLabel12);
+		lblClientSurname = new JLabel("Director:");
+		lblClientSurname.setBounds(111, 72, 67, 14);
+		panelCreateClient.add(lblClientSurname);
 		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(162, 72, 127, 20);
-		panelCreateClient.add(textField_11);
+		textFieldSurname = new JTextField();
+		textFieldSurname.setColumns(10);
+		textFieldSurname.setBounds(162, 72, 127, 20);
+		panelCreateClient.add(textFieldSurname);
 		
-		lblNewLabel13 = new JLabel("Client_Id:");
-		lblNewLabel13.setBounds(106, 103, 67, 14);
-		panelCreateClient.add(lblNewLabel13);
+		lblClientAddress = new JLabel("Client_Id:");
+		lblClientAddress.setBounds(106, 103, 67, 14);
+		panelCreateClient.add(lblClientAddress);
 		
-		textField12 = new JTextField();
-		textField12.setColumns(10);
-		textField12.setBounds(162, 103, 127, 20);
-		panelCreateClient.add(textField12);
+		textFieldAddress = new JTextField();
+		textFieldAddress.setColumns(10);
+		textFieldAddress.setBounds(162, 103, 127, 20);
+		panelCreateClient.add(textFieldAddress);
 		
 		btnCreateClient = new JButton("Crear");
 		btnCreateClient.setBounds(10, 210, 90, 20);
