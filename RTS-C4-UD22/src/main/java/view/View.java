@@ -18,25 +18,33 @@ import java.awt.Font;
 public class View extends JFrame{
 
 	/**
-	 * 
+	 * Attributes 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	public JFrame frame;
 	public JPanel panelButtons;
 	
 	public JButton btnUpdate;
 	public JButton btnDelete;
 	public JButton btnCreate;
+	
 	public JTable tableClients;
+	
 	public JPanel panelUpdateClient;
+	
 	public JPanel panel;
 	public JTable tableUpdate;
 	public JButton btnUpdateData;
+	
 	private JPanel panelMenu;
 	private JButton btnClients;
 	private JButton btnMovies;
 	private JLabel lblNewLabel;
+	
+	
 	public JPanel panelUpdateVideo;
+	
 	private JTextField textField;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel1;
@@ -44,7 +52,9 @@ public class View extends JFrame{
 	private JLabel lblNewLabel2;
 	private JTextField textField_2;
 	private JButton btnUpdateVideo;
+	
 	public JPanel panelCreateVideo;
+	
 	private JTextField textField_3;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel1_1;
@@ -52,7 +62,9 @@ public class View extends JFrame{
 	private JLabel lblNewLabel2_1;
 	private JTextField textField_5;
 	private JButton btnCreateVideo;
+	
 	public JPanel panelCreateClient;
+	
 	private JButton btnCreateData;
 	public JPanel panelTable;
 	private JTextField textField_10;
@@ -61,11 +73,13 @@ public class View extends JFrame{
 	private JTextField textField_11;
 	private JLabel lblNewLabel12;
 	private JLabel lblNewLabel11;
+	
 	private JButton btnUpdateClient;
 	private JTextField textField1;
 	private JLabel lblNewLabel_13;
 	private JLabel lblNewLabel22;
 	private JTextField textField_21;
+	
 	public JTable tableVideo;
 	
 	/**
