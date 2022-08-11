@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Menu extends JFrame{
+	public JPanel panelMenu;
 		
 	public Menu () {
 		 /* Window frame
@@ -21,7 +22,7 @@ public class Menu extends JFrame{
 		setVisible(true); // It allows the window to be visible
 		
 		/* Creation and added the panel to the window */
-		JPanel panelMenu = new JPanel();
+		panelMenu = new JPanel();
 		panelMenu.setLayout(null);
 		panelMenu.setBounds(0, 0, 434, 261);
 		setContentPane(panelMenu);
@@ -45,4 +46,23 @@ public class Menu extends JFrame{
 		
 		
 	}
+
+	/**
+	 * @return the panelMenu
+	 */
+	public JPanel getPanelMenu() {
+		return panelMenu;
+	}
+
+	/**
+	 * @param panelMenu the panelMenu to set
+	 */
+	public void setPanelMenu(JPanel panelMenu) {
+		this.panelMenu = panelMenu;
+	}
+
+
+	
+	
+	
 }
