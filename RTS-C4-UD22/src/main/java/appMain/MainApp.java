@@ -13,19 +13,9 @@ public class MainApp {
 	public static void main(String[] args) {
 		
 		/**
-		 * Creation of new client, view and controller, and initiating them
-		 */
-//		Client client = new Client();
-//		//Video video = new Video();
-//		View view = new View();
-//		ControllerClient controllerClient = new ControllerClient(client, view);
-//		//ControllerClient controllerVideo = new ControllerClient(client, view);
-//		controllerClient.launchView();
-		
-
-		Menu menu = new Menu();
-		
-		Controller controller = new Controller(menu);
+		 * Creation of new controller, and initiating them
+		 */		
+		Controller controller = new Controller();
 		controller.launchView();
 		
 	}
