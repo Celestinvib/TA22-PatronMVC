@@ -21,9 +21,10 @@ public class ControllerClient implements ActionListener{
 	private SQLConnection conn;
 	
 	
-	public ControllerClient(Client client, View view) {
+	public ControllerClient(Client client, View view , SQLConnection SqlCon) {
 		this.client = client;
 		this.view = view;
+		this.conn = SqlCon;
 	}
 	
 	public void launchView() {
@@ -36,34 +37,13 @@ public class ControllerClient implements ActionListener{
 		view.panelUpdateVideo.setVisible(false);
 		view.panelCreateVideo.setVisible(false);
 		
-		//Sql connection & creation of the db and itsstructure
-		conn = new SQLConnection();
 		
 		view.frame.setVisible(true);
-		
-		resetStructure();
-		
+				
 		loadTable(client.selectAllClients(conn), view.tableClients);
 	}
 	
 	
-	/**
-	 * Method that creates the basic structure of this db
-	 */		
-	private void resetStructure() {
-		conn.createDB("TA22");
-		client.tableStructureCreation(conn);
-		
-		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20");
-		client.insertClient(conn, "Celestin", "Tanga", "C/Josep Fregos N31", 366522123,"2018-02-20");
-
-//      DELTE THIS COMMENT (THE LINE BELOW WORK) JUST NEED 2 CLIENTS
-		
-//		video.insertVideo(conn, "Homemade Spiderman 1", "Mike Scott", 1);
-//		video.insertVideo(conn, "Homemade Spiderman 2", "Mike Scott", 1);
-//		video.insertVideo(conn, "The last light", "Tarantino", 2);
-
-	}
 	private void loadTable(ResultSet resultSet, JTable table) {
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();
 	      int id;
@@ -87,6 +67,7 @@ public class ControllerClient implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		JButton b = (JButton) event.getSource();
 		int id;
+		System.out.println("A");
 		switch(b.getName()) {
 		case "btnUpdate":
 			view.panelTable.setVisible(false);
