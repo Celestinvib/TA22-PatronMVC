@@ -37,7 +37,7 @@ public class View extends JFrame{
 	public JTable tableUpdate;
 	public JButton btnUpdateData;
 	
-	private JPanel panelMenu;
+
 	private JButton btnClients;
 	private JButton btnMovies;
 	private JLabel lblNewLabel;
@@ -65,7 +65,7 @@ public class View extends JFrame{
 	
 	public JPanel panelCreateClient;
 	
-	private JButton btnCreateData;
+	private JButton btnCreateClient;
 	public JPanel panelTable;
 	private JTextField textField_10;
 	private JTextField textField12;
@@ -100,6 +100,7 @@ public class View extends JFrame{
 		panelTable.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelTable);
 		panelTable.setLayout(new BorderLayout(0, 0));
+
 		
 		panelButtons = new JPanel();
 		panelTable.add(panelButtons, BorderLayout.SOUTH);
@@ -161,9 +162,9 @@ public class View extends JFrame{
 		textField12.setBounds(162, 103, 127, 20);
 		panelCreateClient.add(textField12);
 		
-		btnCreateData = new JButton("Crear");
-		btnCreateData.setBounds(10, 210, 90, 20);
-		panelCreateClient.add(btnCreateData);
+		btnCreateClient = new JButton("Crear");
+		btnCreateClient.setBounds(10, 210, 90, 20);
+		panelCreateClient.add(btnCreateClient);
 		panelUpdateClient = new JPanel();
 		panelUpdateClient.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelUpdateClient);
@@ -288,24 +289,108 @@ public class View extends JFrame{
 		btnUpdateVideo.setBounds(146, 154, 127, 23);
 		panelUpdateVideo.add(btnUpdateVideo);
 		
-		panelMenu = new JPanel();
-		panelMenu.setVisible(false);
-		panelMenu.setLayout(null);
-		panelMenu.setBounds(0, 0, 434, 261);
-		frame.getContentPane().add(panelMenu);
-		
-		btnClients = new JButton("Clients");
-		btnClients.setBounds(97, 129, 89, 23);
-		panelMenu.add(btnClients);
-		
-		btnMovies = new JButton("Movies");
-		btnMovies.setBounds(228, 129, 89, 23);
-		panelMenu.add(btnMovies);
-		
-		lblNewLabel = new JLabel("Select one database ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(144, 64, 143, 14);
-		panelMenu.add(lblNewLabel);
-		
 	}
+
+	/** Getters & Setters */
+	
+	
+	/**
+	 * @return the btnUpdate
+	 */
+	public JButton getBtnUpdate() {
+		return btnUpdate;
+	}
+
+	/**
+	 * @param btnUpdate the btnUpdate to set
+	 */
+	public void setBtnUpdate(JButton btnUpdate) {
+		this.btnUpdate = btnUpdate;
+	}
+
+	/**
+	 * @return the btnDelete
+	 */
+	public JButton getBtnDelete() {
+		return btnDelete;
+	}
+
+	/**
+	 * @param btnDelete the btnDelete to set
+	 */
+	public void setBtnDelete(JButton btnDelete) {
+		this.btnDelete = btnDelete;
+	}
+
+	/**
+	 * @return the btnCreate
+	 */
+	public JButton getBtnCreate() {
+		return btnCreate;
+	}
+
+	/**
+	 * @param btnCreate the btnCreate to set
+	 */
+	public void setBtnCreate(JButton btnCreate) {
+		this.btnCreate = btnCreate;
+	}
+
+	/**
+	 * @return the btnUpdateVideo
+	 */
+	public JButton getBtnUpdateVideo() {
+		return btnUpdateVideo;
+	}
+
+	/**
+	 * @param btnUpdateVideo the btnUpdateVideo to set
+	 */
+	public void setBtnUpdateVideo(JButton btnUpdateVideo) {
+		this.btnUpdateVideo = btnUpdateVideo;
+	}
+
+	/**
+	 * @return the btnCreateVideo
+	 */
+	public JButton getBtnCreateVideo() {
+		return btnCreateVideo;
+	}
+
+	/**
+	 * @param btnCreateVideo the btnCreateVideo to set
+	 */
+	public void setBtnCreateVideo(JButton btnCreateVideo) {
+		this.btnCreateVideo = btnCreateVideo;
+	}
+
+	/**
+	 * @return the btnCreateClient
+	 */
+	public JButton getBtnCreateClient() {
+		return btnCreateClient;
+	}
+
+	/**
+	 * @param btnCreateClient the btnCreateClient to set
+	 */
+	public void setBtnCreateClient(JButton btnCreateClient) {
+		this.btnCreateClient = btnCreateClient;
+	}
+
+	/**
+	 * @return the btnUpdateClient
+	 */
+	public JButton getBtnUpdateClient() {
+		return btnUpdateClient;
+	}
+
+	/**
+	 * @param btnUpdateClient the btnUpdateClient to set
+	 */
+	public void setBtnUpdateClient(JButton btnUpdateClient) {
+		this.btnUpdateClient = btnUpdateClient;
+	}
+	
+	
 }
