@@ -20,8 +20,8 @@ public class Controller  implements ActionListener{
 	private SQLConnection conn;
 	
 	public enum table {
-	    clients,
-	    videos
+	    Clients,
+	    Videos
 	}
 
 	public table tableShowed;
@@ -43,11 +43,11 @@ public class Controller  implements ActionListener{
 		
 		switch(b.getName()) {
 			case "btnClients":
-//				tableShowed= clients;
+				tableShowed = tableShowed.Clients;
 			break;
 			
 			case "btnMovies":
-//				tableShowed= "videos";
+				tableShowed = tableShowed.Videos;
 				View view = new View();
 				Client client = new Client();
 				ControllerClient controllerClient = new ControllerClient(client, view);
