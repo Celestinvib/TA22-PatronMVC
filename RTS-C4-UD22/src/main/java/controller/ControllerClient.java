@@ -32,13 +32,13 @@ public class ControllerClient{
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
-		view.panelUpdateClient.setVisible(false);
-		view.panelCreateClient.setVisible(false);
-		view.panelUpdateVideo.setVisible(false);
-		view.panelCreateVideo.setVisible(false);
+		view.getPanelUpdateClient().setVisible(false);
+		view.getPanelCreateClient().setVisible(false);
+		view.getPanelUpdateVideo().setVisible(false);
+		view.getPanelCreateVideo().setVisible(false);
 		buttonListeners();
-		
-		view.frame.setVisible(true);
+		 
+		view.getFrame().setVisible(true);
 				
 		loadTable(client.selectAllClients(conn), view.tableClients);
 	}
@@ -77,7 +77,7 @@ public class ControllerClient{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				view.panelTable.setVisible(false);
-				view.panelUpdateClient.setVisible(true);
+				view.getPanelUpdateClient().setVisible(true);
 			}
 		});
 
@@ -89,7 +89,7 @@ public class ControllerClient{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				view.panelTable.setVisible(false);
-				view.panelCreateClient.setVisible(true);
+				view.getPanelCreateClient().setVisible(true);
 			}
 		});
 		
@@ -113,9 +113,9 @@ public class ControllerClient{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String name = view.textFieldName.getText();
-				String surname = view.textFieldSurname.getText();
-				String address = view.textFieldAddress.getText();
+				String name = view.getTextFieldNameC().getText();
+				String surname = view.getTextFieldSurnameC().getText();
+				String address = view.getTextFieldAddressC().getText();
 				
 				//Not done
 				int dni = 0;
