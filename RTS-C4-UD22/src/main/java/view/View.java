@@ -14,6 +14,8 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class View extends JFrame{
 
@@ -22,20 +24,20 @@ public class View extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public JFrame frame;
+	private JFrame frame;
 	private JPanel panelButtons;
 	
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	private JButton btnCreate;
+	private JButton btnNewButton;
 	
-	public JTable tableClients;
+	private JTable tableClients;
 	
-	public JPanel panelUpdateClient;
+	private JPanel panelUpdateClient;
 	
-	public JPanel panel;
-	public JTable tableUpdate;
-	private JButton btnUpdateData;
+	private JPanel panel;
+	private JTable tableUpdate;
 	
 
 	private JButton btnClients;
@@ -43,7 +45,7 @@ public class View extends JFrame{
 	private JLabel lblNewLabel;
 	
 	
-	public JPanel panelUpdateVideo;
+	private JPanel panelUpdateVideo;
 	
 	private JTextField textField;
 	private JLabel lblNewLabel_1;
@@ -53,7 +55,7 @@ public class View extends JFrame{
 	private JTextField textField_2;
 	private JButton btnUpdateVideo;
 	
-	public JPanel panelCreateVideo;
+	private JPanel panelCreateVideo;
 	
 	private JTextField textField_3;
 	private JLabel lblNewLabel_2;
@@ -63,18 +65,22 @@ public class View extends JFrame{
 	private JTextField textField_5;
 	private JButton btnCreateVideo;
 	
-	public JPanel panelCreateClient;
+	private JPanel panelUpdateClientU;
 	
+	private JLabel lblClientSurnameU;
+	private JLabel lblClientNameU;
+	private JLabel lblClientDateU;
+	private JTextField textFieldNameU;
+	private JTextField textFieldAddressU;
+	private JLabel lblClientAddressU;
+	private JTextField textFieldSurnameU;
+	
+	private JPanel panelCreateClientC;
 	private JButton btnCreateClient;
-	public JPanel panelTable;
-	public JTextField textFieldName;
-	public JTextField textFieldAddress;
-	private JLabel lblClientAddress;
+	private JPanel panelTable;
 	private JTextField textField_11;
-	public JTextField textFieldSurname;
 	private JLabel lblNewLabel12;
-	private JLabel lblClientSurname;
-	private JLabel lblClientName;
+	
 	
 	private JButton btnUpdateClient;
 	private JTextField textField1;
@@ -82,7 +88,7 @@ public class View extends JFrame{
 	private JLabel lblNewLabel22;
 	private JTextField textField_21;
 	
-	public JTable tableVideo;
+	private JTable tableVideo;
 	
 	/**
 	 * Create the application.
@@ -108,6 +114,13 @@ public class View extends JFrame{
 		panelTable.add(panelButtons, BorderLayout.SOUTH);
 		panelButtons.setLayout(new GridLayout(1, 0, 10, 0));
 		
+		btnNewButton = new JButton("Atrás");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		panelButtons.add(btnNewButton);
+		
 		btnUpdate = new JButton("Actualizar");
 		panelButtons.add(btnUpdate);
 
@@ -115,6 +128,10 @@ public class View extends JFrame{
 		panelButtons.add(btnDelete);
 
 		btnCreate = new JButton("Crear");
+		btnCreate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		panelButtons.add(btnCreate);
 
 		tableClients = new JTable();
@@ -126,47 +143,56 @@ public class View extends JFrame{
 		tableVideo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 		panelTable.add(new JScrollPane(tableVideo), BorderLayout.NORTH);
-		panelTable.add(new JScrollPane(tableClients), BorderLayout.NORTH);
+		JScrollPane scrollPane = new JScrollPane(tableClients);
+		panelTable.add(scrollPane, BorderLayout.NORTH);
 		
 		/**
 		 * Update panel
 		 */
 		
-		panelCreateClient = new JPanel();
-		panelCreateClient.setLayout(null);
-		panelCreateClient.setBounds(0, 0, 415, 240);
-		frame.getContentPane().add(panelCreateClient);
+		panelUpdateClientU = new JPanel();
+		panelUpdateClientU.setLayout(null);
+		panelUpdateClientU.setBounds(0, 0, 415, 240);
+		frame.getContentPane().add(panelUpdateClientU);
 		
-		textFieldName = new JTextField();
-		textFieldName.setColumns(10);
-		textFieldName.setBounds(162, 41, 127, 20);
-		panelCreateClient.add(textFieldName);
+		textFieldNameU = new JTextField();
+		textFieldNameU.setColumns(10);
+		textFieldNameU.setBounds(162, 41, 127, 20);
+		panelUpdateClientU.add(textFieldNameU);
 		
-		lblClientName = new JLabel("Title:");
-		lblClientName.setBounds(125, 44, 38, 14);
-		panelCreateClient.add(lblClientName);
+		lblClientNameU = new JLabel("Name:");
+		lblClientNameU.setBounds(125, 44, 38, 14);
+		panelUpdateClientU.add(lblClientNameU);
 		
-		lblClientSurname = new JLabel("Director:");
-		lblClientSurname.setBounds(111, 72, 67, 14);
-		panelCreateClient.add(lblClientSurname);
+		lblClientSurnameU = new JLabel("Surname:");
+		lblClientSurnameU.setBounds(111, 72, 67, 14);
+		panelUpdateClientU.add(lblClientSurnameU);
 		
-		textFieldSurname = new JTextField();
-		textFieldSurname.setColumns(10);
-		textFieldSurname.setBounds(162, 72, 127, 20);
-		panelCreateClient.add(textFieldSurname);
+		textFieldSurnameU = new JTextField();
+		textFieldSurnameU.setColumns(10);
+		textFieldSurnameU.setBounds(162, 72, 127, 20);
+		panelUpdateClientU.add(textFieldSurnameU);
 		
-		lblClientAddress = new JLabel("Client_Id:");
-		lblClientAddress.setBounds(106, 103, 67, 14);
-		panelCreateClient.add(lblClientAddress);
+		lblClientAddressU = new JLabel("Address:");
+		lblClientAddressU.setBounds(106, 103, 67, 14);
+		panelUpdateClientU.add(lblClientAddressU);
 		
-		textFieldAddress = new JTextField();
-		textFieldAddress.setColumns(10);
-		textFieldAddress.setBounds(162, 103, 127, 20);
-		panelCreateClient.add(textFieldAddress);
+		lblClientDateU = new JLabel("Date:");
+		lblClientDateU.setBounds(106, 103, 67, 14);
+		panelUpdateClientU.add(lblClientDateU);
+		
+		textFieldAddressU = new JTextField();
+		textFieldAddressU.setColumns(10);
+		textFieldAddressU.setBounds(162, 103, 127, 20);
+		panelUpdateClientU.add(textFieldAddressU);
+		
+		/**
+		 * Create panel
+		 */
 		
 		btnCreateClient = new JButton("Crear");
 		btnCreateClient.setBounds(10, 210, 90, 20);
-		panelCreateClient.add(btnCreateClient);
+		panelCreateClientC.add(btnCreateClient);
 		panelUpdateClient = new JPanel();
 		panelUpdateClient.setBounds(10, 10, 415, 240);
 		frame.getContentPane().add(panelUpdateClient);
@@ -177,11 +203,11 @@ public class View extends JFrame{
 		textField1.setBounds(162, 41, 127, 20);
 		panelUpdateClient.add(textField1);
 		
-		lblNewLabel_13 = new JLabel("Title:");
+		lblNewLabel_13 = new JLabel("Name:");
 		lblNewLabel_13.setBounds(125, 44, 38, 14);
 		panelUpdateClient.add(lblNewLabel_13);
 		
-		lblNewLabel12 = new JLabel("Director:");
+		lblNewLabel12 = new JLabel("Surname:");
 		lblNewLabel12.setBounds(111, 72, 67, 14);
 		panelUpdateClient.add(lblNewLabel12);
 		
@@ -190,7 +216,7 @@ public class View extends JFrame{
 		textField_11.setBounds(162, 72, 127, 20);
 		panelUpdateClient.add(textField_11);
 		
-		lblNewLabel22 = new JLabel("Client_Id:");
+		lblNewLabel22 = new JLabel("Address:");
 		lblNewLabel22.setBounds(106, 103, 67, 14);
 		panelUpdateClient.add(lblNewLabel22);
 		
@@ -199,7 +225,16 @@ public class View extends JFrame{
 		textField_21.setBounds(162, 103, 127, 20);
 		panelUpdateClient.add(textField_21);
 		
-		btnUpdateClient = new JButton("Update  Video");
+		lblClientDateC = new JLabel("Date:");
+		lblClientDateC.setBounds(106, 103, 67, 14);
+		panelUpdateClientC.add(lblClientDateC);
+		
+		textField_21C = new JTextField();
+		textField_21C.setColumns(10);
+		textField_21C.setBounds(162, 103, 127, 20);
+		panelUpdateClient.add(textField_21C);
+		
+		btnUpdateClient = new JButton("Update Client");
 		btnUpdateClient.setBounds(146, 154, 127, 23);
 		panelUpdateClient.add(btnUpdateClient);
 		
@@ -210,10 +245,6 @@ public class View extends JFrame{
 		
 		tableUpdate = new JTable();
 		panel.add(tableUpdate);
-		
-		btnUpdateData = new JButton("Actualizar");
-		btnUpdateData.setBounds(10, 210, 90, 20);
-		panelUpdateClient.add(btnUpdateData);
 		
 		/**
 		 * Create panel
@@ -393,6 +424,4 @@ public class View extends JFrame{
 	public void setBtnUpdateClient(JButton btnUpdateClient) {
 		this.btnUpdateClient = btnUpdateClient;
 	}
-	
-	
 }
