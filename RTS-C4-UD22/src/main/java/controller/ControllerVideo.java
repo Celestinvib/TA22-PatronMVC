@@ -30,10 +30,10 @@ public class ControllerVideo implements ActionListener{
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
-		view.panelUpdateClient.setVisible(false);
-		view.panelCreateClient.setVisible(false);
-		view.panelUpdateVideo.setVisible(false);
-		view.panelCreateVideo.setVisible(false);
+		view.getPanelUpdateClient().setVisible(false);
+		view.getPanelCreateClient().setVisible(false);
+		view.getPanelUpdateVideo().setVisible(false);
+		view.getPanelCreateVideo().setVisible(false);
 		
 		//Sql connection & creation of the db and itsstructure
 		conn = new SQLConnection();
@@ -41,12 +41,12 @@ public class ControllerVideo implements ActionListener{
 		video.tableStructureCreation(conn);
 		video.tableStructureCreation(conn);
 	
-		view.frame.setVisible(true);
+		view.getFrame().setVisible(true);
 		video.insertVideo(conn, "Russia rocks", "Putin", 0);
 
-		view.tableClients.setVisible(false);
-		view.tableVideo.setVisible(false);
-		loadTable(video.selectAllVideos(conn), view.tableVideo);
+		view.getTableClients().setVisible(false);
+		view.getTableVideo().setVisible(false);
+		loadTable(video.selectAllVideos(conn), view.getTableVideo());
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
@@ -73,26 +73,26 @@ public class ControllerVideo implements ActionListener{
 		int id;
 		switch(b.getName()) {
 		case "btnUpdate":
-			view.panelTable.setVisible(false);
-			view.panelUpdateClient.setVisible(true);
+			view.getPanelTable().setVisible(false);
+			view.getPanelUpdateClient().setVisible(true);
 			System.out.println("Update");
 			break;
 		case "btnCreate":
-			view.panelTable.setVisible(false);
-			view.panelCreateClient.setVisible(true);
+			view.getPanelTable().setVisible(false);
+			view.getPanelCreateClient().setVisible(true);
 			System.out.println("Create");
 			break;
 		case "btnDelete":
-			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
 			System.out.println("Delete");
 			video.deleteVideo(conn, id);
 			break;
 		case "btnUpdateData":
-			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
 			video.updateVideo(conn, id, null, null, 0);
 			break;
 		case "btnCreateData":
-			id = (int)view.tableVideo.getValueAt(view.tableVideo.getSelectedRow(), 0);
+			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
 			video.updateVideo(conn, id, null, null, 0);
 			break;
 		default:

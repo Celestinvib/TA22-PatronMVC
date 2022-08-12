@@ -517,6 +517,12 @@ public class View extends JFrame{
 	public JPanel getPanelTable() {
 		return panelTable;
 	}
+
+	public JTable getTableVideo() {
+		return tableVideo;
+	}
+	
+	
 	
 	
 
