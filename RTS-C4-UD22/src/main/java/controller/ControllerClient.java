@@ -76,7 +76,7 @@ public class ControllerClient{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.panelTable.setVisible(false);
+				view.getPanelTable().setVisible(false);
 				view.getPanelUpdateClient().setVisible(true);
 			}
 		});
@@ -88,7 +88,7 @@ public class ControllerClient{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.panelTable.setVisible(false);
+				view.getPanelTable().setVisible(false);
 				view.getPanelCreateClient().setVisible(true);
 			}
 		});
