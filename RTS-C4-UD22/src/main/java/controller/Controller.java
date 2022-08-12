@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import model.Client;
 import model.SQLConnection;
@@ -33,13 +35,17 @@ public class Controller {
 	
 	public void launchView() {
 		//Sql connection & creation of the db and its structure
-		conn = new SQLConnection();	
-		this.menu = new Menu();
+		this.conn = new SQLConnection();	
 		
-		buttonCalcActions();
-		resetStructure();
-		menu.panelMenu.setVisible(true);
+		if(this.conn.connection != null) { //If the user has connected to his db
+			
+			this.menu = new Menu(); //Creates a new view of menu
+			
+			buttonCalcActions(); 
+			resetStructure(); //Creates a new structure of the db (Every time the app is launched)
+			this.menu.getPanelMenu().setVisible(true);
 		
+		}
 
 	}
 	
@@ -60,16 +66,19 @@ public class Controller {
 
 	}
 	
+	/**
+	 * Method gets all the buttons of the menu that we need a listener and adds it
+	 */	
 	public void buttonCalcActions() {
 		
 		menu.getBtnClients().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				menu.frame.setVisible(false); //Makes the menu frame invisible
+				menu.getFrame().setVisible(false); //Makes the menu frame invisible
 				tableShowed = table.Clients; 
 				
 				View view = new View();
-				ControllerClient controllerClient = new ControllerClient(client, view , conn);
+				ControllerClient controllerClient = new ControllerClient(client, view ,menu, conn);
 				controllerClient.launchView();
 			}
 		});
@@ -77,7 +86,7 @@ public class Controller {
 		menu.getBtnMovies().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				menu.frame.setVisible(false);
+				menu.getFrame().setVisible(false);
 				tableShowed = table.Videos;
 				View view1 = new View();
 				ControllerVideo controllerVideo= new ControllerVideo(video, view1);
