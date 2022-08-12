@@ -29,7 +29,7 @@ public class View extends JFrame{
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	private JButton btnCreate;
-	private JButton bntAtras;
+	private JButton btnBack;
 	
 	private JTable tableClients;
 	
@@ -50,7 +50,7 @@ public class View extends JFrame{
 	private JLabel lblClient_IdU;
 	private JTextField textFieldClient_IdU;
 	private JButton btnUpdateVideo;
-	private JButton bntAtrasVideosC;
+	private JButton btnBackVideosC;
 	
 	private JPanel panelCreateVideo;
 	
@@ -61,7 +61,7 @@ public class View extends JFrame{
 	private JLabel lblClient_IdC;
 	private JTextField textFieldClient_IdC;
 	private JButton btnCreateVideo;
-	private JButton bntAtrasVideosU;
+	private JButton btnBackVideosU;
 	
 	private JPanel panelUpdateClient;
 	
@@ -72,7 +72,7 @@ public class View extends JFrame{
 	private JLabel lblClientAddressU;
 	private JTextField textFieldSurnameU;
 	private JButton btnUpdateClientU;
-	private JButton bntAtrasClientU;
+	private JButton btnBackClientU;
 	
 	
 	private JPanel panelCreateClient;
@@ -84,7 +84,7 @@ public class View extends JFrame{
 	private JLabel lblFieldNameC;
 	private JLabel lblAddressC;
 	private JTextField textFieldAddressC;
-	private JButton bntAtrasClientC;
+	private JButton btnBackClientC;
 
 	private JPanel panelTable;
 	
@@ -114,12 +114,8 @@ public class View extends JFrame{
 		panelTable.add(panelButtons, BorderLayout.SOUTH);
 		panelButtons.setLayout(new GridLayout(1, 0, 10, 0));
 		
-		bntAtras = new JButton("Atrás");
-		bntAtras.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panelButtons.add(bntAtras);
+		btnBack = new JButton("Atrás");
+		panelButtons.add(btnBack);
 		
 		btnUpdate = new JButton("Actualizar");
 		panelButtons.add(btnUpdate);
@@ -128,10 +124,6 @@ public class View extends JFrame{
 		panelButtons.add(btnDelete);
 
 		btnCreate = new JButton("Crear");
-		btnCreate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		panelButtons.add(btnCreate);
 
 		tableClients = new JTable();
@@ -186,12 +178,8 @@ public class View extends JFrame{
 		textFieldAddressU.setBounds(162, 103, 127, 20);
 		panelUpdateClient.add(textFieldAddressU);
 		
-		bntAtrasClientU = new JButton("Atrás");
-		bntAtrasClientU.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panelUpdateClient.add(bntAtrasClientU);
+		btnBackClientU = new JButton("Atrás");
+		panelUpdateClient.add(btnBackClientU);
 		
 		/**
 		 * Create panel Client
@@ -241,12 +229,10 @@ public class View extends JFrame{
 		tableUpdate = new JTable();
 		panel.add(tableUpdate);
 		
-		bntAtrasClientC = new JButton("Atrás");
-		bntAtrasClientC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panelCreateClient.add(bntAtrasClientC);
+		btnBackClientC = new JButton("Atrás");
+		btnBackClientC.setSize(90, 20);
+		btnBackClientC.setLocation(30, 180);
+		panelCreateClient.add(btnBackClientC);
 		
 		/**
 		 * Create panel Videos
@@ -288,12 +274,8 @@ public class View extends JFrame{
 		btnCreateVideo.setBounds(146, 154, 127, 23);
 		panelCreateVideo.add(btnCreateVideo);
 		
-		bntAtrasVideosC = new JButton("Atrás");
-		bntAtrasVideosC.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panelCreateVideo.add(bntAtrasVideosC);
+		btnBackVideosC = new JButton("Atrás");
+		panelCreateVideo.add(btnBackVideosC);
 		
 		/**
 		 * Create panel Video
@@ -335,12 +317,8 @@ public class View extends JFrame{
 		btnUpdateVideo.setBounds(146, 154, 127, 23);
 		panelUpdateVideo.add(btnUpdateVideo);
 		
-		bntAtrasVideosU = new JButton("Atrás");
-		bntAtrasVideosU.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		panelUpdateVideo.add(bntAtrasVideosU);
+		btnBackVideosU = new JButton("Atrás");
+		panelUpdateVideo.add(btnBackVideosU);
 		
 	}
 
@@ -350,23 +328,37 @@ public class View extends JFrame{
 
 	/** Getters & Setters */
 	
-	
+	/**
+	 * @return the frame
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * @return the btnClients
+	 */
 	public JButton getBtnClients() {
 		return btnClients;
 	}
 
+	/**
+	 * @return the btnMovies
+	 */
 	public JButton getBtnMovies() {
 		return btnMovies;
 	}
 
+	/**
+	 * @return the btnUpdateClientU
+	 */
 	public JButton getBtnUpdateClientU() {
 		return btnUpdateClientU;
 	}
 
+	/**
+	 * @return the btnCreateClientC
+	 */
 	public JButton getBtnCreateClientC() {
 		return btnCreateClientC;
 	}
@@ -468,58 +460,103 @@ public class View extends JFrame{
 	public void setBtnUpdateClient(JButton btnUpdateClient) {
 		this.btnUpdateClientU = btnUpdateClient;
 	}
-
-
-	public JButton getBntAtrasVideoC() {
-		return bntAtrasVideosC;
-	}
-
-	public JButton getBntAtrasVideoU() {
-		return bntAtrasVideosU;
-	}
-
-	public JButton getBntAtrasClientU() {
-		return bntAtrasClientU;
-	}
-
-	public JButton getBntAtrasClientC() {
-		return bntAtrasClientC;
-	}
 	
+	/**
+	 * @return the panelUpdateVideo
+	 */
 	public JPanel getPanelUpdateVideo() {
 		return panelUpdateVideo;
 	}
 
+	/**
+	 * @return the panelCreateVideo
+	 */
 	public JPanel getPanelCreateVideo() {
 		return panelCreateVideo;
 	}
 
+	/**
+	 * @return the panelUpdateClient
+	 */
 	public JPanel getPanelUpdateClient() {
 		return panelUpdateClient;
 	}
 
+	/**
+	 * @return the panelCreateClient
+	 */
 	public JPanel getPanelCreateClient() {
 		return panelCreateClient;
 	}
 
+	/**
+	 * @return the textFieldSurnameC
+	 */
 	public JTextField getTextFieldSurnameC() {
 		return textFieldSurnameC;
 	}
 
+	/**
+	 * @return the textFieldNameC
+	 */
 	public JTextField getTextFieldNameC() {
 		return textFieldNameC;
 	}
 
+	/**
+	 * @return the textFieldAddressC
+	 */
 	public JTextField getTextFieldAddressC() {
 		return textFieldAddressC;
 	}
-
+	
+	/**
+	 * @return the panelTable
+	 */
 	public JPanel getPanelTable() {
 		return panelTable;
 	}
 
+	/**
+	 * @return the tableVideo
+	 */
 	public JTable getTableVideo() {
 		return tableVideo;
+	}
+
+	/**
+	 * @return the bntBack
+	 */
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+
+	/**
+	 * @return the btnBackVideosC
+	 */
+	public JButton getBtnBackVideosC() {
+		return btnBackVideosC;
+	}
+
+	/**
+	 * @return the btnBACKVideosU
+	 */
+	public JButton getbtnBackVideosU() {
+		return btnBackVideosU;
+	}
+
+	/**
+	 * @return the btnBackClientU
+	 */
+	public JButton getBtnBackClientU() {
+		return btnBackClientU;
+	}
+
+	/**
+	 * @return the btnBackClientC
+	 */
+	public JButton getBtnBackClientC() {
+		return btnBackClientC;
 	}
 	
 	
