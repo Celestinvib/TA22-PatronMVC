@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -119,6 +120,7 @@ public class ControllerClient{
 				//Not done
 				int dni = 0;
 				String date = "";
+				
 				client.insertClient(conn, name, surname, address, dni, date);
 			}
 		});
@@ -131,7 +133,16 @@ public class ControllerClient{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
-				client.updateClient(conn, id, null, null, null, 0, null);
+				
+				String name = "";
+				String surname = "";
+				String address = "";
+				
+				//Not done
+				int dni = 0;
+				Timestamp date = null;
+				
+				client.updateClient(conn, id, name, surname, address, dni, date);
 			}
 		});
 	}
