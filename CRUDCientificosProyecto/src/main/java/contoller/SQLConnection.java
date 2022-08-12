@@ -86,7 +86,7 @@ public class SQLConnection {
 			Statement st = connection.createStatement();
 			st.executeUpdate(Query);
 			db = name;
-			JOptionPane.showMessageDialog(null,"Se ha creado la base de datos "+name+ " de forma exitosa");					
+			System.out.println("\nSe ha creado la base de datos "+name+ " de forma exitosa");					
 		}catch (SQLException ex) {
 			
 		}
