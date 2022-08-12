@@ -12,11 +12,11 @@ public class Menu extends JFrame{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public JFrame frame;
-	public JPanel panelMenu;
-	public JButton btnClients;
-	public JButton btnMovies;
-	public JButton btnRestartDb;
+	private JFrame frame;
+	private JPanel panelMenu;
+	private JButton btnClients;
+	private JButton btnMovies;
+	private JButton btnRestartDb;
 	
 	public Menu () {
 		 /* Window frame
@@ -57,6 +57,8 @@ public class Menu extends JFrame{
 		
 	}
 
+	/**Getters & Setters */
+
 	
 	/**
 	 * @return the frame
@@ -65,14 +67,12 @@ public class Menu extends JFrame{
 		return frame;
 	}
 
-
 	/**
 	 * @param frame the frame to set
 	 */
 	public void setFrame(JFrame frame) {
 		this.frame = frame;
 	}
-
 
 	/**
 	 * @return the panelMenu
@@ -96,10 +96,24 @@ public class Menu extends JFrame{
 	}
 
 	/**
+	 * @param btnClients the btnClients to set
+	 */
+	public void setBtnClients(JButton btnClients) {
+		this.btnClients = btnClients;
+	}
+
+	/**
 	 * @return the btnMovies
 	 */
 	public JButton getBtnMovies() {
 		return btnMovies;
+	}
+
+	/**
+	 * @param btnMovies the btnMovies to set
+	 */
+	public void setBtnMovies(JButton btnMovies) {
+		this.btnMovies = btnMovies;
 	}
 
 	/**
@@ -108,6 +122,17 @@ public class Menu extends JFrame{
 	public JButton getBtnRestartDb() {
 		return btnRestartDb;
 	}
+
+	/**
+	 * @param btnRestartDb the btnRestartDb to set
+	 */
+	public void setBtnRestartDb(JButton btnRestartDb) {
+		this.btnRestartDb = btnRestartDb;
+	}
+
+	
+	
+	
 
 
 
