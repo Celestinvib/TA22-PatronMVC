@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Client;
 import model.SQLConnection;
+import view.Menu;
 import view.View;
 
 public class ControllerClient{
@@ -19,12 +20,15 @@ public class ControllerClient{
 	private Client client;
 	private View view;
 	private SQLConnection conn;
+	private Menu menu;
 	
 	
-	public ControllerClient(Client client, View view , SQLConnection SqlCon) {
+	public ControllerClient(Client client, View view ,Menu menu, SQLConnection SqlCon) {
 		this.client = client;
 		this.view = view;
+		this.menu = menu;
 		this.conn = SqlCon;
+		
 	}
 	
 	public void launchView() {
@@ -145,5 +149,52 @@ public class ControllerClient{
 				client.updateClient(conn, id, name, surname, address, dni, date);
 			}
 		});
+		
+		view.getBtnBack().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getFrame().setVisible(false);
+				menu.getFrame().setVisible(true);
+
+			}
+		});
+		
+		view.getBtnBackClientC().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelCreateClient().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getBtnBackClientU().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelUpdateClient().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getBtnBackVideosC().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getBtnBackVideosC().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getbtnBackVideosU().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getbtnBackVideosU().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
 	}
+	
 }
