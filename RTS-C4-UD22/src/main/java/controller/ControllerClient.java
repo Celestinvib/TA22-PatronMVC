@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -36,18 +35,20 @@ public class ControllerClient{
 		view.panelCreateClient.setVisible(false);
 		view.panelUpdateVideo.setVisible(false);
 		view.panelCreateVideo.setVisible(false);
-		
+		buttonListeners();
 		
 		view.frame.setVisible(true);
 				
 		loadTable(client.selectAllClients(conn), view.tableClients);
 	}
 	
-	
+
 	private void loadTable(ResultSet resultSet, JTable table) {
-	      DefaultTableModel model = (DefaultTableModel) table.getModel();
-	      int id;
-	      String name, surname, address, date;
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.setRowCount(0);
+		model = (DefaultTableModel) table.getModel();
+		int id;
+		String name, surname, address, date;
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
@@ -55,15 +56,15 @@ public class ControllerClient{
 				surname = resultSet.getString("surname");
 				address = resultSet.getString("address");
 				date = resultSet.getString("date");
-				
+
 				model.addRow(new Object[] {id, name, surname, address, date});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
+
 
 	public void buttonListeners() {
 		
@@ -100,6 +101,7 @@ public class ControllerClient{
 			public void actionPerformed(ActionEvent arg0) {
 				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
 				client.deleteClient(conn, id);
+				loadTable(client.selectAllClients(conn), view.tableClients);
 			}
 		});
 		
