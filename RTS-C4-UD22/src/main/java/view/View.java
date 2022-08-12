@@ -191,7 +191,7 @@ public class View extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelUpdateClient.add(bntAtras);
+		panelUpdateClient.add(bntAtrasClientU);
 		
 		/**
 		 * Create panel Client
@@ -246,7 +246,7 @@ public class View extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelCreateClient.add(bntAtras);
+		panelCreateClient.add(bntAtrasClientC);
 		
 		/**
 		 * Create panel Videos
@@ -293,7 +293,7 @@ public class View extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelCreateVideo.add(bntAtras);
+		panelCreateVideo.add(bntAtrasVideosC);
 		
 		/**
 		 * Create panel Video
@@ -340,7 +340,7 @@ public class View extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		panelUpdateVideo.add(bntAtras);
+		panelUpdateVideo.add(bntAtrasVideosU);
 		
 	}
 
