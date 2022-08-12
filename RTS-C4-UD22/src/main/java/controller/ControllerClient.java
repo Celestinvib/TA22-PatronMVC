@@ -40,7 +40,7 @@ public class ControllerClient{
 		 
 		view.getFrame().setVisible(true);
 				
-		loadTable(client.selectAllClients(conn), view.tableClients);
+		loadTable(client.selectAllClients(conn), view.getTableClients());
 	}
 	
 
@@ -100,9 +100,9 @@ public class ControllerClient{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
+				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
 				client.deleteClient(conn, id);
-				loadTable(client.selectAllClients(conn), view.tableClients);
+				loadTable(client.selectAllClients(conn), view.getTableClients());
 			}
 		});
 		
@@ -132,7 +132,7 @@ public class ControllerClient{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.tableClients.getValueAt(view.tableClients.getSelectedRow(), 0);
+				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
 				
 				String name = "";
 				String surname = "";
