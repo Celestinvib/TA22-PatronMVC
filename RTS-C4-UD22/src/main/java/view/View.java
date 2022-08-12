@@ -177,10 +177,6 @@ public class View extends JFrame{
 		lblClientAddressU.setBounds(106, 103, 67, 14);
 		panelUpdateClientU.add(lblClientAddressU);
 		
-		lblClientDateU = new JLabel("Date:");
-		lblClientDateU.setBounds(106, 103, 67, 14);
-		panelUpdateClientU.add(lblClientDateU);
-		
 		textFieldAddressU = new JTextField();
 		textFieldAddressU.setColumns(10);
 		textFieldAddressU.setBounds(162, 103, 127, 20);
@@ -224,15 +220,6 @@ public class View extends JFrame{
 		textField_21.setColumns(10);
 		textField_21.setBounds(162, 103, 127, 20);
 		panelUpdateClient.add(textField_21);
-		
-		lblClientDateC = new JLabel("Date:");
-		lblClientDateC.setBounds(106, 103, 67, 14);
-		panelUpdateClientC.add(lblClientDateC);
-		
-		textField_21C = new JTextField();
-		textField_21C.setColumns(10);
-		textField_21C.setBounds(162, 103, 127, 20);
-		panelUpdateClient.add(textField_21C);
 		
 		btnUpdateClient = new JButton("Update Client");
 		btnUpdateClient.setBounds(146, 154, 127, 23);
