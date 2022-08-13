@@ -5,6 +5,10 @@ import java.sql.ResultSet;
 import contoller.SQLConnection;
 
 public class Scientist {
+	
+	/**	Method that creates the table scientists
+	 * @param connection Connection with the database
+	 */
 	public void tableStructureCreation(SQLConnection connection) {
 
 		String structure  = "create table scientists ("
@@ -15,7 +19,7 @@ public class Scientist {
 		connection.insertData(structure);
 	}
 	
-	/**	that return all the scientists stored in the database
+	/**	Method that return all the scientists stored in the database
 	 * @param connection Connection with the database
 	 * @return all the scientists that the select has returned
 	 */
@@ -36,18 +40,18 @@ public class Scientist {
 	}
 	
 	/**
-	 * 
+	 *  Method that update an existing scientist with new fields
 	 * @param connection Connection with the database
 	 * @param DNI DNI of the scientist
 	 * @param nameSurname name & last name of the scientist
 	 */
 	public void updateScientist(SQLConnection connection, String DNI ,String nameSurname) {		
-		String query = "UPDATE scientists set DNI='" + DNI + "', nameSurname='" + nameSurname+ ";";
+		String query = "UPDATE scientists set nameSurname='" + nameSurname+ "' where DNI='" + DNI + "';";
 	    connection.insertData(query);
 	}
 	
 	/**
-	 * 
+	 * Method that deletes a project from the db
 	 * @param connection Connection with the database
 	 * @param DNI of the scientist you want to delete
 	 */
@@ -58,7 +62,7 @@ public class Scientist {
 	
 	
 	/**
-	 * 
+	 *  Method that insert a new scientist to the table scientists
 	 * @param connection Connection with the database
 	 * @param DNI DNI of the scientist
 	 * @param nameSurname name & last name of the scientist
