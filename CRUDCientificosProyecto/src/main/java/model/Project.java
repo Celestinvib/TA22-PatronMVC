@@ -2,8 +2,6 @@ package model;
 
 import java.sql.ResultSet;
 
-import contoller.SQLConnection;
-
 public class Project {
 	
 	/**	Method that creates the table projects
