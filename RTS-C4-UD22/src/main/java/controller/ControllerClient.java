@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -123,7 +124,7 @@ public class ControllerClient{
 				
 				//Not done
 				int dni = 0;
-				String date = "";
+				String date = LocalDateTime.now().toString();
 				
 				client.insertClient(conn, name, surname, address, dni, date);
 			}
@@ -147,6 +148,9 @@ public class ControllerClient{
 				Timestamp date = null;
 				
 				client.updateClient(conn, id, name, surname, address, dni, date);
+				
+				view.getPanelCreateClient().setVisible(false);
+				view.getPanelTable().setVisible(true);
 			}
 		});
 		
