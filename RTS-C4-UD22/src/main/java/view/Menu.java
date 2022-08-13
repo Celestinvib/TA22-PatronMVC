@@ -32,7 +32,6 @@ public class Menu extends JFrame{
 		panelMenu = new JPanel();
 		panelMenu.setLayout(null);
 		panelMenu.setBounds(0, 0, 434, 261);
-		setContentPane(panelMenu);
 		panelMenu.setVisible(false);
 
 		
