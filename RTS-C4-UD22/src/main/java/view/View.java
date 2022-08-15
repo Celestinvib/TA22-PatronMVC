@@ -318,6 +318,7 @@ public class View extends JFrame{
 		panelUpdateVideo.add(btnUpdateVideo);
 		
 		btnBackVideosU = new JButton("Atrás");
+		btnBackVideosU.setBounds(146, 190, 127, 23);
 		panelUpdateVideo.add(btnBackVideosU);
 		
 	}

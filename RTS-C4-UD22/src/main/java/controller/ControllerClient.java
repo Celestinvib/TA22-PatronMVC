@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -81,8 +82,10 @@ public class ControllerClient{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.getPanelTable().setVisible(false);
-				view.getPanelUpdateClient().setVisible(true);
+				if(view.getTableClients().getSelectedRow() != -1) {
+					view.getPanelTable().setVisible(false);
+					view.getPanelUpdateClient().setVisible(true);
+				}
 			}
 		});
 
@@ -97,7 +100,7 @@ public class ControllerClient{
 				view.getPanelCreateClient().setVisible(true);
 			}
 		});
-		
+
 		/**
 		 * Deletes the selected client
 		 */
@@ -105,9 +108,13 @@ public class ControllerClient{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
-				client.deleteClient(conn, id);
-				loadTable(client.selectAllClients(conn), view.getTableClients());
+				if(view.getTableClients().getSelectedRow() != -1) {
+					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+						client.deleteClient(conn, id);
+						loadTable(client.selectAllClients(conn), view.getTableClients());
+					}
+				}
 			}
 		});
 		
@@ -126,7 +133,13 @@ public class ControllerClient{
 				int dni = 0;
 				String date = LocalDateTime.now().toString();
 				
-				client.insertClient(conn, name, surname, address, dni, date);
+				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
+					client.insertClient(conn, name, surname, address, dni, date);
+					view.getPanelCreateClient().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Cliente creado.");
+				}
+				
 			}
 		});
 		
@@ -147,10 +160,13 @@ public class ControllerClient{
 				int dni = 0;
 				Timestamp date = null;
 				
-				client.updateClient(conn, id, name, surname, address, dni, date);
+				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
+					client.updateClient(conn, id, name, surname, address, dni, date);
+					view.getPanelCreateClient().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+				}
 				
-				view.getPanelCreateClient().setVisible(false);
-				view.getPanelTable().setVisible(true);
 			}
 		});
 		
