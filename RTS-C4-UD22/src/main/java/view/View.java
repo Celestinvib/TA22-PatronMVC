@@ -179,6 +179,7 @@ public class View extends JFrame{
 		panelUpdateClient.add(textFieldAddressU);
 		
 		btnBackClientU = new JButton("Atrás");
+		textFieldAddressU.setBounds(162, 190, 127, 20);
 		panelUpdateClient.add(btnBackClientU);
 		
 		/**
