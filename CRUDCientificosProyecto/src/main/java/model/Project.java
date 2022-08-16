@@ -10,7 +10,7 @@ public class Project {
 	public void tableStructureCreation(SQLConnection connection) {
 
 		String structure  = "create table projects ("
-				+ "	Id char(4),"
+				+ "	Id int,"
 				+ " name varchar(255),"
 				+ " hours int,"
 				+ " PRIMARY KEY (Id)"
@@ -33,7 +33,7 @@ public class Project {
 	 * @param DNI of the scientist from which you want to obtain the fields
 	 * @return the project that the select has returned
 	 */
-	public ResultSet selectOneProject(SQLConnection connection, char Id) {		
+	public ResultSet selectOneProject(SQLConnection connection, int Id) {		
 		String query = "select * from projects where Id='"+Id+"';";
 		return connection.getValues(query);
 	}
@@ -45,7 +45,7 @@ public class Project {
 	 * @param name name of the project
 	 * @param hours duration on hours of the project
 	 */
-	public void updateProject(SQLConnection connection,char Id, String name ,int hours) {		
+	public void updateProject(SQLConnection connection,int Id, String name ,int hours) {		
 		String query = "UPDATE projects set name='" + name + "', hours=" + hours+ " where Id='"+Id+"';";
 	    connection.insertData(query);
 	}
@@ -55,7 +55,7 @@ public class Project {
 	 * @param connection Connection with the database
 	 * @param Id of the project you want to delete
 	 */
-	public void deleteProject(SQLConnection connection, char Id) {
+	public void deleteProject(SQLConnection connection, int Id) {
 		String query = "delete from projects where Id="+Id+";";
 	    connection.insertData(query);
 	}
@@ -68,7 +68,7 @@ public class Project {
 	 * @param name name of the project
 	 * @param hours duration on hours of the project
 	 */
-	public void insertProject(SQLConnection connection, char Id ,String name, int hours  ) {
+	public void insertProject(SQLConnection connection, int Id ,String name, int hours  ) {
 		String query = "INSERT INTO projects (Id, name, hours ) VALUES ('"+Id+"','"+name+"',"+hours+");";
 	    connection.insertData(query);
 	}
