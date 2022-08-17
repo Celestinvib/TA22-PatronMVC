@@ -77,7 +77,7 @@ public class Client {
 	 * @param date date of the client
 	 */
 	public void insertClient(SQLConnection connection, String name ,String surname,String address, int DNI, String date ) {
-		String query = "INSERT INTO clients (name, surname, address, DNI, date) VALUES ('"+name+"','"+surname+"','"+address+"','"+DNI+"','"+date+ "')";
+		String query = "INSERT INTO clients (name, surname, address, DNI, date) VALUES ('"+name+"','"+surname+"','"+address+"','"+DNI+"','"+date+"')";
 	    connection.insertData(query);
 	}
 }

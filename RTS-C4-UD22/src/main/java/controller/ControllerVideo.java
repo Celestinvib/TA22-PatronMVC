@@ -35,7 +35,7 @@ public class ControllerVideo implements ActionListener{
 		view.getPanelUpdateVideo().setVisible(false);
 		view.getPanelCreateVideo().setVisible(false);
 		
-		//Sql connection & creation of the db and itsstructure
+		//Sql connection & creation of the db and its structure
 		conn = new SQLConnection();
 		conn.createDB("TA22");
 		video.tableStructureCreation(conn);

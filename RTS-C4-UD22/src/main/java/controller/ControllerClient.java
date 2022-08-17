@@ -55,13 +55,14 @@ public class ControllerClient{
 		model.setRowCount(0);
 		model = (DefaultTableModel) table.getModel();
 		int id;
-		String name, surname, address, date;
+		String name, surname, address, dni, date;
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
 				name = resultSet.getString("name");
 				surname = resultSet.getString("surname");
 				address = resultSet.getString("address");
+				dni = resultSet.getString("dni");
 				date = resultSet.getString("date");
 
 				model.addRow(new Object[] {id, name, surname, address, date});
@@ -155,8 +156,6 @@ public class ControllerClient{
 				String name = "";
 				String surname = "";
 				String address = "";
-				
-				//Not done
 				int dni = 0;
 				Timestamp date = null;
 				
