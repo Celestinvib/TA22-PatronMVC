@@ -43,11 +43,11 @@ public class SQLConnection {
 	* Method where the user enters the data of his server / sql and the connection is established
 	*/
 	public void makeConection() {
-	    String ip = JOptionPane.showInputDialog(null,"Introduce los datos de la conexión sql\nIp:"); 
+	    String ip = JOptionPane.showInputDialog(null,"Data to make the connection with sql\nIp:"); 
 
-	    String user = JOptionPane.showInputDialog(null,"Usuario: ");
+	    String user = JOptionPane.showInputDialog(null,"Username: ");
 
-	    String pass = JOptionPane.showInputDialog(null,"Contraseña: ");
+	    String pass = JOptionPane.showInputDialog(null,"Password: ");
 	    
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -66,7 +66,7 @@ public class SQLConnection {
 		
 		try {
 			connection.close();
-			JOptionPane.showMessageDialog(null, "Se ha finalizado la conexión con el servidor");
+			JOptionPane.showMessageDialog(null, "Se ha finalizado la conexiï¿½n con el servidor");
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(null, ex);
 		}

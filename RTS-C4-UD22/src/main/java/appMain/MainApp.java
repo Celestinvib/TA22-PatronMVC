@@ -1,13 +1,7 @@
 
 package appMain;
 	
-import view.Menu;
-
 import controller.Controller;
-import controller.ControllerClient;
-import model.Client;
-import model.Video;
-import view.View;
 
 public class MainApp {
 	
