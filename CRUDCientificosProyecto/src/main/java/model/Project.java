@@ -10,7 +10,7 @@ public class Project {
 	public void tableStructureCreation(SQLConnection connection) {
 
 		String structure  = "create table projects ("
-				+ "	Id int,"
+				+ "	Id int NOT NULL AUTO_INCREMENT,"
 				+ " name varchar(255),"
 				+ " hours int,"
 				+ " PRIMARY KEY (Id)"
@@ -64,12 +64,11 @@ public class Project {
 	/**
 	 * Method that insert a new project to the table projects
 	 * @param connection Connection with the database
-	 * @param Id Id of the project
 	 * @param name name of the project
 	 * @param hours duration on hours of the project
 	 */
-	public void insertProject(SQLConnection connection, int Id ,String name, int hours  ) {
-		String query = "INSERT INTO projects (Id, name, hours ) VALUES ('"+Id+"','"+name+"',"+hours+");";
+	public void insertProject(SQLConnection connection, String name, int hours  ) {
+		String query = "INSERT INTO projects (name, hours ) VALUES ('"+name+"',"+hours+");";
 	    connection.insertData(query);
 	}
 }

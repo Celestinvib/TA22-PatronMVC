@@ -4,9 +4,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -67,41 +70,149 @@ public class ControllerVideo implements ActionListener{
 		}
 	}
 	
-	@Override
-	public void actionPerformed(ActionEvent event) {
-		JButton b = (JButton) event.getSource();
-		int id;
-		switch(b.getName()) {
-		case "btnUpdate":
-			view.getPanelTable().setVisible(false);
-			view.getPanelUpdateClient().setVisible(true);
-			System.out.println("Update");
-			break;
-		case "btnCreate":
-			view.getPanelTable().setVisible(false);
-			view.getPanelCreateClient().setVisible(true);
-			System.out.println("Create");
-			break;
-		case "btnDelete":
-			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
-			System.out.println("Delete");
-			video.deleteVideo(conn, id);
-			break;
-		case "btnUpdateData":
-			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
-			video.updateVideo(conn, id, null, null, 0);
-			break;
-		case "btnCreateData":
-			id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
-			video.updateVideo(conn, id, null, null, 0);
-			break;
-		default:
-			System.out.println("Button not found.");
-			break;
-		}
+	public void buttonListeners() {
 		
+		/**
+		 * Opens Update panel
+		 */
+		view.getBtnUpdate().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(view.getTableVideo().getSelectedRow() != -1) {
+					view.getPanelTable().setVisible(false);
+					view.getPanelUpdateVideo().setVisible(true);
+				}
+			}
+		});
+
+		/**
+		 * Opens Create panel
+		 */
+		view.getBtnCreate().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelTable().setVisible(false);
+				view.getPanelCreateVideo().setVisible(true);
+			}
+		});
+
+		/**
+		 * Deletes the selected client
+		 */
+		view.getBtnDelete().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(view.getTableClients().getSelectedRow() != -1) {
+					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+						video.deleteVideo(conn, id);
+						loadTable(video.selectAllVideos(conn), view.getTableVideo());
+					}
+				}
+			}
+		});
 		
+		/**
+		 * Inserts a new client
+		 */
+		view.getBtnCreateClient().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String name = view.getTextFieldNameC().getText();
+				String surname = view.getTextFieldSurnameC().getText();
+				String address = view.getTextFieldAddressC().getText();
+				
+				//Not done
+				int dni = 0;
+				String date = LocalDateTime.now().toString();
+				
+				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
+					video.insertVideo(conn, name, surname, address, dni, date);
+					view.getPanelCreateClient().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Cliente creado.");
+				}
+				
+			}
+		});
+		
+		/**
+		 * Updates an existing client
+		 */
+		view.getBtnUpdateClient().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
+				
+				String name = "";
+				String surname = "";
+				String address = "";
+				int dni = 0;
+				Timestamp date = null;
+				
+				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
+					client.updateClient(conn, id, name, surname, address, dni, date);
+					view.getPanelCreateClient().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+				}
+				
+			}
+		});
+		
+		view.getBtnBack().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getFrame().setVisible(false);
+				menu.getFrame().setVisible(true);
+
+			}
+		});
+		
+		view.getBtnBackClientC().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelCreateClient().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getBtnBackClientU().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelUpdateClient().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getBtnBackVideosC().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getBtnBackVideosC().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		view.getbtnBackVideosU().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getbtnBackVideosU().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
 	}
+	
+}
 
 }
 

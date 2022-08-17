@@ -118,20 +118,20 @@ public class View extends JFrame{
 		panelTable.add(panelButtons, BorderLayout.SOUTH);
 		panelButtons.setLayout(new GridLayout(1, 0, 10, 0));
 		
-		btnBack = new JButton("Atrás");
+		btnBack = new JButton("Back");
 		panelButtons.add(btnBack);
 		
-		btnUpdate = new JButton("Actualizar");
+		btnUpdate = new JButton("Update");
 		panelButtons.add(btnUpdate);
 
-		btnDelete = new JButton("Borrar");
+		btnDelete = new JButton("Delete");
 		panelButtons.add(btnDelete);
 
-		btnCreate = new JButton("Crear");
+		btnCreate = new JButton("Create");
 		panelButtons.add(btnCreate);
 
 		tableClients = new JTable();
-		tableClients = new JTable(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "dni", "Date"}, 0));
+		tableClients = new JTable(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "DNI", "Date"}, 0));
 		tableClients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		tableVideo = new JTable();
@@ -151,26 +151,26 @@ public class View extends JFrame{
 		panelUpdateClient.setBounds(0, 0, 415, 240);
 		frame.getContentPane().add(panelUpdateClient);
 		
-		btnUpdateClientU = new JButton("Update Client");
-		btnUpdateClientU.setBounds(146, 154, 127, 23);
+		btnUpdateClientU = new JButton("Update");
+		btnUpdateClientU.setBounds(10, 210, 90, 20);
 		panelUpdateClient.add(btnUpdateClientU);
 		
 		textFieldNameU = new JTextField();
 		textFieldNameU.setColumns(10);
-		textFieldNameU.setBounds(162, 41, 127, 20);
+		textFieldNameU.setBounds(165, 44, 127, 20);
 		panelUpdateClient.add(textFieldNameU);
 		
 		lblClientNameU = new JLabel("Name:");
-		lblClientNameU.setBounds(125, 44, 38, 14);
+		lblClientNameU.setBounds(106, 44, 38, 14);
 		panelUpdateClient.add(lblClientNameU);
 		
 		lblClientSurnameU = new JLabel("Surname:");
-		lblClientSurnameU.setBounds(111, 72, 67, 14);
+		lblClientSurnameU.setBounds(106, 72, 67, 14);
 		panelUpdateClient.add(lblClientSurnameU);
 		
 		textFieldSurnameU = new JTextField();
 		textFieldSurnameU.setColumns(10);
-		textFieldSurnameU.setBounds(162, 72, 127, 20);
+		textFieldSurnameU.setBounds(165, 72, 127, 20);
 		panelUpdateClient.add(textFieldSurnameU);
 		
 		lblClientAddressU = new JLabel("Address:");
@@ -179,20 +179,20 @@ public class View extends JFrame{
 		
 		textFieldAddressU = new JTextField();
 		textFieldAddressU.setColumns(10);
-		textFieldAddressU.setBounds(162, 103, 127, 20);
+		textFieldAddressU.setBounds(165, 103, 127, 20);
 		panelUpdateClient.add(textFieldAddressU);
 		
 		lblClientDNIU = new JLabel("DNI:");
-		lblClientDNIU.setBounds(106, 103, 67, 14);
+		lblClientDNIU.setBounds(106, 133, 67, 14);
 		panelUpdateClient.add(lblClientDNIU);
 		
 		textFieldDNIU = new JTextField();
 		textFieldDNIU.setColumns(10);
-		textFieldDNIU.setBounds(162, 103, 127, 20);
+		textFieldDNIU.setBounds(165, 133, 127, 20);
 		panelUpdateClient.add(textFieldDNIU);
 		
-		btnBackClientU = new JButton("Return");
-		textFieldAddressU.setBounds(162, 190, 127, 20);
+		btnBackClientU = new JButton("Back");
+		btnBackClientU.setBounds(100, 210, 90, 20);
 		panelUpdateClient.add(btnBackClientU);
 		
 		/**
@@ -210,20 +210,20 @@ public class View extends JFrame{
 		
 		textFieldNameC = new JTextField();
 		textFieldNameC.setColumns(10);
-		textFieldNameC.setBounds(162, 41, 127, 20);
+		textFieldNameC.setBounds(165, 41, 127, 20);
 		panelCreateClient.add(textFieldNameC);
 		
 		lblFieldNameC = new JLabel("Name:");
-		lblFieldNameC.setBounds(125, 44, 38, 14);
+		lblFieldNameC.setBounds(106, 44, 38, 14);
 		panelCreateClient.add(lblFieldNameC);
 		
 		lblSurnameC = new JLabel("Surname:");
-		lblSurnameC.setBounds(111, 72, 67, 14);
+		lblSurnameC.setBounds(106, 72, 67, 14);
 		panelCreateClient.add(lblSurnameC);
 		
 		textFieldSurnameC = new JTextField();
 		textFieldSurnameC.setColumns(10);
-		textFieldSurnameC.setBounds(162, 72, 127, 20);
+		textFieldSurnameC.setBounds(165, 72, 127, 20);
 		panelCreateClient.add(textFieldSurnameC);
 		
 		lblAddressC = new JLabel("Address:");
@@ -232,29 +232,23 @@ public class View extends JFrame{
 		
 		textFieldAddressC = new JTextField();
 		textFieldAddressC.setColumns(10);
-		textFieldAddressC.setBounds(162, 103, 127, 20);
+		textFieldAddressC.setBounds(165, 103, 127, 20);
 		panelCreateClient.add(textFieldAddressC);
 		
 		lblClientDNIC = new JLabel("DNI:");
-		lblClientDNIC.setBounds(106, 103, 67, 14);
-		panelUpdateClient.add(lblClientDNIC);
+		lblClientDNIC.setBounds(106, 133, 67, 14);
+		panelCreateClient.add(lblClientDNIC);
 		
 		textFieldDNIC = new JTextField();
 		textFieldDNIC.setColumns(10);
-		textFieldDNIC.setBounds(162, 103, 127, 20);
-		panelUpdateClient.add(textFieldDNIC);
-		
-		panel = new JPanel();
-		panel.setBounds(10, 0, 395, 56);
-		panelCreateClient.add(panel);
-		panel.setLayout(new BorderLayout(0, 0));
+		textFieldDNIC.setBounds(165, 133, 127, 20);
+		panelCreateClient.add(textFieldDNIC);
 		
 		tableUpdate = new JTable();
 		panel.add(tableUpdate);
 		
-		btnBackClientC = new JButton("Return");
-		btnBackClientC.setSize(90, 20);
-		btnBackClientC.setLocation(30, 180);
+		btnBackClientC = new JButton("Back");
+		btnBackClientC.setBounds(100, 210, 90, 20);
 		panelCreateClient.add(btnBackClientC);
 		
 		/**
@@ -268,20 +262,20 @@ public class View extends JFrame{
 		
 		textFieldTitleC = new JTextField();
 		textFieldTitleC.setColumns(10);
-		textFieldTitleC.setBounds(162, 41, 127, 20);
+		textFieldTitleC.setBounds(165, 41, 127, 20);
 		panelCreateVideo.add(textFieldTitleC);
 		
 		lblTitleC = new JLabel("Title:");
-		lblTitleC.setBounds(125, 44, 38, 14);
+		lblTitleC.setBounds(106, 44, 38, 14);
 		panelCreateVideo.add(lblTitleC);
 		
 		lblDirectorC = new JLabel("Director:");
-		lblDirectorC.setBounds(111, 72, 67, 14);
+		lblDirectorC.setBounds(106, 72, 67, 14);
 		panelCreateVideo.add(lblDirectorC);
 		
 		textFieldDirectorC = new JTextField();
 		textFieldDirectorC.setColumns(10);
-		textFieldDirectorC.setBounds(162, 72, 127, 20);
+		textFieldDirectorC.setBounds(165, 72, 127, 20);
 		panelCreateVideo.add(textFieldDirectorC);
 		
 		lblClient_IdC = new JLabel("Client_Id:");
@@ -290,14 +284,15 @@ public class View extends JFrame{
 		
 		textFieldClient_IdC = new JTextField();
 		textFieldClient_IdC.setColumns(10);
-		textFieldClient_IdC.setBounds(162, 103, 127, 20);
+		textFieldClient_IdC.setBounds(165, 103, 127, 20);
 		panelCreateVideo.add(textFieldClient_IdC);
 		
 		btnCreateVideo = new JButton("Create Video");
-		btnCreateVideo.setBounds(146, 154, 127, 23);
+		btnCreateVideo.setBounds(10, 210, 90, 20);
 		panelCreateVideo.add(btnCreateVideo);
 		
-		btnBackVideosC = new JButton("Atrás");
+		btnBackVideosC = new JButton("Back");
+		btnBackVideosC.setBounds(100, 210, 90, 20);
 		panelCreateVideo.add(btnBackVideosC);
 		
 		/**
@@ -311,20 +306,20 @@ public class View extends JFrame{
 		
 		textFieldTitleU = new JTextField();
 		textFieldTitleU.setColumns(10);
-		textFieldTitleU.setBounds(162, 41, 127, 20);
+		textFieldTitleU.setBounds(165, 41, 127, 20);
 		panelUpdateVideo.add(textFieldTitleU);
 		
 		lblTitleU = new JLabel("Title:");
-		lblTitleU.setBounds(125, 44, 38, 14);
+		lblTitleU.setBounds(106, 44, 38, 14);
 		panelUpdateVideo.add(lblTitleU);
 		
 		lblDirectorU = new JLabel("Director:");
-		lblDirectorU.setBounds(111, 72, 67, 14);
+		lblDirectorU.setBounds(106, 72, 67, 14);
 		panelUpdateVideo.add(lblDirectorU);
 		
 		textFieldDirectorU = new JTextField();
 		textFieldDirectorU.setColumns(10);
-		textFieldDirectorU.setBounds(162, 72, 127, 20);
+		textFieldDirectorU.setBounds(165, 72, 127, 20);
 		panelUpdateVideo.add(textFieldDirectorU);
 		
 		lblClient_IdU = new JLabel("Client_Id:");
@@ -333,15 +328,15 @@ public class View extends JFrame{
 		
 		textFieldClient_IdU = new JTextField();
 		textFieldClient_IdU.setColumns(10);
-		textFieldClient_IdU.setBounds(162, 103, 127, 20);
+		textFieldClient_IdU.setBounds(165, 103, 127, 20);
 		panelUpdateVideo.add(textFieldClient_IdU);
 		
 		btnUpdateVideo = new JButton("Update Video");
-		btnUpdateVideo.setBounds(146, 154, 127, 23);
+		btnUpdateVideo.setBounds(10, 210, 90, 20);
 		panelUpdateVideo.add(btnUpdateVideo);
 		
-		btnBackVideosU = new JButton("Return");
-		btnBackVideosU.setBounds(146, 190, 127, 23);
+		btnBackVideosU = new JButton("Back");
+		btnBackVideosU.setBounds(100, 210, 90, 20);
 		panelUpdateVideo.add(btnBackVideosU);
 		
 	}
