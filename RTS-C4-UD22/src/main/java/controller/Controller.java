@@ -4,10 +4,6 @@ import view.Menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 import model.Client;
 import model.SQLConnection;
@@ -89,7 +85,7 @@ public class Controller {
 				menu.getFrame().setVisible(false);
 				tableShowed = table.Videos;
 				View view1 = new View();
-				ControllerVideo controllerVideo= new ControllerVideo(video, view1);
+				ControllerVideo controllerVideo= new ControllerVideo(video, view1, menu, conn);
 				controllerVideo.launchView();
 			}
 		});

@@ -55,7 +55,7 @@ public class ControllerClient{
 		model.setRowCount(0);
 		model = (DefaultTableModel) table.getModel();
 		int id;
-		String name, surname, address, dni, date;
+		String name, surname, address, dni, date; // DNI es int
 		try {
 			while(resultSet.next()) {
 				id = resultSet.getInt("id");
@@ -65,7 +65,7 @@ public class ControllerClient{
 				dni = resultSet.getString("dni");
 				date = resultSet.getString("date");
 
-				model.addRow(new Object[] {id, name, surname, address, date});
+				model.addRow(new Object[] {id, name, surname, address, dni, date});
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -193,24 +193,6 @@ public class ControllerClient{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				view.getPanelUpdateClient().setVisible(false);
-				view.getPanelTable().setVisible(true);
-			}
-		});
-		
-		view.getBtnBackVideosC().addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				view.getBtnBackVideosC().setVisible(false);
-				view.getPanelTable().setVisible(true);
-			}
-		});
-		
-		view.getbtnBackVideosU().addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				view.getbtnBackVideosU().setVisible(false);
 				view.getPanelTable().setVisible(true);
 			}
 		});

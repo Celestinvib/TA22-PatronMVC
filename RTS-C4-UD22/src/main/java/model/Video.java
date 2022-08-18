@@ -11,11 +11,11 @@ public class Video {
 	public void tableStructureCreation(SQLConnection connection) {				
 		String structure  = "create table videos ("
 				+ "	id int(11) NOT NULL AUTO_INCREMENT,"
-				+ "    title varchar(250) DEFAULT NULL,"
-				+ "    director varchar(250) DEFAULT NULL,"
-				+ "    cli_id int(11) DEFAULT NULL,"
-				+ "    PRIMARY KEY (id),"
-				+ "    CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES clients(id) ON DELETE SET NULL"
+				+ " title varchar(250) DEFAULT NULL,"
+				+ " director varchar(250) DEFAULT NULL,"
+				+ " cli_id int(11) DEFAULT NULL,"
+				+ " PRIMARY KEY (id),"
+				+ " CONSTRAINT clientes_fk FOREIGN KEY (cli_id) REFERENCES clients(id) ON DELETE SET NULL "
 				+ ");";
 		connection.insertData(structure);
 	}
@@ -50,8 +50,8 @@ public class Video {
 	 * @param director director of the video
 	 * @param cli_id  client owner of the video
 	 */	
-	public void insertVideo(SQLConnection connection,String title ,String director,int cli_id ) {			
-		String query = "INSERT INTO videos (title, director, cli_id) VALUES ('"+title+"','"+director+"',"+cli_id+");";
+	public void insertVideo(SQLConnection connection, String title, String director, int cli_id) {			
+		String query = "INSERT INTO videos (title, director, cli_id) VALUES ('"+title+"','"+director+"','"+cli_id+"');";
 	    connection.insertData(query);   
 	}
 	

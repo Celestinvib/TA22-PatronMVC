@@ -6,6 +6,10 @@ import java.sql.Timestamp;
 
 public class Client {
 	
+	/**
+	 * Method that creates the table structure of the table clients
+	 * @param connection Connection  with the database
+	 */
 	public void tableStructureCreation(SQLConnection connection) {
 
 		String structure  = "create table  clients ("
@@ -20,7 +24,8 @@ public class Client {
 		connection.insertData(structure);
 	}
 	
-	/**	that return all the clients stored in the database
+	/**	
+	 * Method that return all the clients stored in the database
 	 * @param connection Connection with the database
 	 * @return all the clients that the select has returned
 	 */
@@ -30,7 +35,7 @@ public class Client {
 	}
 	
 	/**
-	 * Method that return a video from the database
+	 * Method that return a client from the database
 	 * @param connection Connection with the database
 	 * @param id of the client from which you want to obtain the fields
 	 * @return
@@ -41,7 +46,7 @@ public class Client {
 	}
 	
 	/**
-	 * 
+	 * Method that updates a client from the database
 	 * @param connection Connection with the database
 	 * @param id id of the client
 	 * @param name new name of the client
@@ -68,7 +73,7 @@ public class Client {
 	
 	
 	/**
-	 * 
+	 * Method that insert a new client to the table clients
 	 * @param connection Connection with the database
 	 * @param name name of the client
 	 * @param surname surname of the client

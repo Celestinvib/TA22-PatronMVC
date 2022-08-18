@@ -4,10 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -15,17 +12,20 @@ import javax.swing.table.DefaultTableModel;
 
 import model.SQLConnection;
 import model.Video;
+import view.Menu;
 import view.View;
 
-public class ControllerVideo implements ActionListener{
+public class ControllerVideo {
 
 	private Video video;
 	private View view;
 	private SQLConnection conn;
+	private Menu menu;
 	
-	public ControllerVideo(Video video, View view) {
+	public ControllerVideo(Video video, View view, Menu menu, SQLConnection SqlCon) {
 		this.video = video;
 		this.view = view;
+		this.conn = SqlCon;
 	}
 	
 	public void launchView() {
@@ -37,18 +37,12 @@ public class ControllerVideo implements ActionListener{
 		view.getPanelCreateClient().setVisible(false);
 		view.getPanelUpdateVideo().setVisible(false);
 		view.getPanelCreateVideo().setVisible(false);
-		
-		//Sql connection & creation of the db and its structure
-		conn = new SQLConnection();
-		conn.createDB("TA22");
-		video.tableStructureCreation(conn);
-		video.tableStructureCreation(conn);
 	
 		view.getFrame().setVisible(true);
 		video.insertVideo(conn, "Russia rocks", "Putin", 0);
 
 		view.getTableClients().setVisible(false);
-		view.getTableVideo().setVisible(false);
+		view.getTableVideo().setVisible(true);
 		loadTable(video.selectAllVideos(conn), view.getTableVideo());
 	}
 	
@@ -99,7 +93,7 @@ public class ControllerVideo implements ActionListener{
 		});
 
 		/**
-		 * Deletes the selected client
+		 * Deletes the selected video
 		 */
 		view.getBtnDelete().addActionListener(new ActionListener() {
 
@@ -107,7 +101,7 @@ public class ControllerVideo implements ActionListener{
 			public void actionPerformed(ActionEvent arg0) {
 				if(view.getTableClients().getSelectedRow() != -1) {
 					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el video con id " + view.getTableVideo().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						video.deleteVideo(conn, id);
 						loadTable(video.selectAllVideos(conn), view.getTableVideo());
 					}
@@ -116,50 +110,45 @@ public class ControllerVideo implements ActionListener{
 		});
 		
 		/**
-		 * Inserts a new client
+		 * Inserts a new video
 		 */
-		view.getBtnCreateClient().addActionListener(new ActionListener() {
+		view.getBtnCreateVideo().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String name = view.getTextFieldNameC().getText();
-				String surname = view.getTextFieldSurnameC().getText();
-				String address = view.getTextFieldAddressC().getText();
+				String title = view.getTextFieldTitleC().getText();
+				String director = view.getTextFieldDirectorC().getText();
+				int cli_id = 0;
 				
-				//Not done
-				int dni = 0;
-				String date = LocalDateTime.now().toString();
-				
-				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
-					video.insertVideo(conn, name, surname, address, dni, date);
-					view.getPanelCreateClient().setVisible(false);
+				if(!(title.isEmpty() && director.isEmpty())) {
+					video.insertVideo(conn, title, director, cli_id);
+					view.getPanelCreateVideo().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente creado.");
+					JOptionPane.showMessageDialog(null, "Video creado.");
 				}
 				
 			}
 		});
 		
 		/**
-		 * Updates an existing client
+		 * Updates an existing video
 		 */
-		view.getBtnUpdateClient().addActionListener(new ActionListener() {
+		view.getBtnUpdateVideo().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
+				int id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
 				
-				String name = "";
-				String surname = "";
-				String address = "";
-				int dni = 0;
-				Timestamp date = null;
+				String title = "";
+				String director = "";
+				int cli_id = 0;
 				
-				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
-					client.updateClient(conn, id, name, surname, address, dni, date);
+				
+				if(!(title.isEmpty() && director.isEmpty())) {
+					video.updateVideo(conn, id, title, director, cli_id);
 					view.getPanelCreateClient().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+					JOptionPane.showMessageDialog(null, "Video updated.");
 				}
 				
 			}
@@ -171,25 +160,7 @@ public class ControllerVideo implements ActionListener{
 			public void actionPerformed(ActionEvent arg0) {
 				view.getFrame().setVisible(false);
 				menu.getFrame().setVisible(true);
-
-			}
-		});
-		
-		view.getBtnBackClientC().addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				view.getPanelCreateClient().setVisible(false);
-				view.getPanelTable().setVisible(true);
-			}
-		});
-		
-		view.getBtnBackClientU().addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				view.getPanelUpdateClient().setVisible(false);
-				view.getPanelTable().setVisible(true);
+				
 			}
 		});
 		
@@ -212,7 +183,5 @@ public class ControllerVideo implements ActionListener{
 		});
 	}
 	
-}
-
 }
 

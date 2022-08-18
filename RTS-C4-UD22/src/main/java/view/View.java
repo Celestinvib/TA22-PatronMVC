@@ -13,8 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 
 public class View extends JFrame{
 
@@ -32,8 +31,7 @@ public class View extends JFrame{
 	private JButton btnBack;
 	
 	private JTable tableClients;
-	
-	private JPanel panel;
+
 	private JTable tableUpdate;
 	
 
@@ -245,7 +243,7 @@ public class View extends JFrame{
 		panelCreateClient.add(textFieldDNIC);
 		
 		tableUpdate = new JTable();
-		panel.add(tableUpdate);
+		panelCreateClient.add(tableUpdate);
 		
 		btnBackClientC = new JButton("Back");
 		btnBackClientC.setBounds(100, 210, 90, 20);
@@ -578,8 +576,28 @@ public class View extends JFrame{
 		return btnBackClientC;
 	}
 	
-	
-	
-	
+	public JTextField getTextFieldTitleU() {
+		return textFieldTitleU;
+	}
+
+	public JTextField getTextFieldDirectorU() {
+		return textFieldDirectorU;
+	}
+
+	public JTextField getTextFieldClient_IdU() {
+		return textFieldClient_IdU;
+	}
+
+	public JTextField getTextFieldTitleC() {
+		return textFieldTitleC;
+	}
+
+	public JTextField getTextFieldDirectorC() {
+		return textFieldDirectorC;
+	}
+
+	public JTextField getTextFieldClient_IdC() {
+		return textFieldClient_IdC;
+	}	
 
 }
