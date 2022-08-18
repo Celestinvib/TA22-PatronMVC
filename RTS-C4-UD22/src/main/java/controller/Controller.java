@@ -49,7 +49,7 @@ public class Controller {
 	 * Method that creates the basic structure of this db and its structure
 	 */		
 	private void resetStructure() {
-		conn.createDB("TA22");
+		conn.createDB("TA22Ex02");
 		client.tableStructureCreation(conn);
 		
 		client.insertClient(conn, "Nico", "Basora", "C/Josep Fregos N33", 377566722,"2018-10-20");

@@ -39,7 +39,6 @@ public class ControllerVideo {
 		view.getPanelCreateVideo().setVisible(false);
 	
 		view.getFrame().setVisible(true);
-		video.insertVideo(conn, "Russia rocks", "Putin", 0);
 
 		view.getTableClients().setVisible(false);
 		view.getTableVideo().setVisible(true);
