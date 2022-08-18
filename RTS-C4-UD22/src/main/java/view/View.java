@@ -129,13 +129,13 @@ public class View extends JFrame{
 		panelButtons.add(btnCreate);
 
 		tableClients = new JTable();
-		tableClients = new JTable(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "DNI", "Date"}, 0));
+		//tableClients = new JTable(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "DNI", "Date"}, 0));
 		tableClients.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		tableVideo = new JTable();
 		tableVideo = new JTable(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
 		tableVideo.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
+		
 		panelTable.add(new JScrollPane(tableVideo), BorderLayout.NORTH);
 		JScrollPane scrollPane = new JScrollPane(tableClients);
 		panelTable.add(scrollPane, BorderLayout.NORTH);

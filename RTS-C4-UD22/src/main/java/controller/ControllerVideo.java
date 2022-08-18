@@ -42,10 +42,11 @@ public class ControllerVideo {
 
 		view.getTableClients().setVisible(false);
 		view.getTableVideo().setVisible(true);
-		loadTable(video.selectAllVideos(conn), view.getTableVideo());
+		loadTable(video.selectAllVideos(conn), view.getTableClients());
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
+		table.setModel(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();
 	      int id, cli_id;
 	      String title, director;
@@ -99,8 +100,8 @@ public class ControllerVideo {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(view.getTableClients().getSelectedRow() != -1) {
-					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el video con id " + view.getTableVideo().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					int id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el video con id " + view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						video.deleteVideo(conn, id);
 						loadTable(video.selectAllVideos(conn), view.getTableVideo());
 					}

@@ -47,10 +47,12 @@ public class ControllerClient{
 		view.getFrame().setVisible(true);
 				
 		loadTable(client.selectAllClients(conn), view.getTableClients());
+		
 	}
 	
 
 	private void loadTable(ResultSet resultSet, JTable table) {
+		table.setModel(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "DNI", "Date"}, 0));
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setRowCount(0);
 		model = (DefaultTableModel) table.getModel();
