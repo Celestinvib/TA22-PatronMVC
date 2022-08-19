@@ -120,7 +120,7 @@ public class ControllerVideo {
 			public void actionPerformed(ActionEvent arg0) {
 				String title = view.getTextFieldTitleC().getText();
 				String director = view.getTextFieldDirectorC().getText();
-				int cli_id = 0;
+				int cli_id = Integer.parseInt(view.getTextFieldClient_IdC().getText());
 				
 				if(!(title.isEmpty() && director.isEmpty())) {
 					video.insertVideo(conn, title, director, cli_id);
