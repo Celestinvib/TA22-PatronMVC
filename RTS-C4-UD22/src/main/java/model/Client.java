@@ -55,7 +55,7 @@ public class Client {
 	 * @param DNI new DNI of the client 
 	 * @param date new date of the client 
 	 */
-	public void updateClient(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, Timestamp date) {		
+	public void updateClient(SQLConnection connection, int id, String name ,String surname,String address,  int DNI, String date) {		
 		String query = "UPDATE clients set name='" + name + "', surname='" + surname + "' ,address='" + address + "' ,DNI='" + DNI + "' ,date='" + date
 				+ "' where id=" + id +";";
 	    connection.insertData(query);

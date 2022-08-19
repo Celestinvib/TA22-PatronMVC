@@ -655,6 +655,14 @@ public class View extends JFrame{
 	 */
 	public void setTextFieldDNIU(JTextField textFieldDNIU) {
 		this.textFieldDNIU = textFieldDNIU;
+	}
+
+	public JTextField getTextFieldDNIC() {
+		return textFieldDNIC;
+	}
+
+	public void setTextFieldDNIC(JTextField textFieldDNIC) {
+		this.textFieldDNIC = textFieldDNIC;
 	}	
 	
 	

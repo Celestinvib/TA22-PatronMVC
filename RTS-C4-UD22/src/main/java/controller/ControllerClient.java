@@ -88,6 +88,16 @@ public class ControllerClient{
 				if(view.getTableClients().getSelectedRow() != -1) {
 					view.getPanelTable().setVisible(false);
 					view.getPanelUpdateClient().setVisible(true);
+					
+					String name = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 1);
+					String surname = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 2);
+					String address = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 3);
+					String dni = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 4);
+					
+					view.getTextFieldNameU().setText(name);
+					view.getTextFieldSurnameU().setText(surname);
+					view.getTextFieldAddressU().setText(address);
+					view.getTextFieldDNIU().setText(dni);
 				}
 			}
 		});
@@ -133,14 +143,16 @@ public class ControllerClient{
 				String address = view.getTextFieldAddressC().getText();
 				
 				//Not done
-				int dni = 0;
+				int dni = Integer.parseInt(view.getTextFieldDNIC().getText());
 				String date = LocalDateTime.now().toString();
 				
 				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
 					client.insertClient(conn, name, surname, address, dni, date);
+					JOptionPane.showMessageDialog(null, "Cliente creado.");
+					loadTable(client.selectAllClients(conn), view.getTableClients());
 					view.getPanelCreateClient().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente creado.");
+					
 				}
 				
 			}
@@ -155,17 +167,19 @@ public class ControllerClient{
 			public void actionPerformed(ActionEvent arg0) {
 				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
 				
-				String name = "";
-				String surname = "";
-				String address = "";
-				int dni = 0;
-				Timestamp date = null;
+				String name = view.getTextFieldNameU().getText();
+				String surname = view.getTextFieldSurnameU().getText();
+				String address = view.getTextFieldAddressU().getText();
+				int dni = Integer.parseInt(view.getTextFieldDNIU().getText());
+				String date = LocalDateTime.now().toString();;
 				
 				if(!(name.isEmpty() && surname.isEmpty() && address.isEmpty())) {
 					client.updateClient(conn, id, name, surname, address, dni, date);
+					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+					loadTable(client.selectAllClients(conn), view.getTableClients());
 					view.getPanelCreateClient().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+					
 				}
 				
 			}
