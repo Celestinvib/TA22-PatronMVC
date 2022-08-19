@@ -329,7 +329,7 @@ public class View extends JFrame{
 		textFieldClient_IdU.setBounds(165, 103, 127, 20);
 		panelUpdateVideo.add(textFieldClient_IdU);
 		
-		btnUpdateVideo = new JButton("Update Video");
+		btnUpdateVideo = new JButton("Update");
 		btnUpdateVideo.setBounds(10, 210, 90, 20);
 		panelUpdateVideo.add(btnUpdateVideo);
 		
