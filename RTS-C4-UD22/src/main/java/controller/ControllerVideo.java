@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 
 import model.SQLConnection;
@@ -32,7 +32,7 @@ public class ControllerVideo {
 	public void launchView() {
 		view.getFrame().setTitle("Videos");
 		view.pack();
-		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		view.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
 		view.getPanelUpdateClient().setVisible(false);
 		view.getPanelCreateClient().setVisible(false);
@@ -42,14 +42,14 @@ public class ControllerVideo {
 		
 		view.getFrame().setVisible(true);
 
-		view.getTableClients().setVisible(false);
-		view.getTableVideo().setVisible(true);
 		loadTable(video.selectAllVideos(conn), view.getTableClients());
 	}
 	
 	private void loadTable(ResultSet resultSet, JTable table) {
 		table.setModel(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();
+	      model.setRowCount(0);
+	      model = (DefaultTableModel) table.getModel();
 	      int id, cli_id;
 	      String title, director;
 		try {
@@ -75,9 +75,17 @@ public class ControllerVideo {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(view.getTableVideo().getSelectedRow() != -1) {
+				if(view.getTableClients().getSelectedRow() != -1) {
 					view.getPanelTable().setVisible(false);
 					view.getPanelUpdateVideo().setVisible(true);
+					
+					String title = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 1);
+					String director = (String) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 2);
+					int cli_id = (int) view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 3);
+					
+					view.getTextFieldTitleU().setText(title);
+					view.getTextFieldDirectorU().setText(director);
+					view.getTextFieldClient_IdU().setText(cli_id+"");
 				}
 			}
 		});
@@ -91,6 +99,10 @@ public class ControllerVideo {
 			public void actionPerformed(ActionEvent arg0) {
 				view.getPanelTable().setVisible(false);
 				view.getPanelCreateVideo().setVisible(true);
+				
+				view.getTextFieldTitleC().setText("");
+				view.getTextFieldDirectorC().setText("");
+				view.getTextFieldClient_IdC().setText("");
 			}
 		});
 
@@ -102,10 +114,10 @@ public class ControllerVideo {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(view.getTableClients().getSelectedRow() != -1) {
-					int id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el video con id " + view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar el video con id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						video.deleteVideo(conn, id);
-						loadTable(video.selectAllVideos(conn), view.getTableVideo());
+						loadTable(video.selectAllVideos(conn), view.getTableClients());
 					}
 				}
 			}
@@ -122,11 +134,15 @@ public class ControllerVideo {
 				String director = view.getTextFieldDirectorC().getText();
 				int cli_id = Integer.parseInt(view.getTextFieldClient_IdC().getText());
 				
-				if(!(title.isEmpty() && director.isEmpty())) {
+				if(!(title.isEmpty() && director.isEmpty() && view.getTextFieldClient_IdC().getText().isEmpty())) {
 					video.insertVideo(conn, title, director, cli_id);
-					view.getPanelCreateVideo().setVisible(false);
-					view.getPanelTable().setVisible(true);
 					JOptionPane.showMessageDialog(null, "Video creado.");
+					view.getPanelCreateVideo().setVisible(false);
+					loadTable(video.selectAllVideos(conn), view.getTableClients());
+					view.getPanelTable().setVisible(true);
+					
+					
+					
 				}
 				
 			}
@@ -139,18 +155,21 @@ public class ControllerVideo {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.getTableVideo().getValueAt(view.getTableVideo().getSelectedRow(), 0);
+				int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
 				
-				String title = "";
-				String director = "";
-				int cli_id = 0;
+				String title = view.getTextFieldTitleU().getText();
+				String director = view.getTextFieldDirectorU().getText();
+				int cli_id = Integer.parseInt(view.getTextFieldClient_IdU().getText());
 				
 				
-				if(!(title.isEmpty() && director.isEmpty())) {
+				
+				if(!(title.isEmpty() && director.isEmpty() && view.getTextFieldClient_IdU().getText().isEmpty())) {
 					video.updateVideo(conn, id, title, director, cli_id);
-					view.getPanelCreateClient().setVisible(false);
-					view.getPanelTable().setVisible(true);
 					JOptionPane.showMessageDialog(null, "Video updated.");
+					view.getPanelUpdateClient().setVisible(false);
+					loadTable(video.selectAllVideos(conn), view.getTableClients());
+					view.getPanelTable().setVisible(true);
+					
 				}
 				
 			}
