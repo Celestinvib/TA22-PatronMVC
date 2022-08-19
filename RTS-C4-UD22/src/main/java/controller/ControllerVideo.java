@@ -175,6 +175,9 @@ public class ControllerVideo {
 			}
 		});
 		
+		/**
+		 * "Closes" the videos table data menu panel and opens the main menu
+		 */
 		view.getBtnBack().addActionListener(new ActionListener() {
 
 			@Override
@@ -185,20 +188,26 @@ public class ControllerVideo {
 			}
 		});
 		
+		/**
+		 * "Closes" the panel of create video and opens the video table data menu panel
+		 */
 		view.getBtnBackVideosC().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.getBtnCreateVideo().setVisible(false);
+				view.getPanelCreateVideo().setVisible(false);
 				view.getPanelTable().setVisible(true);
 			}
 		});
 		
+		/**
+		 * "Closes" the panel of update video and opens the video table data menu panel
+		 */
 		view.getbtnBackVideosU().addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.getBtnUpdateVideo().setVisible(false);
+				view.getPanelUpdateClient().setVisible(false);
 				view.getPanelTable().setVisible(true);
 			}
 		});

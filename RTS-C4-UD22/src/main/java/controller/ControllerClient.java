@@ -34,7 +34,7 @@ public class ControllerClient{
 	}
 	
 	public void launchView() {
-		view.getFrame().setTitle("Clientes");
+		view.getFrame().setTitle("Clients");
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
@@ -185,6 +185,9 @@ public class ControllerClient{
 			}
 		});
 		
+		/**
+		 * "Closes" the clients table data menu panel and opens the main menu
+		 */
 		view.getBtnBack().addActionListener(new ActionListener() {
 
 			@Override
@@ -195,6 +198,9 @@ public class ControllerClient{
 			}
 		});
 		
+		/**
+		 * "Closes" the panel of create client and opens the video table data menu panel
+		 */
 		view.getBtnBackClientC().addActionListener(new ActionListener() {
 
 			@Override
@@ -204,6 +210,9 @@ public class ControllerClient{
 			}
 		});
 		
+		/**
+		 * "Closes" the panel of update client and opens the video table data menu panel
+		 */
 		view.getBtnBackClientU().addActionListener(new ActionListener() {
 
 			@Override
