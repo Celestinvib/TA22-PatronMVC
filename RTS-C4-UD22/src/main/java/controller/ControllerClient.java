@@ -34,7 +34,7 @@ public class ControllerClient{
 	}
 	
 	public void launchView() {
-		view.getFrame().setTitle("Clientes");
+		view.getFrame().setTitle("Clients");
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
@@ -87,6 +87,12 @@ public class ControllerClient{
 			public void actionPerformed(ActionEvent arg0) {
 				if(view.getTableClients().getSelectedRow() != -1) {
 					view.getPanelTable().setVisible(false);
+/*			
+ 					//Gets the data of the selected client
+					view.getTextFieldNameU().setText(null);
+					view.getTextFieldSurnameU().setText(null);
+					view.getTextFieldAddressU().setText(null);
+*/					
 					view.getPanelUpdateClient().setVisible(true);
 				}
 			}
@@ -113,7 +119,7 @@ public class ControllerClient{
 			public void actionPerformed(ActionEvent arg0) {
 				if(view.getTableClients().getSelectedRow() != -1) {
 					int id = (int)view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the client with the id " + view.getTableClients().getValueAt(view.getTableClients().getSelectedRow(), 0), " ?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						client.deleteClient(conn, id);
 						loadTable(client.selectAllClients(conn), view.getTableClients());
 					}
@@ -132,7 +138,6 @@ public class ControllerClient{
 				String surname = view.getTextFieldSurnameC().getText();
 				String address = view.getTextFieldAddressC().getText();
 				
-				//Not done
 				int dni = 0;
 				String date = LocalDateTime.now().toString();
 				
@@ -140,7 +145,7 @@ public class ControllerClient{
 					client.insertClient(conn, name, surname, address, dni, date);
 					view.getPanelCreateClient().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente creado.");
+					JOptionPane.showMessageDialog(null, "Customer created.");
 				}
 				
 			}
@@ -165,7 +170,7 @@ public class ControllerClient{
 					client.updateClient(conn, id, name, surname, address, dni, date);
 					view.getPanelCreateClient().setVisible(false);
 					view.getPanelTable().setVisible(true);
-					JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+					JOptionPane.showMessageDialog(null, "Updated client.");
 				}
 				
 			}
