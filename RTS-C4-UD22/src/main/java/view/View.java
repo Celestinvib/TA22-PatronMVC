@@ -285,7 +285,7 @@ public class View extends JFrame{
 		textFieldClient_IdC.setBounds(165, 103, 127, 20);
 		panelCreateVideo.add(textFieldClient_IdC);
 		
-		btnCreateVideo = new JButton("Create Video");
+		btnCreateVideo = new JButton("Create");
 		btnCreateVideo.setBounds(10, 210, 90, 20);
 		panelCreateVideo.add(btnCreateVideo);
 		
