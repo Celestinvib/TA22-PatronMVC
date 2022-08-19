@@ -25,11 +25,12 @@ public class ControllerVideo {
 	public ControllerVideo(Video video, View view, Menu menu, SQLConnection SqlCon) {
 		this.video = video;
 		this.view = view;
+		this.menu = menu;
 		this.conn = SqlCon;
 	}
 	
 	public void launchView() {
-		view.setTitle("Video");
+		view.getFrame().setTitle("Videos");
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
@@ -37,7 +38,8 @@ public class ControllerVideo {
 		view.getPanelCreateClient().setVisible(false);
 		view.getPanelUpdateVideo().setVisible(false);
 		view.getPanelCreateVideo().setVisible(false);
-	
+		buttonListeners();
+		
 		view.getFrame().setVisible(true);
 
 		view.getTableClients().setVisible(false);
@@ -168,7 +170,7 @@ public class ControllerVideo {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.getBtnBackVideosC().setVisible(false);
+				view.getBtnCreateVideo().setVisible(false);
 				view.getPanelTable().setVisible(true);
 			}
 		});
@@ -177,7 +179,7 @@ public class ControllerVideo {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				view.getbtnBackVideosU().setVisible(false);
+				view.getBtnUpdateVideo().setVisible(false);
 				view.getPanelTable().setVisible(true);
 			}
 		});
