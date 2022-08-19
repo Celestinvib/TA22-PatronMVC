@@ -34,7 +34,7 @@ public class ControllerClient{
 	}
 	
 	public void launchView() {
-		view.setTitle("Clientes");
+		view.getFrame().setTitle("Clientes");
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
