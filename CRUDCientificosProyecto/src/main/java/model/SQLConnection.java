@@ -42,18 +42,18 @@ public class SQLConnection {
 	* Method where the user enters the data of his server / sql and the connection is established
 	*/
 	public void makeConection() {
-	    String ip = JOptionPane.showInputDialog(null,"Introduce los datos de la conexión sql\nIp:"); 
+	    String ip = JOptionPane.showInputDialog(null,"Data to make the connection with sql\nIp:"); 
 
-	    String user = JOptionPane.showInputDialog(null,"Usuario: ");
+	    String user = JOptionPane.showInputDialog(null,"Username: ");
 
-	    String pass = JOptionPane.showInputDialog(null,"Contraseña: ");
+	    String pass = JOptionPane.showInputDialog(null,"Password: ");
 	    
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://"+ip+":3306?useTimezone=true&serverTimezone=UTC",user,pass);
-			JOptionPane.showMessageDialog(null,"Conectado al Sevidor");				
+			JOptionPane.showMessageDialog(null,"Connected to the Server");				
 		}catch (SQLException | ClassNotFoundException ex ) {
-			System.out.println("No se ha podido conectar con mi base de datos");
+			System.out.println("Could not connect to my database");
 			System.out.println(ex);
 		}
 	}
@@ -65,7 +65,7 @@ public class SQLConnection {
 		
 		try {
 			connection.close();
-			JOptionPane.showMessageDialog(null, "Se ha finalizado la conexión con el servidor");
+			JOptionPane.showMessageDialog(null, "The connection to the server has been terminated");
 		} catch (SQLException ex) {
 			JOptionPane.showMessageDialog(null, ex);
 		}
@@ -86,7 +86,7 @@ public class SQLConnection {
 			Statement st = connection.createStatement();
 			st.executeUpdate(Query);
 			db = name;
-			System.out.println("\nSe ha creado la base de datos "+name+ " de forma exitosa");					
+			System.out.println("\nThe database "+name+ " has been created successfully");					
 		}catch (SQLException ex) {
 			
 		}
@@ -129,10 +129,9 @@ public class SQLConnection {
 			
 			Statement st = connection.createStatement();
 			st.executeUpdate(SQLquery);
-			System.out.println("\nSentencia ejecutada exitosamente");			
+			System.out.println("\nStatement executed successfully");			
 		}catch (SQLException ex) {
 			JOptionPane.showMessageDialog(null,"Error: "+ex.getMessage());
 		}
 	}
-
 }
