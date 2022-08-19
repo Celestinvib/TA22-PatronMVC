@@ -29,6 +29,10 @@ public class ControllerVideo {
 		this.conn = SqlCon;
 	}
 	
+	
+	/**
+	 * Hides any other panel or view and makes and displays the main table
+	 */
 	public void launchView() {
 		view.getFrame().setTitle("Videos");
 		view.pack();
@@ -45,6 +49,11 @@ public class ControllerVideo {
 		loadTable(video.selectAllVideos(conn), view.getTableClients());
 	}
 	
+	/**
+	 * Sets table model and inserts the data in the table
+	 * @param resultSet
+	 * @param table
+	 */
 	private void loadTable(ResultSet resultSet, JTable table) {
 		table.setModel(new DefaultTableModel(new Object[] {"ID", "Title", "Director", "Cli_id"}, 0));
 	      DefaultTableModel model = (DefaultTableModel) table.getModel();

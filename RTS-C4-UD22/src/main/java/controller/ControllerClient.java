@@ -4,7 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 import javax.swing.JFrame;
@@ -33,6 +32,9 @@ public class ControllerClient{
 		
 	}
 	
+	/**
+	 * Hides any other panel or view and makes and displays the main table
+	 */
 	public void launchView() {
 		view.getFrame().setTitle("Clients");
 		view.pack();
@@ -50,7 +52,11 @@ public class ControllerClient{
 		
 	}
 	
-
+	/**
+	 * Sets table model and inserts the data in the table
+	 * @param resultSet
+	 * @param table
+	 */
 	private void loadTable(ResultSet resultSet, JTable table) {
 		table.setModel(new DefaultTableModel(new Object[] {"ID", "Name", "Surname", "Address", "DNI", "Date"}, 0));
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
