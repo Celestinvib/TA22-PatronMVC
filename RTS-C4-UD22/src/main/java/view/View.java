@@ -576,6 +576,7 @@ public class View extends JFrame{
 		return btnBackClientC;
 	}
 	
+
 	public JTextField getTextFieldTitleU() {
 		return textFieldTitleU;
 	}
@@ -598,6 +599,65 @@ public class View extends JFrame{
 
 	public JTextField getTextFieldClient_IdC() {
 		return textFieldClient_IdC;
+	}
+
+	/**
+	 * @return the textFieldNameU
+	 */
+	public JTextField getTextFieldNameU() {
+		return textFieldNameU;
+	}
+
+	/**
+	 * @param textFieldNameU the textFieldNameU to set
+	 */
+	public void setTextFieldNameU(JTextField textFieldNameU) {
+		this.textFieldNameU = textFieldNameU;
+	}
+
+	/**
+	 * @return the textFieldAddressU
+	 */
+	public JTextField getTextFieldAddressU() {
+		return textFieldAddressU;
+	}
+
+	/**
+	 * @param textFieldAddressU the textFieldAddressU to set
+	 */
+	public void setTextFieldAddressU(JTextField textFieldAddressU) {
+		this.textFieldAddressU = textFieldAddressU;
+	}
+
+	/**
+	 * @return the textFieldSurnameU
+	 */
+	public JTextField getTextFieldSurnameU() {
+		return textFieldSurnameU;
+	}
+
+	/**
+	 * @param textFieldSurnameU the textFieldSurnameU to set
+	 */
+	public void setTextFieldSurnameU(JTextField textFieldSurnameU) {
+		this.textFieldSurnameU = textFieldSurnameU;
+	}
+
+	/**
+	 * @return the textFieldDNIU
+	 */
+	public JTextField getTextFieldDNIU() {
+		return textFieldDNIU;
+	}
+
+	/**
+	 * @param textFieldDNIU the textFieldDNIU to set
+	 */
+	public void setTextFieldDNIU(JTextField textFieldDNIU) {
+		this.textFieldDNIU = textFieldDNIU;
 	}	
+	
+	
+	
 
 }
