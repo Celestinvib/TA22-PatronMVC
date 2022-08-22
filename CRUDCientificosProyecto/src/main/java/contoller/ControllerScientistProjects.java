@@ -77,5 +77,3 @@ import view.View;
 			 
 		}
 	}
-
-}
