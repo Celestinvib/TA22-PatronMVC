@@ -46,7 +46,7 @@ public class View  extends JFrame {
 	private JTextField textFieldHoursU;
 	private JButton btnBackProjectU;
 	
-	// Create projects
+	//  Create projects
 	private JPanel panelCreateProject;
 	private JButton btnCreateProject;
 	private JLabel lblProjectNameC;
