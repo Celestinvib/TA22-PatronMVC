@@ -15,6 +15,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class View  extends JFrame {
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
 	 * Attributes
 	 */
 	private JFrame frame;
@@ -51,11 +55,27 @@ public class View  extends JFrame {
 	private JTextField textFieldHoursC;
 	private JButton btnBackProjectC;
 	
+	// Create Scientist
+	private JPanel panelCreateScientist;
+	private JButton btnCreateScientist;
+	private JLabel lblScientistDNIC;
+	private JTextField textFieldDNIC;
+	private JLabel lblScientistNameC;
+	private JTextField textFieldScientistNameC;
+	private JButton btnBackScientistC;
+	
+	// Update Scientist
+	private JPanel panelUpdateScientist;
+	private JButton btnUpdateScientist;
+	private JLabel lblScientistNameU;
+	private JTextField textFieldScientistNameU;
+	private JButton btnBackScientistU;
+	
 	// Create ScientistProject
 	private JPanel panelCreateScientistProject;
 	private JButton btnCreateScientistProject;
 	private JLabel lblScientistProjectDNIC;
-	private JTextField textFieldDNIC;
+	private JTextField textFieldDNIeC;
 	private JLabel lblScientistProjectIdC;
 	private JTextField textFieldIdC;
 	private JButton btnBackScientistProjectC;
@@ -69,6 +89,7 @@ public class View  extends JFrame {
 	private JTextField textFieldIdU;		
 	private JButton btnBackScientistProjectU;
 		
+	
 	
 	public View ()  {
 		/**
@@ -190,6 +211,66 @@ public class View  extends JFrame {
 		panelCreateProject.add(btnBackProjectC);
 		
 		/**
+		 * Update panel Scientist
+		 */
+		
+		panelUpdateScientist = new JPanel();
+		panelUpdateScientist.setLayout(null);
+		panelUpdateScientist.setBounds(0, 0, 415, 240);
+		frame.getContentPane().add(panelUpdateScientist);
+	
+		btnUpdateScientist = new JButton("Update");
+		btnUpdateScientist.setBounds(100, 210, 90, 20);
+		panelUpdateScientist.add(btnUpdateScientist);
+	
+		lblScientistNameU = new JLabel("Name and Surname:");
+		lblScientistNameU.setBounds(106, 72, 67, 14);
+		panelUpdateScientist.add(lblScientistNameU);
+	
+		textFieldScientistNameU = new JTextField();
+		textFieldScientistNameU.setColumns(10);
+		textFieldScientistNameU.setBounds(165, 72, 127, 20);
+		panelUpdateScientist.add(textFieldScientistNameU);
+	
+		btnBackScientistU = new JButton("Back");
+		btnBackScientistU.setBounds(10, 210, 90, 20);
+		panelUpdateScientist.add(btnBackScientistU);
+		
+		/**
+		 * Create panel for Scientist
+		 */
+		panelCreateScientist = new JPanel();
+		panelCreateScientist.setLayout(null);
+		panelCreateScientist.setBounds(0, 0, 415, 240);
+		frame.getContentPane().add(panelCreateScientist);
+	
+		btnCreateScientist = new JButton("Create");
+		btnCreateScientist.setBounds(100, 210, 90, 20);
+		panelCreateScientist.add(btnCreateScientist);
+		
+		lblScientistDNIC = new JLabel("DNI:");
+		lblScientistDNIC.setBounds(106, 44, 38, 14);
+		panelCreateScientist.add(lblScientistDNIC);
+	
+		textFieldDNIC = new JTextField();
+		textFieldDNIC.setColumns(10);
+		textFieldDNIC.setBounds(165, 44, 127, 20);
+		panelCreateScientist.add(textFieldDNIC);
+	
+		lblScientistNameC = new JLabel("Name and Surname:");
+		lblScientistNameC.setBounds(106, 72, 67, 14);
+		panelCreateScientist.add(lblScientistNameC);
+	
+		textFieldScientistNameC = new JTextField();
+		textFieldScientistNameC.setColumns(10);
+		textFieldScientistNameC.setBounds(165, 72, 127, 20);
+		panelCreateScientist.add(textFieldScientistNameC);
+	
+		btnBackScientistC = new JButton("Back");
+		btnBackScientistC.setBounds(10, 210, 90, 20);
+		panelCreateScientist.add(btnBackScientistC);
+		
+		/**
 		 * Create panel ScientistProject
 		 */
 	
@@ -206,10 +287,10 @@ public class View  extends JFrame {
 		lblScientistProjectDNIC.setBounds(106, 44, 38, 14);
 		panelCreateScientistProject.add(lblScientistProjectDNIC);
 	
-		textFieldDNIC = new JTextField();
-		textFieldDNIC.setColumns(10);
-		textFieldDNIC.setBounds(165, 44, 127, 20);
-		panelCreateScientistProject.add(textFieldDNIC);
+		textFieldDNIeC = new JTextField();
+		textFieldDNIeC.setColumns(10);
+		textFieldDNIeC.setBounds(165, 44, 127, 20);
+		panelCreateScientistProject.add(textFieldDNIeC);
 	
 		lblScientistProjectIdC = new JLabel("Id:");
 		lblScientistProjectIdC.setBounds(106, 72, 67, 14);
@@ -331,4 +412,90 @@ public class View  extends JFrame {
 	public JTable getTableScientistsProjects() {
 		return tableScientistsProjects;
 	}
+
+	/**
+	 * @return the panelCreateScientist
+	 */
+	public JPanel getPanelCreateScientist() {
+		return panelCreateScientist;
+	}
+
+	/**
+	 * @return the lblScientistDNIC
+	 */
+	public JLabel getLblScientistDNIC() {
+		return lblScientistDNIC;
+	}
+
+	/**
+	 * @return the textFieldDNIC
+	 */
+	public JTextField getTextFieldDNIC() {
+		return textFieldDNIC;
+	}
+
+	/**
+	 * @return the lblScientistNameC
+	 */
+	public JLabel getLblScientistNameC() {
+		return lblScientistNameC;
+	}
+
+	/**
+	 * @return the textFieldScientistNameC
+	 */
+	public JTextField getTextFieldScientistNameC() {
+		return textFieldScientistNameC;
+	}
+
+	/**
+	 * @return the btnBackScientistC
+	 */
+	public JButton getBtnBackScientistC() {
+		return btnBackScientistC;
+	}
+
+	/**
+	 * @return the panelUpdateScientist
+	 */
+	public JPanel getPanelUpdateScientist() {
+		return panelUpdateScientist;
+	}
+
+	/**
+	 * @return the lblScientistNameU
+	 */
+	public JLabel getLblScientistNameU() {
+		return lblScientistNameU;
+	}
+
+	/**
+	 * @return the textFieldScientistNameU
+	 */
+	public JTextField getTextFieldScientistNameU() {
+		return textFieldScientistNameU;
+	}
+
+	/**
+	 * @return the btnBackScientistU
+	 */
+	public JButton getBtnBackScientistU() {
+		return btnBackScientistU;
+	}
+
+	/**
+	 * @return the btnCreateScientist
+	 */
+	public JButton getBtnCreateScientist() {
+		return btnCreateScientist;
+	}
+
+	/**
+	 * @return the btnUpdateScientist
+	 */
+	public JButton getBtnUpdateScientist() {
+		return btnUpdateScientist;
+	}
+	
+	
 }
