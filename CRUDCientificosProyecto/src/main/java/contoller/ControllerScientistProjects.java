@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -73,7 +75,137 @@ import view.View;
 		 * Method gets all the buttons of the menu that we need a listener and adds it
 		 */	
 		public void buttonListeners() {
+			/**
+			 * Opens Update panel
+			 */
+			view.getBtnUpdate().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(view.getTableScientistsProjects().getSelectedRow() != -1) {
+						view.getPanelTable().setVisible(false);
+						view.getPanelUpdateScientist().setVisible(true);
+						
+						String DNI = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 1);
+						String Id = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 2);
+						
+						view.getTextFieldDNIeC().setText(DNI);
+						view.getTextFieldIdC().setText(Id);
+
+					}
+				}
+			});
+
+			/**
+			 * Opens Create panel
+			 */
+			view.getBtnCreate().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					view.getPanelTable().setVisible(false);
+					view.getPanelCreateScientist().setVisible(true);
+				}
+			});
+
+			/**
+			 * Deletes the selected scientists projects
+			 */
+			view.getBtnDelete().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					if(view.getTableScientists().getSelectedRow() != -1) {
+						int id = (int)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+						if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+							scientistsProjects.deleteScientistsProjects(conn, id);
+							loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
+						}
+					}
+				}
+			});
 			
-			 
+			/**
+			 * Inserts a new scientists projects
+			 */
+			view.getBtnCreateScientistProject().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					String DNI = view.getTextFieldNameC().getText();
+					String Id = view.getTextFieldDNIC().getText();
+					
+					if(!(DNI.isEmpty() && Id.isEmpty())) {
+						scientistsProjects.insertScientistsProject(conn, DNI, Id);
+						JOptionPane.showMessageDialog(null, "Cliente creado.");
+						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
+						view.getPanelCreateScientist().setVisible(false);
+						view.getPanelTable().setVisible(true);
+						
+					}
+					
+				}
+			});
+			
+			/**
+			 * Updates an existing scientists projects
+			 */
+			view.getBtnUpdateScientistProject().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					int id = (int)view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 0);
+					
+					String DNI = view.getTextFieldNameC().getText();
+					String Id = view.getTextFieldDNIC().getText();
+					
+					if(!(DNI.isEmpty() && Id.isEmpty())) {
+						scientistsProjects.updateScientistsProjects(conn, DNI, Id);
+						JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
+						view.getPanelCreateScientist().setVisible(false);
+						view.getPanelTable().setVisible(true);
+						
+					}
+					
+				}
+			});
+			
+			/**
+			 * "Closes" the scientists projects table data menu panel and opens the main menu
+			 */
+			view.getBtnBack().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					view.getFrame().setVisible(false);
+					menu.getFrame().setVisible(true);
+
+				}
+			});
+			
+			/**
+			 * "Closes" the panel of create scientists projects and opens the video table data menu panel
+			 */
+			view.getBtnBackScientistProjectC().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					view.getPanelCreateScientist().setVisible(false);
+					view.getPanelTable().setVisible(true);
+				}
+			});
+			
+			/**
+			 * "Closes" the panel of update scientists projects and opens the video table data menu panel
+			 */
+			view.getBtnBackScientistProjectU().addActionListener(new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					view.getPanelUpdateScientist().setVisible(false);
+					view.getPanelTable().setVisible(true);
+				}
+			}); 
 		}
 	}

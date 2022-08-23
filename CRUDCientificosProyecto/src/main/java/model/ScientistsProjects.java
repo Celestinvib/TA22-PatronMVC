@@ -21,7 +21,7 @@ public class ScientistsProjects {
 	 * @param connection Connection with the database
 	 * @return all the scientists_projects that the select has returned
 	 */
-	public ResultSet selectAllScientisProjects(SQLConnection connection) {		
+	public ResultSet selectAllScientistsProjects(SQLConnection connection) {		
 		String query = "select * from scientists_projects;";
 		return connection.getValues(query);
 	}
@@ -32,7 +32,7 @@ public class ScientistsProjects {
 	 * @param Id
 	 * @return the scientists_projects that the select has returned
 	 */
-	public ResultSet selectOneScientistsProjects(SQLConnection connection, int Id) {		
+	public ResultSet selectOneScientistsProjects(SQLConnection connection, String Id) {		
 		String query = "select * from scientists_projects where Id='"+Id+"';";
 		return connection.getValues(query);
 	}
@@ -44,8 +44,8 @@ public class ScientistsProjects {
 	 * @param name
 	 * @param hours
 	 */
-	public void updateScientistsProjects(SQLConnection connection, int Id, String scientist, int project) {		
-		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + " where Id='"+Id+"';";
+	public void updateScientistsProjects(SQLConnection connection, String scientist, String project) {		
+		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + "';";
 	    connection.insertData(query);
 	}
 	
@@ -54,7 +54,7 @@ public class ScientistsProjects {
 	 * @param connection
 	 * @param Id
 	 */
-	public void deleteScientistsProjects(SQLConnection connection, int Id) {
+	public void deleteScientistsProjects(SQLConnection connection, String Id) {
 		String query = "delete from scientists_projects where Id="+Id+";";
 	    connection.insertData(query);
 	}

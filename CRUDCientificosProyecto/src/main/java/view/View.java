@@ -496,6 +496,131 @@ public class View  extends JFrame {
 	public JButton getBtnUpdateScientist() {
 		return btnUpdateScientist;
 	}
+
+	public JPanel getPanelCreateScientistProject() {
+		return panelCreateScientistProject;
+	}
+
+	public void setPanelCreateScientistProject(JPanel panelCreateScientistProject) {
+		this.panelCreateScientistProject = panelCreateScientistProject;
+	}
+
+	public JButton getBtnCreateScientistProject() {
+		return btnCreateScientistProject;
+	}
+
+	public void setBtnCreateScientistProject(JButton btnCreateScientistProject) {
+		this.btnCreateScientistProject = btnCreateScientistProject;
+	}
+
+	public JButton getBtnBackScientistProjectC() {
+		return btnBackScientistProjectC;
+	}
+
+	public void setBtnBackScientistProjectC(JButton btnBackScientistProjectC) {
+		this.btnBackScientistProjectC = btnBackScientistProjectC;
+	}
+
+	public JPanel getPanelUpdateScientistProject() {
+		return panelUpdateScientistProject;
+	}
+
+	public void setPanelUpdateScientistProject(JPanel panelUpdateScientistProject) {
+		this.panelUpdateScientistProject = panelUpdateScientistProject;
+	}
+
+	public JButton getBtnUpdateScientistProject() {
+		return btnUpdateScientistProject;
+	}
+
+	public void setBtnUpdateScientistProject(JButton btnUpdateScientistProject) {
+		this.btnUpdateScientistProject = btnUpdateScientistProject;
+	}
+
+	public JButton getBtnBackScientistProjectU() {
+		return btnBackScientistProjectU;
+	}
+
+	public void setBtnBackScientistProjectU(JButton btnBackScientistProjectU) {
+		this.btnBackScientistProjectU = btnBackScientistProjectU;
+	}
+
+	public void setTableScientistsProjects(JTable tableScientistsProjects) {
+		this.tableScientistsProjects = tableScientistsProjects;
+	}
+
+	public JTextField getTextFieldNameU() {
+		return textFieldNameU;
+	}
+
+	public void setTextFieldNameU(JTextField textFieldNameU) {
+		this.textFieldNameU = textFieldNameU;
+	}
+
+	public JTextField getTextFieldNameC() {
+		return textFieldNameC;
+	}
+
+	public void setTextFieldNameC(JTextField textFieldNameC) {
+		this.textFieldNameC = textFieldNameC;
+	}
+
+	public JLabel getLblScientistProjectDNIC() {
+		return lblScientistProjectDNIC;
+	}
+
+	public void setLblScientistProjectDNIC(JLabel lblScientistProjectDNIC) {
+		this.lblScientistProjectDNIC = lblScientistProjectDNIC;
+	}
+
+	public JLabel getLblScientistProjectIdC() {
+		return lblScientistProjectIdC;
+	}
+
+	public void setLblScientistProjectIdC(JLabel lblScientistProjectIdC) {
+		this.lblScientistProjectIdC = lblScientistProjectIdC;
+	}
+
+	public JTextField getTextFieldIdC() {
+		return textFieldIdC;
+	}
+
+	public void setTextFieldIdC(JTextField textFieldIdC) {
+		this.textFieldIdC = textFieldIdC;
+	}
+
+	public JLabel getLblScientistProjectDNIU() {
+		return lblScientistProjectDNIU;
+	}
+
+	public void setLblScientistProjectDNIU(JLabel lblScientistProjectDNIU) {
+		this.lblScientistProjectDNIU = lblScientistProjectDNIU;
+	}
+
+	public JLabel getLblScientistProjectIdU() {
+		return lblScientistProjectIdU;
+	}
+
+	public void setLblScientistProjectIdU(JLabel lblScientistProjectIdU) {
+		this.lblScientistProjectIdU = lblScientistProjectIdU;
+	}
+
+	public JTextField getTextFieldIdU() {
+		return textFieldIdU;
+	}
+
+	public void setTextFieldIdU(JTextField textFieldIdU) {
+		this.textFieldIdU = textFieldIdU;
+	}
+
+	public JTextField getTextFieldDNIeC() {
+		return textFieldDNIeC;
+	}
+
+	public void setTextFieldDNIeC(JTextField textFieldDNIeC) {
+		this.textFieldDNIeC = textFieldDNIeC;
+	}
+	
 	
 	
 }
