@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -35,15 +36,15 @@ public class ControllerProject {
 		view.pack();
 		view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		view.setLocationRelativeTo(null);
-//		view.getPanelUpdateClient().setVisible(false);
-//		view.getPanelCreateClient().setVisible(false);
-//		view.getPanelUpdateVideo().setVisible(false);
-//		view.getPanelCreateVideo().setVisible(false);
+		view.getPanelUpdateScientist().setVisible(false);
+		view.getPanelCreateScientist().setVisible(false);
+		view.getPanelUpdateScientist().setVisible(false);
+		view.getPanelCreateScientist().setVisible(false);
 		buttonListeners();
 		 
-//		view.getFrame().setVisible(true);
-				
-//		loadTable(project.selectAllProjects(conn), view.getTableProjects());
+		view.getFrame().setVisible(true);
+		
+		loadTable(project.selectAllProjects(conn), view.getTableProjects());
 	}
 	
 
@@ -75,6 +76,140 @@ public class ControllerProject {
 	 */	
 	public void buttonListeners() {
 		
+		/**
+		 * Opens Update panel
+		 */
+		view.getBtnUpdate().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(view.getTableProjects().getSelectedRow() != -1) {
+					view.getPanelTable().setVisible(false);
+					view.getPanelUpdateProject().setVisible(true); 
+					
+					String name = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
+					String hours = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
+					
+					 //Change from here <----------- /change names of textFields and make setters)
+					view.getTextFieldScientistNameU().setText(name);
+					
+				}
+			}
+		});
+
+		/**
+		 * Opens Create panel
+		 */
+		view.getBtnCreate().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelTable().setVisible(false);
+				view.getPanelCreateProject().setVisible(true);
+			}
+		});
+
+		/**
+		 * Deletes the selected project
+		 */
+		view.getBtnDelete().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(view.getTableScientists().getSelectedRow() != -1) {
+					int id =   (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the project with id " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), " ?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+						project.deleteProject(conn, id);
+						loadTable(project.selectAllProjects(conn), view.getTableProjects());
+					}
+				}
+			}
+		});
+		
+		/**
+		 * Inserts a new project
+		 */
+		view.getBtnCreateProject().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				String name = view.getTextFieldScientistNameC().getText();
+//				int hours = (int)view.getTextFieldDNIC().getText();
+//				
+//				
+//				if(!(name.isEmpty() && dni.isEmpty())) {
+//					project.insertProject(conn, name, hours);
+//					JOptionPane.showMessageDialog(null, "Project created.");
+//				    loadTable(project.selectAllProjects(conn), view.getTableProjects());
+//					view.getPanelCreateProject().setVisible(false);
+//					view.getPanelTable().setVisible(true);
+//					
+//				}
+				
+			}
+		});
+		
+		/**
+		 * Updates an existing project
+		 */
+		view.getBtnUpdateProject().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String dni = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+				
+//				String name = view.getTextFieldScientistNameU().getText();
+//				
+//				if(!(name.isEmpty() && dni.isEmpty())) {
+//					project.updateScientist(conn, name, hours);
+//					JOptionPane.showMessageDialog(null, "Project updated.");
+//					loadTable(project.selectAllProjects(conn), view.getTableProjects());
+//					view.getPanelUpdateProject().setVisible(false);
+//					view.getPanelTable().setVisible(true);
+//					
+//				}
+				
+			}
+		});
+		
+		/**
+		 * "Closes" the project table data menu panel and opens the main menu
+		 */
+		view.getBtnBack().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getFrame().setVisible(false);
+				menu.getFrame().setVisible(true);
+
+			}
+		});
+		
+		/**
+		 * "Closes" the panel of create project and opens the project table data menu panel
+		 */
+		view.getBtnBackProjectC().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelCreateProject().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+		
+		/**
+		 * "Closes" the panel of update project and opens the video table data menu panel
+		 */
+		view.getBtnBackProjectU().addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				view.getPanelUpdateProject().setVisible(false);
+				view.getPanelTable().setVisible(true);
+			}
+		});
+	}		
 		 
-	}
 }
+
