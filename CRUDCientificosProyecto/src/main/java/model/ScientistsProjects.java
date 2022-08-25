@@ -12,8 +12,8 @@ public class ScientistsProjects {
 				+ "(ID int auto_increment, "
 				+ "Scientist VARCHAR(8), "
 				+ "Project int, "
-				+ "CONSTRAINT FK_DNISciPro FOREIGN KEY (Scientist) REFERENCES Scientist(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
-				+ "CONSTRAINT FK_IDSciPro FOREIGN KEY (Project) REFERENCES Project (Id) ON DELETE CASCADE ON UPDATE CASCADE, "
+				+ "CONSTRAINT FK_DNISciPro FOREIGN KEY (Scientist) REFERENCES scientists(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
+				+ "CONSTRAINT FK_IDSciPro FOREIGN KEY (Project) REFERENCES projects (Id) ON DELETE CASCADE ON UPDATE CASCADE, "
 				+ "PRIMARY KEY (ID)"
 				+ ");";
 		connection.insertData(structure);
