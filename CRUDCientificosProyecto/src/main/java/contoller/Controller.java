@@ -19,7 +19,8 @@ public class Controller {
 	
 	public enum table {
 	    Projects,
-	    Scientists
+	    Scientists,
+	    ScientistsProjects
 	}
 
 	public table tableShowed;
@@ -49,7 +50,7 @@ public class Controller {
 	 * Method that creates the basic structure of this db and its structure
 	 */		
 	private void resetStructure() {
-		conn.createDB("TA22-ScientistProjects");
+		conn.createDB("TA22");
 		project.tableStructureCreation(conn);
 		
 		project.insertProject(conn, "Project 01", 3);
@@ -61,8 +62,7 @@ public class Controller {
 		scientist.insertScientist(conn, "77789567", "Antonio Lopez");
 		
 		scientistsProjects.tableStructureCreation(conn);
-		scientistsProjects.insertScientistsProject(conn, null, null);  //project may be int?
-
+		scientistsProjects.insertScientistsProject(conn, "12345678", 1); 
 	}
 	
 	/**
@@ -88,10 +88,21 @@ public class Controller {
 				menu.getFrame().setVisible(false);
 				tableShowed = table.Scientists;
 				View view1 = new View();
-				ControllerScientist controllerScientist= new ControllerScientist();	//arguments left
+				ControllerScientist controllerScientist= new ControllerScientist();	
 				controllerScientist.launchView();
 			}
 		});
+		
+		menu.getBtnScientistsProjects().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				menu.getFrame().setVisible(false);
+				tableShowed = table.ScientistsProjects;
+				View view1 = new View();
+//				ControllerScientistProjects controllerScientist= new ControllerScientistProjects();
+//				controllerScientist.launchView();
+			}
+		});		
 		
 		menu.getBtnRestartDb().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {			

@@ -17,6 +17,7 @@ public class Menu extends JFrame {
 	private JButton btnScientists;
 	private JButton btnProjects;
 	private JButton btnRestartDb;
+	private JButton btnScientistsProjects;
 	
 	public Menu () {
 		 /* Window frame*/
@@ -132,6 +133,21 @@ public class Menu extends JFrame {
 	public void setBtnRestartDb(JButton btnRestartDb) {
 		this.btnRestartDb = btnRestartDb;
 	}
+
+	/**
+	 * @return the btnScientistsProjects
+	 */
+	public JButton getBtnScientistsProjects() {
+		return btnScientistsProjects;
+	}
+
+	/**
+	 * @param btnScientistsProjects the btnScientistsProjects to set
+	 */
+	public void setBtnScientistsProjects(JButton btnScientistsProjects) {
+		this.btnScientistsProjects = btnScientistsProjects;
+	}
+	
 	
 
 	
