@@ -81,12 +81,12 @@ import view.View;
 				
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					if(view.getTableScientistsProjects().getSelectedRow() != -1) {
+					if(view.getTableProjects().getSelectedRow() != -1) {
 						view.getPanelTable().setVisible(false);
 						view.getPanelCreateScientistProject().setVisible(true);
 						
-						String DNI = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 1);
-						String Id = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 2);
+						String DNI = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
+						String Id = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 						
 						view.getTextFieldDNIeC().setText(DNI);
 						view.getTextFieldIdC().setText(Id);
@@ -114,11 +114,11 @@ import view.View;
 
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					if(view.getTableScientists().getSelectedRow() != -1) {
-						int Id = (int)view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 0);
-						if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the client with ID: " + view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 0), "ARE YOU SURE?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					if(view.getTableProjects().getSelectedRow() != -1) {
+						int Id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
+						if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the client with ID: " + view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0), "ARE YOU SURE?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 							scientistsProjects.deleteScientistsProjects(conn, Id);
-							loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientistsProjects());
+							loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						}
 					}
 				}
@@ -137,7 +137,7 @@ import view.View;
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.insertScientistsProject(conn, DNI, Integer.parseInt(Id));
 						JOptionPane.showMessageDialog(null, "Client created.");
-						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientistsProjects());
+						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						view.getPanelCreateScientistProject().setVisible(false);
 						view.getPanelTable().setVisible(true);
 						
@@ -153,7 +153,7 @@ import view.View;
 
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					int id = (int)view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 0);
+					int id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
 					
 					String DNI = view.getTextFieldNameC().getText();
 					String Id = view.getTextFieldDNIC().getText();
@@ -161,7 +161,7 @@ import view.View;
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.updateScientistsProjects(conn, DNI, Integer.parseInt(Id));
 						JOptionPane.showMessageDialog(null, "Cliente updated.");
-						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientistsProjects());
+						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						view.getPanelCreateScientistProject().setVisible(false);
 						view.getPanelTable().setVisible(true);
 						
