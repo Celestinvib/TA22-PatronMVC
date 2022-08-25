@@ -209,8 +209,8 @@ public class View  extends JFrame {
 		btnUpdateScientist.setBounds(100, 210, 90, 20);
 		panelUpdateScientist.add(btnUpdateScientist);
 	
-		lblScientistNameU = new JLabel("Name and Surname:");
-		lblScientistNameU.setBounds(106, 72, 67, 14);
+		lblScientistNameU = new JLabel("NameSurnames:");
+		lblScientistNameU.setBounds(50, 72, 140, 14);
 		panelUpdateScientist.add(lblScientistNameU);
 	
 		textFieldScientistNameU = new JTextField();
@@ -243,8 +243,8 @@ public class View  extends JFrame {
 		textFieldDNIC.setBounds(165, 44, 127, 20);
 		panelCreateScientist.add(textFieldDNIC);
 	
-		lblScientistNameC = new JLabel("Name and Surname:");
-		lblScientistNameC.setBounds(106, 72, 67, 14);
+		lblScientistNameC = new JLabel("NameSurnames:");
+		lblScientistNameC.setBounds(50, 72, 140, 14);
 		panelCreateScientist.add(lblScientistNameC);
 	
 		textFieldScientistNameC = new JTextField();
