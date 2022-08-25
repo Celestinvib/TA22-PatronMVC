@@ -2,7 +2,6 @@ package appMain;
 
 import contoller.Controller;
 
-//import controller.Controller;
 
 public class App 
 {

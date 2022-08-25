@@ -28,6 +28,7 @@ public class Controller {
 	public Controller() {
 		this.project = new Project();
 		this.scientist = new Scientist();
+		this.scientistsProjects = new ScientistsProjects();
 	}
 	
 	public void launchView() {
@@ -87,8 +88,8 @@ public class Controller {
 				
 				menu.getFrame().setVisible(false);
 				tableShowed = table.Scientists;
-				View view1 = new View();
-				ControllerScientist controllerScientist= new ControllerScientist();	
+				View view = new View();
+				ControllerScientist controllerScientist= new ControllerScientist(scientist, view ,conn, menu);	
 				controllerScientist.launchView();
 			}
 		});
@@ -98,9 +99,9 @@ public class Controller {
 				
 				menu.getFrame().setVisible(false);
 				tableShowed = table.ScientistsProjects;
-				View view1 = new View();
-//				ControllerScientistProjects controllerScientist= new ControllerScientistProjects();
-//				controllerScientist.launchView();
+				View view = new View();
+				ControllerScientistProjects controllerScientist= new ControllerScientistProjects(scientistsProjects, view ,menu, conn);
+				controllerScientist.launchView();
 			}
 		});		
 		

@@ -54,7 +54,7 @@ public class Menu extends JFrame {
 		btnRestartDb.setBounds(10, 227, 116, 23);
 		panelMenu.add(btnRestartDb);
 		
-		JButton btnScientistsProjects = new JButton("ScientistsProjects");
+		btnScientistsProjects = new JButton("ScientistsProjects");
 		btnScientistsProjects.setBounds(137, 152, 149, 23);
 		panelMenu.add(btnScientistsProjects);
 		
