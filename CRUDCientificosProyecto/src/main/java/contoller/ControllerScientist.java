@@ -59,7 +59,7 @@ public class ControllerScientist {
 		 
 		view.getFrame().setVisible(true);
 				
-		loadTable(scientist.selectAllScientists(conn), view.getTableScientists());
+		loadTable(scientist.selectAllScientists(conn), view.getTableProjects());
 		
 	}
 	
@@ -97,11 +97,11 @@ public class ControllerScientist {
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(view.getTableScientists().getSelectedRow() != -1) {
+				if(view.getTableProjects().getSelectedRow() != -1) {
 					view.getPanelTable().setVisible(false);
 					view.getPanelUpdateScientist().setVisible(true);
 					
-					String name = (String) view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 1);
+					String name = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
 					
 					view.getTextFieldScientistNameU().setText(name);
 				}
@@ -127,11 +127,11 @@ public class ControllerScientist {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(view.getTableScientists().getSelectedRow() != -1) {
-					String id = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al scientiste con dni " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+				if(view.getTableProjects().getSelectedRow() != -1) {
+					String id = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
+					if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al scientiste con dni " + view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						scientist.deleteScientist(conn, id);
-						loadTable(scientist.selectAllScientists(conn), view.getTableScientists());
+						loadTable(scientist.selectAllScientists(conn), view.getTableProjects());
 					}
 				}
 			}
@@ -151,7 +151,7 @@ public class ControllerScientist {
 				if(!(name.isEmpty() && dni.isEmpty())) {
 					scientist.insertScientist(conn, dni, name);
 					JOptionPane.showMessageDialog(null, "Scientist creado.");
-					loadTable(scientist.selectAllScientists(conn), view.getTableScientists());
+					loadTable(scientist.selectAllScientists(conn), view.getTableProjects());
 					view.getPanelCreateScientist().setVisible(false);
 					view.getPanelTable().setVisible(true);
 					
@@ -167,14 +167,14 @@ public class ControllerScientist {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String dni = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+				String dni = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
 				
 				String name = view.getTextFieldScientistNameU().getText();
 				
 				if(!(name.isEmpty() && dni.isEmpty())) {
 					scientist.updateScientist(conn, dni, name);
 					JOptionPane.showMessageDialog(null, "Scientiste actualizado.");
-					loadTable(scientist.selectAllScientists(conn), view.getTableScientists());
+					loadTable(scientist.selectAllScientists(conn), view.getTableProjects());
 					view.getPanelCreateScientist().setVisible(false);
 					view.getPanelTable().setVisible(true);
 					

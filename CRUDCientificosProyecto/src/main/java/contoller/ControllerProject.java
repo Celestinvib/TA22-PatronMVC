@@ -115,9 +115,9 @@ public class ControllerProject {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if(view.getTableScientists().getSelectedRow() != -1) {
+				if(view.getTableProjects().getSelectedRow() != -1) {
 					int id =   (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
-					if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the project with id " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), " ?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the project with id " + view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0), " ?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 						project.deleteProject(conn, id);
 						loadTable(project.selectAllProjects(conn), view.getTableProjects());
 					}
@@ -156,9 +156,9 @@ public class ControllerProject {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				int id = (int)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+				int id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
 				String name = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);			
-				String hours = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 2);
+				String hours = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 				
 				if(!(name.isEmpty() && hours.isEmpty())) {
 					project.updateProject(conn, id, name, Integer.parseInt(hours));
