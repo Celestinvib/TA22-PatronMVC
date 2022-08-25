@@ -159,8 +159,8 @@ public class ControllerProject {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
-				String name = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);			
-				String hours = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
+				String name = view.getTextFieldProjectNameU().getText();
+				String hours = view.getTextFieldProjectHoursU().getText();
 				
 				if(!(name.isEmpty() && hours.isEmpty())) {
 					project.updateProject(conn, id, name, Integer.parseInt(hours));
