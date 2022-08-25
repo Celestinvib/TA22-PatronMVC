@@ -620,6 +620,90 @@ public class View  extends JFrame {
 	public void setTextFieldDNIeC(JTextField textFieldDNIeC) {
 		this.textFieldDNIeC = textFieldDNIeC;
 	}
+
+	/**
+	 * @return the panelUpdateProject
+	 */
+	public JPanel getPanelUpdateProject() {
+		return panelUpdateProject;
+	}
+
+	/**
+	 * @param panelUpdateProject the panelUpdateProject to set
+	 */
+	public void setPanelUpdateProject(JPanel panelUpdateProject) {
+		this.panelUpdateProject = panelUpdateProject;
+	}
+
+	/**
+	 * @return the panelCreateProject
+	 */
+	public JPanel getPanelCreateProject() {
+		return panelCreateProject;
+	}
+
+	/**
+	 * @param panelCreateProject the panelCreateProject to set
+	 */
+	public void setPanelCreateProject(JPanel panelCreateProject) {
+		this.panelCreateProject = panelCreateProject;
+	}
+
+	/**
+	 * @return the btnUpdateProject
+	 */
+	public JButton getBtnUpdateProject() {
+		return btnUpdateProject;
+	}
+
+	/**
+	 * @param btnUpdateProject the btnUpdateProject to set
+	 */
+	public void setBtnUpdateProject(JButton btnUpdateProject) {
+		this.btnUpdateProject = btnUpdateProject;
+	}
+
+	/**
+	 * @return the btnBackProjectU
+	 */
+	public JButton getBtnBackProjectU() {
+		return btnBackProjectU;
+	}
+
+	/**
+	 * @param btnBackProjectU the btnBackProjectU to set
+	 */
+	public void setBtnBackProjectU(JButton btnBackProjectU) {
+		this.btnBackProjectU = btnBackProjectU;
+	}
+
+	/**
+	 * @return the btnCreateProject
+	 */
+	public JButton getBtnCreateProject() {
+		return btnCreateProject;
+	}
+
+	/**
+	 * @param btnCreateProject the btnCreateProject to set
+	 */
+	public void setBtnCreateProject(JButton btnCreateProject) {
+		this.btnCreateProject = btnCreateProject;
+	}
+
+	/**
+	 * @return the btnBackProjectC
+	 */
+	public JButton getBtnBackProjectC() {
+		return btnBackProjectC;
+	}
+
+	/**
+	 * @param btnBackProjectC the btnBackProjectC to set
+	 */
+	public void setBtnBackProjectC(JButton btnBackProjectC) {
+		this.btnBackProjectC = btnBackProjectC;
+	}
 	
 	
 	
