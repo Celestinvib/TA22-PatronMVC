@@ -39,18 +39,18 @@ public class View  extends JFrame {
 	private JPanel panelUpdateProject;
 	private JButton btnUpdateProject;
 	private JLabel lblProjectNameU;
-	private JTextField textFieldNameU;
+	private JTextField textFieldProjectNameU;
 	private JLabel lblProjectHoursU;
-	private JTextField textFieldHoursU;
+	private JTextField textFieldProjectHoursU;
 	private JButton btnBackProjectU;
 	
 	//  Create projects
 	private JPanel panelCreateProject;
 	private JButton btnCreateProject;
 	private JLabel lblProjectNameC;
-	private JTextField textFieldNameC;
+	private JTextField textFieldProjectNameC;
 	private JLabel lblProjectHoursC;
-	private JTextField textFieldHoursC;
+	private JTextField textFieldProjectHoursC;
 	private JButton btnBackProjectC;
 	
 	// Create Scientist
@@ -142,19 +142,19 @@ public class View  extends JFrame {
 		lblProjectNameU.setBounds(106, 44, 38, 14);
 		panelUpdateProject.add(lblProjectNameU);
 		
-		textFieldNameU = new JTextField();
-		textFieldNameU.setColumns(10);
-		textFieldNameU.setBounds(165, 44, 127, 20);
-		panelUpdateProject.add(textFieldNameU);
+		textFieldProjectNameU = new JTextField();
+		textFieldProjectNameU.setColumns(10);
+		textFieldProjectNameU.setBounds(165, 44, 127, 20);
+		panelUpdateProject.add(textFieldProjectNameU);
 		
 		lblProjectHoursU = new JLabel("Hours:");
 		lblProjectHoursU.setBounds(106, 72, 67, 14);
 		panelUpdateProject.add(lblProjectHoursU);
 		
-		textFieldHoursU = new JTextField();
-		textFieldHoursU.setColumns(10);
-		textFieldHoursU.setBounds(165, 72, 127, 20);
-		panelUpdateProject.add(textFieldHoursU);
+		textFieldProjectHoursU = new JTextField();
+		textFieldProjectHoursU.setColumns(10);
+		textFieldProjectHoursU.setBounds(165, 72, 127, 20);
+		panelUpdateProject.add(textFieldProjectHoursU);
 		
 		btnBackProjectU = new JButton("Back");
 		btnBackProjectU.setBounds(10, 210, 90, 20);
@@ -178,19 +178,19 @@ public class View  extends JFrame {
 		lblProjectNameC.setBounds(106, 44, 38, 14);
 		panelCreateProject.add(lblProjectNameC);
 	
-		textFieldNameC = new JTextField();
-		textFieldNameC.setColumns(10);
-		textFieldNameC.setBounds(165, 44, 127, 20);
-		panelCreateProject.add(textFieldNameC);
+		textFieldProjectNameC = new JTextField();
+		textFieldProjectNameC.setColumns(10);
+		textFieldProjectNameC.setBounds(165, 44, 127, 20);
+		panelCreateProject.add(textFieldProjectNameC);
 	
 		lblProjectHoursC = new JLabel("Hours:");
 		lblProjectHoursC.setBounds(106, 72, 67, 14);
 		panelCreateProject.add(lblProjectHoursC);
 	
-		textFieldHoursC = new JTextField();
-		textFieldHoursC.setColumns(10);
-		textFieldHoursC.setBounds(165, 72, 127, 20);
-		panelCreateProject.add(textFieldHoursC);
+		textFieldProjectHoursC = new JTextField();
+		textFieldProjectHoursC.setColumns(10);
+		textFieldProjectHoursC.setBounds(165, 72, 127, 20);
+		panelCreateProject.add(textFieldProjectHoursC);
 	
 		btnBackProjectC = new JButton("Back");
 		btnBackProjectC.setBounds(10, 210, 90, 20);
@@ -519,19 +519,19 @@ public class View  extends JFrame {
 	}
 
 	public JTextField getTextFieldNameU() {
-		return textFieldNameU;
+		return textFieldProjectNameU;
 	}
 
 	public void setTextFieldNameU(JTextField textFieldNameU) {
-		this.textFieldNameU = textFieldNameU;
+		this.textFieldProjectNameU = textFieldNameU;
 	}
 
 	public JTextField getTextFieldNameC() {
-		return textFieldNameC;
+		return textFieldProjectNameC;
 	}
 
 	public void setTextFieldNameC(JTextField textFieldNameC) {
-		this.textFieldNameC = textFieldNameC;
+		this.textFieldProjectNameC = textFieldNameC;
 	}
 
 	public JLabel getLblScientistProjectDNIC() {
@@ -675,60 +675,62 @@ public class View  extends JFrame {
 	}
 
 	/**
-	 * @return the lblProjectHoursU
+	 * @return the textFieldProjectNameU
 	 */
-	public JLabel getLblProjectHoursU() {
-		return lblProjectHoursU;
+	public JTextField getTextFieldProjectNameU() {
+		return textFieldProjectNameU;
 	}
 
 	/**
-	 * @param lblProjectHoursU the lblProjectHoursU to set
+	 * @param textFieldProjectNameU the textFieldProjectNameU to set
 	 */
-	public void setLblProjectHoursU(JLabel lblProjectHoursU) {
-		this.lblProjectHoursU = lblProjectHoursU;
+	public void setTextFieldProjectNameU(JTextField textFieldProjectNameU) {
+		this.textFieldProjectNameU = textFieldProjectNameU;
 	}
 
 	/**
-	 * @return the lblProjectNameC
+	 * @return the textFieldProjectHoursU
 	 */
-	public JLabel getLblProjectNameC() {
-		return lblProjectNameC;
+	public JTextField getTextFieldProjectHoursU() {
+		return textFieldProjectHoursU;
 	}
 
 	/**
-	 * @param lblProjectNameC the lblProjectNameC to set
+	 * @param textFieldProjectHoursU the textFieldProjectHoursU to set
 	 */
-	public void setLblProjectNameC(JLabel lblProjectNameC) {
-		this.lblProjectNameC = lblProjectNameC;
+	public void setTextFieldProjectHoursU(JTextField textFieldProjectHoursU) {
+		this.textFieldProjectHoursU = textFieldProjectHoursU;
 	}
 
 	/**
-	 * @return the lblProjectHoursC
+	 * @return the textFieldProjectNameC
 	 */
-	public JLabel getLblProjectHoursC() {
-		return lblProjectHoursC;
+	public JTextField getTextFieldProjectNameC() {
+		return textFieldProjectNameC;
 	}
 
 	/**
-	 * @param lblProjectHoursC the lblProjectHoursC to set
+	 * @param textFieldProjectNameC the textFieldProjectNameC to set
 	 */
-	public void setLblProjectHoursC(JLabel lblProjectHoursC) {
-		this.lblProjectHoursC = lblProjectHoursC;
+	public void setTextFieldProjectNameC(JTextField textFieldProjectNameC) {
+		this.textFieldProjectNameC = textFieldProjectNameC;
 	}
 
 	/**
-	 * @return the lblProjectNameU
+	 * @return the textFieldProjectHoursC
 	 */
-	public JLabel getLblProjectNameU() {
-		return lblProjectNameU;
+	public JTextField getTextFieldProjectHoursC() {
+		return textFieldProjectHoursC;
 	}
 
 	/**
-	 * @param lblProjectNameU the lblProjectNameU to set
+	 * @param textFieldProjectHoursC the textFieldProjectHoursC to set
 	 */
-	public void setLblProjectNameU(JLabel lblProjectNameU) {
-		this.lblProjectNameU = lblProjectNameU;
+	public void setTextFieldProjectHoursC(JTextField textFieldProjectHoursC) {
+		this.textFieldProjectHoursC = textFieldProjectHoursC;
 	}
+
+	
 	
 	
 	

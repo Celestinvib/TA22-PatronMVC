@@ -89,10 +89,10 @@ public class ControllerProject {
 					view.getPanelUpdateProject().setVisible(true); 
 					
 					String name = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
-					String hours = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
+					int hours = (int) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 					
-					view.getLblProjectNameU().setText(name);
-					view.getLblProjectHoursU().setText(hours);
+					view.getTextFieldProjectNameU().setText(name);
+					view.getTextFieldProjectHoursU().setText(String.valueOf(hours));
 					
 				}
 			}
@@ -135,8 +135,8 @@ public class ControllerProject {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String name = view.getLblProjectNameC().getText();
-				String hours = view.getLblProjectHoursC().getText();
+				String name = view.getTextFieldProjectNameC().getText();
+				String hours = view.getTextFieldProjectHoursC().getText();
 				
 				
 				if(!(name.isEmpty() && hours.isEmpty())) {
