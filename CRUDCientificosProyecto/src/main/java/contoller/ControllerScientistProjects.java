@@ -136,7 +136,7 @@ import view.View;
 					String Id = view.getTextFieldDNIC().getText();
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
-						scientistsProjects.insertScientistsProject(conn, DNI, Id);
+						scientistsProjects.insertScientistsProject(conn, DNI, Integer.parseInt(Id));
 						JOptionPane.showMessageDialog(null, "Client created.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
 						view.getPanelCreateScientist().setVisible(false);
@@ -160,7 +160,7 @@ import view.View;
 					String Id = view.getTextFieldDNIC().getText();
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
-						scientistsProjects.updateScientistsProjects(conn, DNI, Id);
+						scientistsProjects.updateScientistsProjects(conn, DNI, Integer.parseInt(Id));
 						JOptionPane.showMessageDialog(null, "Cliente updated.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
 						view.getPanelCreateScientist().setVisible(false);
