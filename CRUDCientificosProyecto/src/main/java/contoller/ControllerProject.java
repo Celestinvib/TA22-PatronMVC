@@ -49,6 +49,7 @@ public class ControllerProject {
 	
 
 	private void loadTable(ResultSet resultSet, JTable table) {
+		table.setModel(new DefaultTableModel(new Object[] {"ID", "Name", "Hours"}, 0));
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.setRowCount(0);
 		model = (DefaultTableModel) table.getModel();

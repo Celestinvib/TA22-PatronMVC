@@ -37,33 +37,32 @@ import view.View;
 			view.pack();
 			view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			view.setLocationRelativeTo(null);
-//			view.getPanelUpdateClient().setVisible(false);
-//			view.getPanelCreateClient().setVisible(false);
-//			view.getPanelUpdateVideo().setVisible(false);
-//			view.getPanelCreateVideo().setVisible(false);
+			view.getPanelCreateScientistProject().setVisible(false);
+			view.getPanelUpdateScientistProject().setVisible(false);
 			buttonListeners();
 			 
-//			view.getFrame().setVisible(true);
+			view.getFrame().setVisible(true);
 					
-//			loadTable(project.selectAllProjects(conn), view.getTableProjects());
+			loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 		}
 		
 
 		private void loadTable(ResultSet resultSet, JTable table) {
+			table.setModel(new DefaultTableModel(new Object[] {"ID", "DNI_Scientist", "Id_Project"}, 0));
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
 			model.setRowCount(0);
 			model = (DefaultTableModel) table.getModel();
 			
-			//Id char don't really knowing how it works
-			char id = '0' ; //<----- DELETE the = 0
-			int IdScientist, IdProject;
+
+			int id, IdProject;
+			String dni;
 			try {
 				while(resultSet.next()) {
-//					id = resultSet.getCharacterStream("Id");
-					IdScientist = resultSet.getInt("IdScientist");
+					id = resultSet.getInt("id");
+					dni = resultSet.getString("IdScientist");
 					IdProject = resultSet.getInt("IdProject");
 					
-					model.addRow(new Object[] {IdScientist, IdProject});
+					model.addRow(new Object[] {id,dni, IdProject});
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -84,7 +83,7 @@ import view.View;
 				public void actionPerformed(ActionEvent arg0) {
 					if(view.getTableScientistsProjects().getSelectedRow() != -1) {
 						view.getPanelTable().setVisible(false);
-						view.getPanelUpdateScientist().setVisible(true);
+						view.getPanelCreateScientistProject().setVisible(true);
 						
 						String DNI = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 1);
 						String Id = (String) view.getTableScientistsProjects().getValueAt(view.getTableScientistsProjects().getSelectedRow(), 2);
