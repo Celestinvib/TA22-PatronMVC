@@ -54,7 +54,7 @@ public class Scientist {
 	 * @param DNI of the scientist you want to delete
 	 */
 	public void deleteScientist(SQLConnection connection, String DNI) {
-		String query = "delete from scientists where id="+DNI+";";
+		String query = "delete from scientists where id='"+DNI+"';";
 	    connection.insertData(query);
 	}
 	
