@@ -8,10 +8,13 @@ public class ScientistsProjects {
 	 */
 	public void tableStructureCreation(SQLConnection connection) {
 
-		String structure  = "create table scientists_projects (ID int autoincrement, Scientist VARCHAR(8), Project int, "
+		String structure  = "create table scientists_projects "
+				+ "(ID int auto_increment, "
+				+ "Scientist VARCHAR(8), "
+				+ "Project int, "
 				+ "CONSTRAINT FK_DNISciPro FOREIGN KEY (Scientist) REFERENCES Scientist(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
 				+ "CONSTRAINT FK_IDSciPro FOREIGN KEY (Project) REFERENCES Project (Id) ON DELETE CASCADE ON UPDATE CASCADE, "
-				+ " PRIMARY KEY (ID)"
+				+ "PRIMARY KEY (ID)"
 				+ ");";
 		connection.insertData(structure);
 		

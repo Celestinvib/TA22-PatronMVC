@@ -1,5 +1,7 @@
 package appMain;
 
+import contoller.Controller;
+
 //import controller.Controller;
 
 public class App 
@@ -9,7 +11,7 @@ public class App
 		/**
 		 * Creation of new controller, and initiating them
 		 */		
-//		Controller controller = new Controller();
-//		controller.launchView();
+		Controller controller = new Controller();
+		controller.launchView();
     }
 }
