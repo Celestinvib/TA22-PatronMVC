@@ -70,7 +70,7 @@ public class ScientistsProjects {
 	 * @param project
 	 */
 	public void insertScientistsProject(SQLConnection connection, String scientist, int project  ) {
-		String query = "INSERT INTO scientists_projects (sientist, project) VALUES ('" + scientist + "','" + project + ");";
+		String query = "INSERT INTO scientists_projects (scientist, project) VALUES ('" + scientist + "','" + project + ");";
 	    connection.insertData(query);
 	}
 }
