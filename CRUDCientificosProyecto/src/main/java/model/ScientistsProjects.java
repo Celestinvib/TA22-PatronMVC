@@ -47,8 +47,8 @@ public class ScientistsProjects {
 	 * @param name
 	 * @param hours
 	 */
-	public void updateScientistsProjects(SQLConnection connection, String scientist, int project) {		
-		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + ";";
+	public void updateScientistsProjects(SQLConnection connection,int id, String scientist, int project) {		
+		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + " where id=" + id + ";";
 	    connection.insertData(query);
 	}
 	

@@ -63,7 +63,9 @@ public class Controller {
 		scientist.insertScientist(conn, "77789567", "Antonio Lopez");
 		
 		scientistsProjects.tableStructureCreation(conn);
-		scientistsProjects.insertScientistsProject(conn, "12345678", 1); 
+		scientistsProjects.insertScientistsProject(conn, "12345678", 1);
+		scientistsProjects.insertScientistsProject(conn, "23332121", 2); 
+		scientistsProjects.insertScientistsProject(conn, "77789567", 1); 
 	}
 	
 	/**

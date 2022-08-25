@@ -344,6 +344,13 @@ public class View  extends JFrame {
 	}
 
 	/**
+	 * @return the textFieldDNIU
+	 */
+	public JTextField getTextFieldDNIU() {
+		return textFieldDNIU;
+	}
+
+	/**
 	 * @return the panelButtons
 	 */
 	public JPanel getPanelButtons() {

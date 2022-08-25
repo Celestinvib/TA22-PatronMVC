@@ -63,8 +63,8 @@ import view.View;
 			try {
 				while(resultSet.next()) {
 					id = resultSet.getInt("id");
-					dni = resultSet.getString("IdScientist");
-					IdProject = resultSet.getInt("IdProject");
+					dni = resultSet.getString("Scientist");
+					IdProject = resultSet.getInt("Project");
 					
 					model.addRow(new Object[] {id,dni, IdProject});
 				}
@@ -90,10 +90,10 @@ import view.View;
 						view.getPanelUpdateScientistProject().setVisible(true);
 						
 						String DNI = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
-						String Id = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
+						int id =  (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 						
-						view.getLblScientistProjectDNIC().setText(DNI);
-						view.getLblScientistProjectIdU().setText(Id);
+						view.getTextFieldDNIU().setText(DNI);
+						view.getTextFieldIdU().setText(String.valueOf(id));
 
 					}
 				}
@@ -135,8 +135,9 @@ import view.View;
 
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
-					String DNI = view.getTextFieldNameC().getText();
-					String Id = view.getTextFieldDNIC().getText();
+					String DNI = view.getTextFieldDNIeC().getText();
+					String Id = view.getTextFieldIdC().getText();
+					
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.insertScientistsProject(conn, DNI, Integer.parseInt(Id));
@@ -159,11 +160,11 @@ import view.View;
 				public void actionPerformed(ActionEvent arg0) {
 					int id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
 					
-					String DNI = view.getTextFieldNameC().getText();
-					String Id = view.getTextFieldDNIC().getText();
+					String DNI = view.getTextFieldDNIU().getText();
+					String project_d = view.getTextFieldIdU().getText();
 					
-					if(!(DNI.isEmpty() && Id.isEmpty())) {
-						scientistsProjects.updateScientistsProjects(conn, DNI, Integer.parseInt(Id));
+					if(!(DNI.isEmpty() && project_d.isEmpty())) {
+						scientistsProjects.updateScientistsProjects(conn,id, DNI, Integer.parseInt(project_d));
 						JOptionPane.showMessageDialog(null, "Scientist assigned to a project. Cliente updated.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						view.getPanelCreateScientistProject().setVisible(false);
