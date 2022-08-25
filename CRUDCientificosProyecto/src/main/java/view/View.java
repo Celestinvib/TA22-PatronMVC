@@ -34,8 +34,6 @@ public class View  extends JFrame {
 	
 	//Jtables 
 	private JTable tableProjects;
-	private JTable tableScientists;
-	private JTable tableScientistsProjects;
 	
 	// Update Projects
 	private JPanel panelUpdateProject;
@@ -119,25 +117,13 @@ public class View  extends JFrame {
 		btnCreate = new JButton("Add");
 		panelButtons.add(btnCreate);
 		
-		tableScientists = new JTable();
-		tableScientists = new JTable(new DefaultTableModel(new Object[] {"DNI", "nameSurname"}, 0));
-		tableScientists.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		tableProjects = new JTable();
 		tableProjects = new JTable(new DefaultTableModel(new Object[] {"ID", "Name", "Hours"}, 0));
 		tableProjects.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
-		tableScientistsProjects = new JTable();
-		tableScientistsProjects = new JTable(new DefaultTableModel(new Object[] {"ID", "IdScientist", "IdProject"}, 0));
-		tableScientistsProjects.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		panelTable.add(new JScrollPane(tableProjects), BorderLayout.NORTH);
-		
-		JScrollPane scrollPane = new JScrollPane(tableScientists);
-		panelTable.add(scrollPane, BorderLayout.NORTH);
-		
-		JScrollPane scrollPane2 = new JScrollPane(tableScientistsProjects);
-		panelTable.add(scrollPane2, BorderLayout.NORTH);
 		
 		/**
 		 * Update panel Project
@@ -399,19 +385,6 @@ public class View  extends JFrame {
 		return tableProjects;
 	}
 
-	/**
-	 * @return the tableScientists
-	 */
-	public JTable getTableScientists() {
-		return tableScientists;
-	}
-
-	/**
-	 * @return the tableScientistsProjects
-	 */
-	public JTable getTableScientistsProjects() {
-		return tableScientistsProjects;
-	}
 
 	/**
 	 * @return the panelCreateScientist
@@ -543,10 +516,6 @@ public class View  extends JFrame {
 
 	public void setBtnBackScientistProjectU(JButton btnBackScientistProjectU) {
 		this.btnBackScientistProjectU = btnBackScientistProjectU;
-	}
-
-	public void setTableScientistsProjects(JTable tableScientistsProjects) {
-		this.tableScientistsProjects = tableScientistsProjects;
 	}
 
 	public JTextField getTextFieldNameU() {
