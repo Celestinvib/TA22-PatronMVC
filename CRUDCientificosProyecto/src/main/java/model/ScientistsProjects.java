@@ -48,7 +48,7 @@ public class ScientistsProjects {
 	 * @param hours
 	 */
 	public void updateScientistsProjects(SQLConnection connection, String scientist, int project) {		
-		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + "';";
+		String query = "UPDATE scientists_projects set scientist='" + scientist + "', project=" + project + ";";
 	    connection.insertData(query);
 	}
 	
@@ -70,7 +70,7 @@ public class ScientistsProjects {
 	 * @param project
 	 */
 	public void insertScientistsProject(SQLConnection connection, String scientist, int project  ) {
-		String query = "INSERT INTO scientists_projects (scientist, project) VALUES ('" + scientist + "','" + project + ");";
+		String query = "INSERT INTO scientists_projects (scientist, project) VALUES ('" + scientist + "'," + project + ");";
 	    connection.insertData(query);
 	}
 }
