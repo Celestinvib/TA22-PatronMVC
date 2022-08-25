@@ -116,9 +116,9 @@ import view.View;
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					if(view.getTableScientists().getSelectedRow() != -1) {
-						int id = (int)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
-						if(JOptionPane.showConfirmDialog(null, "Seguro que quieres borrar al cliente con id " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), "SEGURO?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-							scientistsProjects.deleteScientistsProjects(conn, id);
+						int Id = (int)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+						if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the client with ID: " + view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0), "ARE YOU SURE?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+							scientistsProjects.deleteScientistsProjects(conn, Id);
 							loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
 						}
 					}
@@ -137,7 +137,7 @@ import view.View;
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.insertScientistsProject(conn, DNI, Id);
-						JOptionPane.showMessageDialog(null, "Cliente creado.");
+						JOptionPane.showMessageDialog(null, "Client created.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
 						view.getPanelCreateScientist().setVisible(false);
 						view.getPanelTable().setVisible(true);
@@ -161,7 +161,7 @@ import view.View;
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.updateScientistsProjects(conn, DNI, Id);
-						JOptionPane.showMessageDialog(null, "Cliente actualizado.");
+						JOptionPane.showMessageDialog(null, "Cliente updated.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableScientists());
 						view.getPanelCreateScientist().setVisible(false);
 						view.getPanelTable().setVisible(true);

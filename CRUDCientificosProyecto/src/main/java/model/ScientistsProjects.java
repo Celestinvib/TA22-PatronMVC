@@ -54,7 +54,7 @@ public class ScientistsProjects {
 	 * @param connection
 	 * @param Id
 	 */
-	public void deleteScientistsProjects(SQLConnection connection, String Id) {
+	public void deleteScientistsProjects(SQLConnection connection, int Id) {
 		String query = "delete from scientists_projects where Id="+Id+";";
 	    connection.insertData(query);
 	}
