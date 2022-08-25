@@ -37,8 +37,12 @@ import view.View;
 			view.pack();
 			view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			view.setLocationRelativeTo(null);
-			view.getPanelCreateScientistProject().setVisible(false);
+			view.getPanelUpdateScientist().setVisible(false);
+			view.getPanelCreateScientist().setVisible(false);
+			view.getPanelUpdateProject().setVisible(false);
+			view.getPanelCreateProject().setVisible(false);
 			view.getPanelUpdateScientistProject().setVisible(false);
+			view.getPanelCreateScientistProject().setVisible(false);
 			buttonListeners();
 			 
 			view.getFrame().setVisible(true);

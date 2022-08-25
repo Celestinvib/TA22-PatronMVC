@@ -38,8 +38,10 @@ public class ControllerProject {
 		view.setLocationRelativeTo(null);
 		view.getPanelUpdateScientist().setVisible(false);
 		view.getPanelCreateScientist().setVisible(false);
-		view.getPanelUpdateScientist().setVisible(false);
-		view.getPanelCreateScientist().setVisible(false);
+		view.getPanelUpdateProject().setVisible(false);
+		view.getPanelCreateProject().setVisible(false);
+		view.getPanelUpdateScientistProject().setVisible(false);
+		view.getPanelCreateScientistProject().setVisible(false);
 		buttonListeners();
 		 
 		view.getFrame().setVisible(true);
