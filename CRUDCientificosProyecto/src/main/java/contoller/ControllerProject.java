@@ -53,13 +53,11 @@ public class ControllerProject {
 		model.setRowCount(0);
 		model = (DefaultTableModel) table.getModel();
 		
-		//Id char don't really knowing how it works
-		char id = '0' ; //<----- DELETE the = 0 
+		int id, hours;
 		String name;
-		int hours;
 		try {
 			while(resultSet.next()) {
-//				id = resultSet.getCharacterStream("Id");
+				id = resultSet.getInt("id");
 				name = resultSet.getString("name");
 				hours = resultSet.getInt("hours");
 				
@@ -90,8 +88,8 @@ public class ControllerProject {
 					String name = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
 					String hours = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 					
-					 //Change from here <----------- /change names of textFields and make setters)
-					view.getTextFieldScientistNameU().setText(name);
+					view.getLblProjectNameU().setText(name);
+					view.getLblProjectHoursU().setText(hours);
 					
 				}
 			}
@@ -134,18 +132,18 @@ public class ControllerProject {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String name = view.getTextFieldScientistNameC().getText();
-//				int hours = (int)view.getTextFieldDNIC().getText();
-//				
-//				
-//				if(!(name.isEmpty() && dni.isEmpty())) {
-//					project.insertProject(conn, name, hours);
-//					JOptionPane.showMessageDialog(null, "Project created.");
-//				    loadTable(project.selectAllProjects(conn), view.getTableProjects());
-//					view.getPanelCreateProject().setVisible(false);
-//					view.getPanelTable().setVisible(true);
-//					
-//				}
+				String name = view.getLblProjectNameC().getText();
+				String hours = view.getLblProjectHoursC().getText();
+				
+				
+				if(!(name.isEmpty() && hours.isEmpty())) {
+					project.insertProject(conn, name, Integer.parseInt(hours));
+					JOptionPane.showMessageDialog(null, "Project created.");
+				    loadTable(project.selectAllProjects(conn), view.getTableProjects());
+					view.getPanelCreateProject().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					
+				}
 				
 			}
 		});
@@ -157,18 +155,18 @@ public class ControllerProject {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				String dni = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+				int id = (int)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 0);
+				String name = (String)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);			
+				String hours = (String)view.getTableScientists().getValueAt(view.getTableScientists().getSelectedRow(), 2);
 				
-//				String name = view.getTextFieldScientistNameU().getText();
-//				
-//				if(!(name.isEmpty() && dni.isEmpty())) {
-//					project.updateScientist(conn, name, hours);
-//					JOptionPane.showMessageDialog(null, "Project updated.");
-//					loadTable(project.selectAllProjects(conn), view.getTableProjects());
-//					view.getPanelUpdateProject().setVisible(false);
-//					view.getPanelTable().setVisible(true);
-//					
-//				}
+				if(!(name.isEmpty() && hours.isEmpty())) {
+					project.updateProject(conn, id, name, Integer.parseInt(hours));
+					JOptionPane.showMessageDialog(null, "Project updated.");
+					loadTable(project.selectAllProjects(conn), view.getTableProjects());
+					view.getPanelUpdateProject().setVisible(false);
+					view.getPanelTable().setVisible(true);
+					
+				}
 				
 			}
 		});

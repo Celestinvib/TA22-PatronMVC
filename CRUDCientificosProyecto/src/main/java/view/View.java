@@ -704,6 +704,63 @@ public class View  extends JFrame {
 	public void setBtnBackProjectC(JButton btnBackProjectC) {
 		this.btnBackProjectC = btnBackProjectC;
 	}
+
+	/**
+	 * @return the lblProjectHoursU
+	 */
+	public JLabel getLblProjectHoursU() {
+		return lblProjectHoursU;
+	}
+
+	/**
+	 * @param lblProjectHoursU the lblProjectHoursU to set
+	 */
+	public void setLblProjectHoursU(JLabel lblProjectHoursU) {
+		this.lblProjectHoursU = lblProjectHoursU;
+	}
+
+	/**
+	 * @return the lblProjectNameC
+	 */
+	public JLabel getLblProjectNameC() {
+		return lblProjectNameC;
+	}
+
+	/**
+	 * @param lblProjectNameC the lblProjectNameC to set
+	 */
+	public void setLblProjectNameC(JLabel lblProjectNameC) {
+		this.lblProjectNameC = lblProjectNameC;
+	}
+
+	/**
+	 * @return the lblProjectHoursC
+	 */
+	public JLabel getLblProjectHoursC() {
+		return lblProjectHoursC;
+	}
+
+	/**
+	 * @param lblProjectHoursC the lblProjectHoursC to set
+	 */
+	public void setLblProjectHoursC(JLabel lblProjectHoursC) {
+		this.lblProjectHoursC = lblProjectHoursC;
+	}
+
+	/**
+	 * @return the lblProjectNameU
+	 */
+	public JLabel getLblProjectNameU() {
+		return lblProjectNameU;
+	}
+
+	/**
+	 * @param lblProjectNameU the lblProjectNameU to set
+	 */
+	public void setLblProjectNameU(JLabel lblProjectNameU) {
+		this.lblProjectNameU = lblProjectNameU;
+	}
+	
 	
 	
 	
