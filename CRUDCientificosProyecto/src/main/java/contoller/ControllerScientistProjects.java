@@ -83,13 +83,13 @@ import view.View;
 				public void actionPerformed(ActionEvent arg0) {
 					if(view.getTableProjects().getSelectedRow() != -1) {
 						view.getPanelTable().setVisible(false);
-						view.getPanelCreateScientistProject().setVisible(true);
+						view.getPanelUpdateScientistProject().setVisible(true);
 						
 						String DNI = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 1);
 						String Id = (String) view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 2);
 						
-						view.getTextFieldDNIeC().setText(DNI);
-						view.getTextFieldIdC().setText(Id);
+						view.getLblScientistProjectDNIC().setText(DNI);
+						view.getLblScientistProjectIdU().setText(Id);
 
 					}
 				}
@@ -103,7 +103,7 @@ import view.View;
 				@Override
 				public void actionPerformed(ActionEvent arg0) {
 					view.getPanelTable().setVisible(false);
-					view.getPanelCreateScientist().setVisible(true);
+					view.getPanelCreateScientistProject().setVisible(true);
 				}
 			});
 
@@ -116,7 +116,7 @@ import view.View;
 				public void actionPerformed(ActionEvent arg0) {
 					if(view.getTableProjects().getSelectedRow() != -1) {
 						int Id = (int)view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0);
-						if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the client with ID: " + view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0), "ARE YOU SURE?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+						if(JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the scientistsProjects with ID: " + view.getTableProjects().getValueAt(view.getTableProjects().getSelectedRow(), 0), "ARE YOU SURE?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 							scientistsProjects.deleteScientistsProjects(conn, Id);
 							loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						}
@@ -136,7 +136,7 @@ import view.View;
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.insertScientistsProject(conn, DNI, Integer.parseInt(Id));
-						JOptionPane.showMessageDialog(null, "Client created.");
+						JOptionPane.showMessageDialog(null, "Scientist assigned to a project.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						view.getPanelCreateScientistProject().setVisible(false);
 						view.getPanelTable().setVisible(true);
@@ -160,7 +160,7 @@ import view.View;
 					
 					if(!(DNI.isEmpty() && Id.isEmpty())) {
 						scientistsProjects.updateScientistsProjects(conn, DNI, Integer.parseInt(Id));
-						JOptionPane.showMessageDialog(null, "Cliente updated.");
+						JOptionPane.showMessageDialog(null, "Scientist assigned to a project. Cliente updated.");
 						loadTable(scientistsProjects.selectAllScientistsProjects(conn), view.getTableProjects());
 						view.getPanelCreateScientistProject().setVisible(false);
 						view.getPanelTable().setVisible(true);

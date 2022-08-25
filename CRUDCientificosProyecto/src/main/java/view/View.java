@@ -147,7 +147,7 @@ public class View  extends JFrame {
 		textFieldNameU.setBounds(165, 44, 127, 20);
 		panelUpdateProject.add(textFieldNameU);
 		
-		lblProjectHoursU = new JLabel("Surname:");
+		lblProjectHoursU = new JLabel("Hours:");
 		lblProjectHoursU.setBounds(106, 72, 67, 14);
 		panelUpdateProject.add(lblProjectHoursU);
 		
