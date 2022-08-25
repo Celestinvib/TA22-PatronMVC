@@ -13,7 +13,7 @@ public class ScientistsProjects {
 				+ "Scientist VARCHAR(8), "
 				+ "Project int, "
 				+ "CONSTRAINT FK_DNISciPro FOREIGN KEY (Scientist) REFERENCES scientists(DNI) ON DELETE CASCADE ON UPDATE CASCADE, "
-				+ "CONSTRAINT FK_IDSciPro FOREIGN KEY (Project) REFERENCES projects (Id) ON DELETE CASCADE ON UPDATE CASCADE, "
+				+ "CONSTRAINT FK_IDSciPro FOREIGN KEY (Project) REFERENCES projects(Id) ON DELETE CASCADE ON UPDATE CASCADE, "
 				+ "PRIMARY KEY (ID)"
 				+ ");";
 		connection.insertData(structure);
